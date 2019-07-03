@@ -8,6 +8,8 @@ var indexRouter = require('./routes/index');
 var movieRouter = require('./routes/movie');
 var usersRouter = require('./routes/users');
 
+var sequelize = require('./models').sequelize;   // mysql 시퀄라이저 모델
+
 var app = express();
 
 // view engine setup
@@ -39,5 +41,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+//sequelize.sync();
 
 module.exports = app;
