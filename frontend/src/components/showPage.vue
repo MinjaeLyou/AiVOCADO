@@ -7,17 +7,15 @@
 
 <script>
 export default {
-  created: function () {
-    var id = this.$route.params.id
-    this.$http.get(`/api/movies/${id}`)
-    .then((response) => {
-      this.movie = response.data
-    })
-  },
-  data: function () {
+  data() {
     return {
-      movie: {}
+      user: {}
     }
+  },
+  created: async function () {
+    const result = await this.$http.get('/api/users')
+    this.user = result.data;
+    console.log(this.user);
   }
 }
 </script>
