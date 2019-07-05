@@ -5,12 +5,17 @@ const models = require('../models');
 
 /* GET users listing. */
 // Get all users
-router.get('/', wrap(async (req, res) => {
-  const users = await models.user.findAll();
+router.get('/:userId', wrap(async (req, res) => {
+  console.log(req.params.userId);
+  const users = await models.user.findAll({
+    where: {
+      userId: req.params.userId
+    }
+  });
   res.send(users);
 }));
 
-// Create new user
+// Add new user
 router.post('/addUser', wrap(async (req, res) => {
   const user = await models.user.create(req.body);
   if (user) {

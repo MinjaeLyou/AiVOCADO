@@ -13,7 +13,8 @@ export default {
     }
   },
   created: async function () {
-    const result = await this.$http.get('/api/users')
+    const userId = 'lmj'
+    const result = await this.$http.get(`/api/users/${userId}`)
     this.user = result.data;
     console.log(this.user);
   }
