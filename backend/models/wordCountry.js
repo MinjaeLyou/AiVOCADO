@@ -1,8 +1,13 @@
 module.exports = (sequelize, DataTypes) => {
     const wordCountry = sequelize.define('wordCountry', {
+      wordId: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+        comment: '단어 id'
+      },
       word: {
         type: DataTypes.STRING(20),
-        primaryKey: true,
         allowNull: false,
         comment: '영어 단어'
       },
