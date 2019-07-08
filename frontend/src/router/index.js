@@ -4,13 +4,14 @@ import HelloWorld from '@/components/HelloWorld'
 import IndexPage from '@/components/IndexPage'
 import ShowPage from '@/components/showPage'
 import RegisterPage from '@/components/Register'
+import Scene_start from '@/components/Scene_start'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/index',
       name: 'index',
       component: IndexPage
     },
@@ -24,5 +25,10 @@ export default new Router({
       name: 'register',
       component: RegisterPage
     },
+    {
+      path: '/',
+      name: 'start',
+      component: Scene_start
+    }
   ]
 })
