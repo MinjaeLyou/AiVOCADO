@@ -6,6 +6,10 @@ import ShowPage from '@/components/showPage'
 import RegisterPage from '@/components/Register'
 import Scene_start from '@/components/Scene_start'
 
+import 'expose-loader?$!expose-loader?jQuery!jquery'
+import Category from '@/components/Category'
+
+
 Vue.use(Router)
 
 export default new Router({
@@ -29,6 +33,11 @@ export default new Router({
       path: '/',
       name: 'start',
       component: Scene_start
+    },
+    {
+      path:'/category',
+      name: 'category',
+      component:Category
     }
   ]
 })
