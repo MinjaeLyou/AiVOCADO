@@ -8,6 +8,7 @@ import StartPage from "@/components/Scene_start";
 import sub from "@/components/sub";
 import "expose-loader?$!expose-loader?jQuery!jquery";
 import Category from "@/components/Category";
+import RankingPage from '@/components/RankingPage'
 
 Vue.use(Router);
 
@@ -36,7 +37,17 @@ export default new Router({
     {
       path: "/sub",
       name: "subsub",
-      component: Sub
+      component: sub
     },
+    {
+      path: '/category',
+      name: 'category',
+      component: Category
+    },
+    {
+      path: '/ranking',
+      name: 'ranking',
+      component: RankingPage
+    }
   ]
 });
