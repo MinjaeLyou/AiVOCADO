@@ -7,7 +7,7 @@
 <div id="category">
 <div class="category-container">
                     <div class="cg-name">
-                        Animal<img class="cg-img" src="../assets/category/cat.png">
+                        Animal<br><img class="cg-img" src="../assets/category/cat.png">
                     </div>
         </div>
         <div class="category-container">
@@ -239,7 +239,7 @@
             text-align: center;
             margin-top: 5px; 
             margin-bottom: 5px;    
-            font-size: 25px;
+            font-size: 120%;
             padding-bottom: 5px;
             height: 85%;
             font-family: "Helvetica", "나눔 고딕", serif;
