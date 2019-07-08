@@ -1,80 +1,61 @@
 <template>
 <div>
-<div id=status>
-            <div id="time"></div>
+<div id="status">
+    <div id="time"></div>
 </div>
 
-<div id=category>
-<div class=category-container>
-                    <div class=cg-name>
-                        <span>Animal</span>
-                    </div>
-                    <div class= cg-img>
-                        <img src="../assets/category/cat.png">
+<div id="category">
+<div class="category-container">
+                    <div class="cg-name">
+                        Animal<img class="cg-img" src="../assets/category/cat.png">
                     </div>
         </div>
-        <div class=category-container>
-                    <div class=cg-name>
-                        <span>Country</span>
-                    </div>
-                    <div class= cg-img>
-                            <img src="../assets/category/south-korea.png">
+        <div class="category-container">
+                    <div class="cg-name">
+                        Country<br><img class= "cg-img" src="../assets/category/south-korea.png">
                     </div>
         </div>
-        <div class=category-container>
-                    <div class=cg-name>
-                        <span>Food</span>
-                    </div>
-                    <div class= cg-img>
-                            <img src="../assets/category/apple.png">
+        <div class="category-container">
+                    <div class="cg-name">
+                        Food<br><img class= "cg-img" src="../assets/category/apple.png">
                     </div>
         </div>
-        <div class=category-container>
-                    <div class=cg-name>
-                        <span>Job</span>
-                    </div>
-                    <div class= cg-img>
-                            <img src="../assets/category/firefighter.png">
+        <div class="category-container">
+                    <div class="cg-name">
+                        Job<br><img class= "cg-img" src="../assets/category/firefighter.png">
                     </div>
         </div>
-        <div class=logo>
-            <div class=icon>
+        <div class="logo">
+            <div class="icon">
                 <img src="../assets/category/avocado.png" height="100%" width="100%">
             </div>
         </div>
-        <div class=category-container>
-                    <div class=cg-name>
-                        <span>Nature</span>
-                    </div>
-                    <div class= cg-img>
-                            <img src="../assets/category/sprout.png">
+        <div class="category-container">
+                    <div class="cg-name">
+                        Nature<br><img class="cg-img" src="../assets/category/sprout.png">
                     </div>
         </div>
-        <div class=category-container>
-                    <div class=cg-name>
-                        <span>School</span>
-                    </div>
-                    <div class= cg-img>
-                            <img src="../assets/category/blackboard.png">
+        <div class="category-container">
+                    <div class="cg-name">
+                        School<br><img class="cg-img" src="../assets/category/blackboard.png">
                     </div>
         </div>
-        <div class=category-container>
+        <div class="category-container">
+            <div class="cg-name">
+                Sports<br><img class="cg-img" src="../assets/category/football.png">
+            </div>
             
-                    <div class=cg-name>
-                        <span>Sports</span>
-                    </div>
-                    <div class= cg-img>
-                            <img src="../assets/category/football.png">
-                    </div>
+                
+            
         </div>
-        <div class=category-container>
-                    <div class=cg-name>
-                        Vehicle
-                    </div>
-                            <img class= "cg-img" src="../assets/category/car.png">
+        <div class="category-container">
+            <div class="cg-name">
+                Vehicle<br><img class= "cg-img" src="../assets/category/car.png">
+            </div>
+            
         </div>
     </div>
-    <div id = footer> </div>
+    <div id = "footer"> </div>
 
 </div>
 </template>
@@ -254,9 +235,13 @@
         }
 
         .cg-name {
+            position: relative;
             text-align: center;
-            margin-top: 5px;    
+            margin-top: 5px; 
+            margin-bottom: 5px;    
             font-size: 25px;
+            padding-bottom: 5px;
+            height: 85%;
             font-family: "Helvetica", "나눔 고딕", serif;
             font-weight: bold;
         }
@@ -275,8 +260,15 @@
         }
 
         .cg-img{
-            margin:auto;
+            /*margin:auto;*/
+            position: relative;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            padding-top: 5px;
             text-align: center;
+            width: 60%;
+            height: auto;
         }
 
     </style>
@@ -297,39 +289,38 @@ export default {
       user: {}
     }
   },
-  created: async function () {
-    const userId = 'lmj'
-    const result = await this.$http.get(`/api/users/${userId}`)
-    this.user = result.data;
-    console.log(this.user);
+  mounted: async function () {
     this.printClock();
   },
   methods: {
-            printClock() {
+            async printClock() {
 
-            var clock = document.getElementById("time");// 출력할 장소 선택
+            var clock = await document.getElementById("time");// 출력할 장소 선택
             var currentDate = new Date();// 현재시간
             var calendar = currentDate.getFullYear() + "-" + (currentDate.getMonth() + 1) + "-" + currentDate.getDate() // 현재 날짜
             var amPm = 'AM'; // 초기값 AM
-            var currentHours = addZeros(currentDate.getHours(), 2);
-            var currentMinute = addZeros(currentDate.getMinutes(), 2);
+            var currentHours = this.addZeros(currentDate.getHours(), 2);
+            var currentMinute = this.addZeros(currentDate.getMinutes(), 2);
             //var currentSeconds = addZeros(currentDate.getSeconds(), 2);
 
             if (currentHours >= 12) { // 시간이 12보다 클 때 PM으로 세팅, 12를 빼줌
                 amPm = 'PM';
-                currentHours = addZeros(currentHours - 12, 2);
+                currentHours = this.addZeros(currentHours - 12, 2);
             }
-
+            console.log(clock);
             clock.innerHTML = currentHours + ":" + currentMinute  + " <span style='font-size:30px;'>" + amPm + "</span>"; //날짜를 출력해 줌
 
-            setTimeout("printClock()", 1000);  // 1초마다 printClock() 함수 호출
+            setTimeout(() => {
+                this.printClock();
+            }, 60000);
+            //setTimeout(this.printClock(), 60000);  // 1초마다 printClock() 함수 호출
         },
 
         addZeros(num, digit) { // 자릿수 맞춰주기
             var zero = '';
             num = num.toString();
             if (num.length < digit) {
-                for (i = 0; i < digit - num.length; i++) {
+                for (let i = 0; i < digit - num.length; i++) {
                     zero += '0';
                 }
             }
