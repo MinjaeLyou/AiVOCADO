@@ -4,7 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import IndexPage from '@/components/IndexPage'
 import ShowPage from '@/components/showPage'
 import RegisterPage from '@/components/Register'
-import Scene_start from '@/components/Scene_start'
+import StartPage from '@/components/Scene_start'
 
 import 'expose-loader?$!expose-loader?jQuery!jquery'
 import Category from '@/components/Category'
@@ -32,12 +32,16 @@ export default new Router({
     {
       path: '/',
       name: 'start',
+<<<<<<< HEAD
       component: Scene_start
     },
     {
       path:'/category',
       name: 'category',
       component:Category
+=======
+      component: StartPage
+>>>>>>> e21d93447babc0e8bcb4534cf3d419b48da86404
     }
   ]
 })
