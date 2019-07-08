@@ -29,4 +29,33 @@ router.post('/addUser', wrap(async (req, res) => {
   }
 }));
 
+router.get('/score/:userId/:name', wrap(async (req, res) => {
+  const score = await models.user.findOne({
+    where: {
+      userId: req.params.userId,
+      name: req.params.name
+    }
+  });
+  res.send(score);
+}));
+
+router.post('/score', wrap(async (req, res) => {
+  const score = await models.user.update({
+    score: req.body.score
+  }, {
+    where: {
+      id: req.body.id
+    }
+  });
+  if (score) {
+    res.send ({
+      result: true
+    });
+  } else {
+    res.send({
+      result: false
+    });
+  }
+}));
+
 module.exports = router;
