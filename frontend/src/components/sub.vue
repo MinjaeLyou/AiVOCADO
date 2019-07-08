@@ -1,4 +1,5 @@
 <template>
+  <div>
     <div class="js-clock">
       <h1 class="">00:00</h1>
       <span>카테고리 변경</span>
@@ -27,11 +28,12 @@
         </div>
       </div>
     </main>
+  </div>
 </template>
 
 <script>
-const clockContainer = this.$el.querySelector(".js-clock"),
-  clockTitle = clockContainer.querySelector("h1");
+//const clockContainer = this.$el.querySelector(".js-clock"),
+  //clockTitle = clockContainer.querySelector("h1");
 export default {
   data() {
     return {

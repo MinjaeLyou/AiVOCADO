@@ -36,7 +36,12 @@ export default new Router({
     {
       path: "/sub",
       name: "subsub",
-      component: Sub
+      component: sub
+    },
+    {
+      path: "/category",
+      name: "category",
+      component: Category
     }
   ]
 });
