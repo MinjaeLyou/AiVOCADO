@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var movieRouter = require('./routes/movie');
 var usersRouter = require('./routes/users');
+var wordRouter = require('./routes/word');
 
 var sequelize = require('./models').sequelize;   // mysql 시퀄라이저 모델
 
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/api/movies', movieRouter);
 app.use('/api/users', usersRouter);
+app.use('/api/word', wordRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
