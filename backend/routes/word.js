@@ -6,7 +6,7 @@ const models = require('../models');
 // Get word
 router.get('/wordAnimal/:wordId', wrap(async (req, res) => {
   console.log(req.params.wordId);
-  const words = await models.wordAnimal.findOne({
+  const word = await models.wordAnimal.findOne({
     where: {
       wordId: req.params.wordId
     }
@@ -16,7 +16,7 @@ router.get('/wordAnimal/:wordId', wrap(async (req, res) => {
 
 router.get('/wordCountry/:wordId', wrap(async (req, res) => {
   console.log(req.params.wordId);
-  const words = await models.wordCountry.findOne({
+  const word = await models.wordCountry.findOne({
     where: {
       wordId: req.params.wordId
     }
@@ -26,7 +26,7 @@ router.get('/wordCountry/:wordId', wrap(async (req, res) => {
 
 router.get('/wordFood/:wordId', wrap(async (req, res) => {
   console.log(req.params.wordId);
-  const words = await models.wordFood.findOne({
+  const word = await models.wordFood.findOne({
     where: {
       wordId: req.params.wordId
     }
@@ -36,7 +36,7 @@ router.get('/wordFood/:wordId', wrap(async (req, res) => {
 
 router.get('/wordJob/:wordId', wrap(async (req, res) => {
   console.log(req.params.wordId);
-  const words = await models.wordJob.findOne({
+  const word = await models.wordJob.findOne({
     where: {
       wordId: req.params.wordId
     }
@@ -45,8 +45,7 @@ router.get('/wordJob/:wordId', wrap(async (req, res) => {
 }));
 
 router.get('/wordNature/:wordId', wrap(async (req, res) => {
-  console.log(req.params.wordId);
-  const words = await models.wordNature.findOne({
+  const word = await models.wordNature.findOne({
     where: {
       wordId: req.params.wordId
     }
@@ -56,7 +55,7 @@ router.get('/wordNature/:wordId', wrap(async (req, res) => {
 
 router.get('/wordSchool/:wordId', wrap(async (req, res) => {
   console.log(req.params.wordId);
-  const words = await models.wordSchool.findOne({
+  const word = await models.wordSchool.findOne({
     where: {
       wordId: req.params.wordId
     }
@@ -66,7 +65,7 @@ router.get('/wordSchool/:wordId', wrap(async (req, res) => {
 
 router.get('/wordSports/:wordId', wrap(async (req, res) => {
   console.log(req.params.wordId);
-  const words = await models.wordSports.findOne({
+  const word = await models.wordSports.findOne({
     where: {
       wordId: req.params.wordId
     }
@@ -76,7 +75,7 @@ router.get('/wordSports/:wordId', wrap(async (req, res) => {
 
 router.get('/wordVehicle/:wordId', wrap(async (req, res) => {
   console.log(req.params.wordId);
-  const words = await models.wordVehicle.findOne({
+  const word = await models.wordVehicle.findOne({
     where: {
       wordId: req.params.wordId
     }
