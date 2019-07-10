@@ -162,12 +162,20 @@
 
 <script>
 export default {
-  created () {
+  data() {
+    return {
+      users: []
+    }
+  },
+  created: async function () {
     // this.$http.get('/api/movies')
     // .then((response) => {
     //   this.movies = response.data
     //   console.log(this.movies);
     // })
+    const result = await this.$http.get('api/users/getScore');
+    console.log("user is", result.data);
+    this.users = result.data;
   }
   // data () {
   //   return {
