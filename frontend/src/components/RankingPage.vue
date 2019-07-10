@@ -24,7 +24,7 @@
             <span class="score">700</span>
           </li>
           <li>
-            <span class="medal"><img class="medalImg" src="../assets/ranking/4th.png"></span>
+            <span class="medal"><img class="forthMedalImg" src="../assets/ranking/4th.png"></span>
             <span class="userImg"><img class="img" src="../assets/ranking/user.png"></span>
             <span class="userName">User4</span>
             <span class="score">300</span>
@@ -75,7 +75,15 @@
     padding: 0;
   }
 
-  ul{
+  .forthMedalImg{
+    height: 70%;
+    width: auto;
+    margin-left: 10px;
+    margin-top: 30px;
+    padding: 0;
+  }
+
+  .rankingBg ul{
     position: relative;
     width: 800px;
     margin: 100px auto 0;
@@ -86,10 +94,10 @@
     border-radius: 5px;
   }
 
-  ul li{
+  .rankingBg ul li{
     display: flex;
     background: rgb(225,234,119);
-    border-radius: 5px;
+    border-radius: 15px;
     box-sizing: border-box;
     color: rgb(85,140,47);
     transition: .5s;
@@ -97,21 +105,25 @@
     margin: 20px;
   }
 
-  ul li span:nth-child(1){
+  .rankingBg ul li span:nth-child(1){
     padding: 0px 15px;
+    margin: 10px 0;
     width: 150px;
   }
-  ul li span:nth-child(2){
+
+  .rankingBg ul li span:nth-child(2){
     padding: 10px 20px;
     margin: 15px 0;
     width: 120px;
   }
-  ul li span:nth-child(3){
+
+  .rankingBg ul li span:nth-child(3){
     padding: 10px 20px;
     margin: 15px 0;
     width: 230px;
   }
-  ul li span:nth-child(4){
+
+  .rankingBg ul li span:nth-child(4){
     padding: 10px 20px;
     margin: 15px 0;
     width: 100px;
