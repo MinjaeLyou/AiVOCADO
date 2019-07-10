@@ -52,6 +52,14 @@ router.get('/wordNature/:wordId', wrap(async (req, res) => {
   });
   res.send(word);
 }));
+router.get('/wordNature/:wordId', wrap(async (req, res) => {
+  const word = await models.wordNature.findOne({
+    where: {
+      wordId: req.params.wordId
+    }
+  });
+  res.send(word);
+}));
 
 router.get('/wordSchool/:wordId', wrap(async (req, res) => {
   console.log(req.params.wordId);
