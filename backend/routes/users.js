@@ -61,7 +61,8 @@ router.post('/score', wrap(async (req, res) => {
 router.get('/getScore', wrap(async (req, res) => {
   console.log("scoreeee user");
   const user = await models.user.findAll({
-    order: models.sequelize.literal('score DESC')
+    order: models.sequelize.literal('score DESC'),
+    limit: 4
   });
   res.send(user);
 }));
