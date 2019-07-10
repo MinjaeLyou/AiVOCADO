@@ -7,25 +7,25 @@
         <ul>
           <li>
             <span class="medal"><img class="medalImg" src="../assets/ranking/gold-medal.png"></span>
-            <span class="userImg"><img class="img" src="../assets/ranking/user.png"></span>
+            <span class="userImg"><img class="img" src="../assets/character/doti.png"></span>
             <span class="userName">{{ users[0].name }}</span>
             <span class="score">{{ users[0].score }}</span>
           </li>
           <li>
             <span class="medal"><img class="medalImg" src="../assets/ranking/silver-medal.png"></span>
-            <span class="userImg"><img class="img" src="../assets/ranking/user.png"></span>
+            <span class="userImg"><img class="img" src="../assets/character/ati.png"></span>
             <span class="userName">{{ users[1].name }}</span>
             <span class="score">{{ users[1].score }}</span>
           </li>
           <li>
             <span class="medal"><img class="medalImg" src="../assets/ranking/bronze-medal.png"></span>
-            <span class="userImg"><img class="img" src="../assets/ranking/user.png"></span>
+            <span class="userImg"><img class="img" src="../assets/character/kati.png"></span>
             <span class="userName">{{ users[2].name }}</span>
             <span class="score">{{ users[2].score }}</span>
           </li>
           <li>
             <span class="medal"><img class="forthMedalImg" src="../assets/ranking/4th.png"></span>
-            <span class="userImg"><img class="img" src="../assets/ranking/user.png"></span>
+            <span class="userImg"><img class="img" src="../assets/character/voti.png"></span>
             <span class="userName">{{ users[3].name }}</span>
             <span class="score">{{ users[3].score }}</span>
           </li>
@@ -63,8 +63,8 @@
     width: 35%;
   }
 
-  .img {
-    height: 80%;
+  .userImg .img {
+    height: 100%;
     width: auto;
   }
 
@@ -76,79 +76,76 @@
   }
 
   .forthMedalImg{
-    height: 70%;
+    height: 75%;
     width: auto;
-    margin-left: 10px;
+    margin-left: 15px;
     margin-top: 30px;
     padding: 0;
   }
 
+  .rankingBg{
+    font-family: "Helvetica", "나눔 고딕", serif;
+    height: 80%;
+    margin:0;
+    padding: 0;
+  }
+
   .rankingBg ul{
+    background: rgb(85,140,47);
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 15px rgba(0,0,0,.2);
+    margin: 10px auto 0;
+    padding: 10px;
     position: relative;
     width: 800px;
-    margin: 100px auto 0;
-    padding: 10px;
-    box-sizing: border-box;
-    background: rgb(85,140,47);
-    box-shadow: inset 0 0 15px rgba(0,0,0,.2);
-    border-radius: 5px;
   }
 
   .rankingBg ul li{
-    display: flex;
     background: rgb(225,234,119);
     border-radius: 15px;
     box-sizing: border-box;
     color: rgb(85,140,47);
-    transition: .5s;
+    display: flex;
     height: 150px;
     margin: 20px;
+    transition: .5s;
   }
 
   .rankingBg ul li span:nth-child(1){
     padding: 0px 15px;
-    margin: 10px 0;
-    width: 150px;
+    width: 180px;
   }
 
   .rankingBg ul li span:nth-child(2){
-    padding: 10px 20px;
     margin: 15px 0;
-    width: 120px;
+    padding: 10px 20px;
+    width: 80px;
   }
 
   .rankingBg ul li span:nth-child(3){
-    padding: 10px 20px;
     margin: 15px 0;
-    width: 230px;
+    padding: 10px 20px;
+    width: 250px;
   }
 
   .rankingBg ul li span:nth-child(4){
-    padding: 10px 20px;
     margin: 15px 0;
-    width: 100px;
-  }
-
-  .rankingBg{
-    height: 80%;
-    margin:0;
-    padding: 0;
-    font-family: "Helvetica", "나눔 고딕", serif;
+    padding: 10px 20px;
+    width: 70px;
   }
 
   .userName{
-    bottom: 8px;
+    color: rgb(150,32,5);
     font-family: "Helvetica", "나눔 고딕", serif;
     font-size: 70px;
     font-weight: bold;
     left: 16px;
     position: relative;
     text-align: center;
-    display: inline-block;
   }
 
   .score{
-    bottom: 8px;
     color: rgb(85,140,47);
     font-family: "Helvetica", "나눔 고딕", serif;
     font-size: 70px;
@@ -156,7 +153,6 @@
     left: 16px;
     position: relative;
     text-align: center;
-    display: inline-block;
   }
 </style>
 
