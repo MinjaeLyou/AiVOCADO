@@ -8,26 +8,26 @@
           <li>
             <span class="medal"><img class="medalImg" src="../assets/ranking/gold-medal.png"></span>
             <span class="userImg"><img class="img" src="../assets/ranking/user.png"></span>
-            <span class="userName">User1</span>
-            <span class="score">1000</span>
+            <span class="userName">{{ users[0].name }}</span>
+            <span class="score">{{ users[0].score }}</span>
           </li>
           <li>
             <span class="medal"><img class="medalImg" src="../assets/ranking/silver-medal.png"></span>
             <span class="userImg"><img class="img" src="../assets/ranking/user.png"></span>
-            <span class="userName">User2</span>
-            <span class="score">900</span>
+            <span class="userName">{{ users[1].name }}</span>
+            <span class="score">{{ users[1].score }}</span>
           </li>
           <li>
             <span class="medal"><img class="medalImg" src="../assets/ranking/bronze-medal.png"></span>
             <span class="userImg"><img class="img" src="../assets/ranking/user.png"></span>
-            <span class="userName">User3</span>
-            <span class="score">700</span>
+            <span class="userName">{{ users[2].name }}</span>
+            <span class="score">{{ users[2].score }}</span>
           </li>
           <li>
             <span class="medal"><img class="forthMedalImg" src="../assets/ranking/4th.png"></span>
             <span class="userImg"><img class="img" src="../assets/ranking/user.png"></span>
-            <span class="userName">User4</span>
-            <span class="score">300</span>
+            <span class="userName">{{ users[3].name }}</span>
+            <span class="score">{{ users[3].score }}</span>
           </li>
         </ul>
       </div>
