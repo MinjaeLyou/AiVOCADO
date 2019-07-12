@@ -5,55 +5,53 @@
 </div>
 
 <div id="category">
-<div class="category-container">
-        <button>
-                    <div class="cg-name">
-                        Animal<br><img class="cg-img" src="../assets/category/cat.png">
-                    </div>
-        </button>
-        <button class="category-container">
-                    <div class="cg-name">
-                        Country<br><img class= "cg-img" src="../assets/category/south-korea.png">
-                    </div>
-        </button>
-        <button class="category-container">
-                    <div class="cg-name">
-                        Food<br><img class= "cg-img" src="../assets/category/apple.png">
-                    </div>
-        </button>
-        <button class="category-container">
-                    <div class="cg-name">
-                        Job<br><img class= "cg-img" src="../assets/category/firefighter.png">
-                    </div>
-        </button>
-        <div class="logo">
-            <div class="icon">
+    <button class="category-container">
+        <div class=cg-name>
+            Animal<br><img class= cg-img  src="../assets/category/cat.png">
+        </div>
+    </button>
+    <button class="category-container">
+        <div class=cg-name>
+            Country<br><img class= cg-img  src="../assets/category/south-korea.png">
+        </div>
+    </button>
+    <button class="category-container">
+        <div class=cg-name>
+            Food<br><img class= cg-img  src="../assets/category/apple.png">
+        </div>
+    </button>
+    <button class="category-container">
+        <div class=cg-name>
+            Job<br><img class= cg-img  src="../assets/category/firefighter.png">
+        </div>
+    </button>
+    <div class=logo>
+            <div class=icon>
                 <img src="../assets/category/avocado.png" height="100%" width="100%">
             </div>
-        </div>
-        <button class="category-container">
-                    <div class="cg-name">
-                        Nature<br><img class="cg-img" src="../assets/category/sprout.png">
-                    </div>
-        </button>
-        <button class="category-container">
-                    <div class="cg-name">
-                        School<br><img class="cg-img" src="../assets/category/blackboard.png">
-                    </div>
-        </buttton>
-        <button class="category-container">
-            <div class="cg-name">
-                Sports<br><img class="cg-img" src="../assets/category/football.png">
-            </div>
-        </button>
-
-        <button class="category-container">
-            <div class="cg-name">
-                Vehicle<br><img class= "cg-img" src="../assets/category/car.png">
-            </div>
-            
-        </button>
     </div>
+    <button class="category-container">
+        <div class=cg-name>
+            Nature<br><img class= cg-img  src="../assets/category/sprout.png">
+        </div>
+    </button>
+    <button class="category-container">
+        <div class=cg-name>
+            School<br><img class= cg-img  src="../assets/category/blackboard.png">
+        </div>
+    </button>
+    <button class="category-container">
+        <div class=cg-name>
+            Sports<br><img class= cg-img  src="../assets/category/football.png">
+        </div>
+    </button>
+    <button class="category-container">
+        <div class=cg-name>
+            Vehicle<br><img class= cg-img  src="../assets/category/car.png">
+        </div>
+    </button>
+
+</div>
     <div id = "footer"> </div>
 
 </div>
