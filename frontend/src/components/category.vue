@@ -44,17 +44,14 @@
             <div class="cg-name">
                 Sports<br><img class="cg-img" src="../assets/category/football.png">
             </div>
-            
-                
-            
         </button>
-        
-        <div class="category-container">
+
+        <button class="category-container">
             <div class="cg-name">
                 Vehicle<br><img class= "cg-img" src="../assets/category/car.png">
             </div>
             
-        </div>
+        </button>
     </div>
     <div id = "footer"> </div>
 
