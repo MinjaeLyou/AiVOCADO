@@ -8,7 +8,8 @@ import StartPage from "@/components/Scene_start";
 import sub from "@/components/sub";
 import "expose-loader?$!expose-loader?jQuery!jquery";
 import Category from "@/components/Category";
-import RankingPage from '@/components/RankingPage'
+import RankingPage from '@/components/RankingPage';
+import GameMain from "@/components/gameMain";
 
 Vue.use(Router);
 
@@ -48,6 +49,11 @@ export default new Router({
       path: '/ranking',
       name: 'ranking',
       component: RankingPage
+    },
+    {
+      path: '/main/:cate',
+      name: 'gameMain',
+      component: GameMain
     }
   ]
 });
