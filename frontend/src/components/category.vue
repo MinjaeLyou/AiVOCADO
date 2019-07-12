@@ -6,54 +6,53 @@
 
 <div id="category">
 <div class="category-container">
+        <button>
                     <div class="cg-name">
                         Animal<br><img class="cg-img" src="../assets/category/cat.png">
                     </div>
-        </div>
-        <div class="category-container">
+        </button>
+        <button class="category-container">
                     <div class="cg-name">
                         Country<br><img class= "cg-img" src="../assets/category/south-korea.png">
                     </div>
-        </div>
-        <div class="category-container">
+        </button>
+        <button class="category-container">
                     <div class="cg-name">
                         Food<br><img class= "cg-img" src="../assets/category/apple.png">
                     </div>
-        </div>
-        <div class="category-container">
+        </button>
+        <button class="category-container">
                     <div class="cg-name">
                         Job<br><img class= "cg-img" src="../assets/category/firefighter.png">
                     </div>
-        </div>
+        </button>
         <div class="logo">
             <div class="icon">
                 <img src="../assets/category/avocado.png" height="100%" width="100%">
             </div>
         </div>
-        <div class="category-container">
+        <button class="category-container">
                     <div class="cg-name">
                         Nature<br><img class="cg-img" src="../assets/category/sprout.png">
                     </div>
-        </div>
-        <div class="category-container">
+        </button>
+        <button class="category-container">
                     <div class="cg-name">
                         School<br><img class="cg-img" src="../assets/category/blackboard.png">
                     </div>
-        </div>
-        <div class="category-container">
+        </buttton>
+        <button class="category-container">
             <div class="cg-name">
                 Sports<br><img class="cg-img" src="../assets/category/football.png">
             </div>
-            
-                
-            
-        </div>
-        <div class="category-container">
+        </button>
+
+        <button class="category-container">
             <div class="cg-name">
                 Vehicle<br><img class= "cg-img" src="../assets/category/car.png">
             </div>
             
-        </div>
+        </button>
     </div>
     <div id = "footer"> </div>
 
@@ -272,17 +271,15 @@
         }
 
     </style>
-
 <script>
    $(document).ready(function(){
             $('.category-container').mouseenter(function () {
                 $(this).css('-webkit-animation', 'rotate-in-ver .5s cubic-bezier(.25,.46,.45,.94) both')
                 $(this).css('animation', 'rotate-in-ver .5s cubic-bezier(.25,.46,.45,.94) both')
             });
-            $('.category-container').click(function () {
 
-            });
         });
+
 export default {
   data() {
     return {
@@ -293,7 +290,8 @@ export default {
     this.printClock();
   },
   methods: {
-            async printClock() {
+
+    async printClock() {
 
             var clock = await document.getElementById("time");// 출력할 장소 선택
             var currentDate = new Date();// 현재시간
@@ -326,6 +324,8 @@ export default {
             }
             return zero + num;
         }
+
+
   
 }
 }
