@@ -5,32 +5,32 @@
 </div>
 
 <div id="category">
-    <button class="category-container">
+    <div class="category-container" v-on:click="go('wordAnimal')">
         <div class=cg-name>
             Animal<br><img class= cg-img  src="../assets/category/cat.png">
         </div>
-    </button>
-    <button class="category-container">
+    </div>
+    <div class="category-container" v-on:click="go('wordCountry')">
         <div class=cg-name>
             Country<br><img class= cg-img  src="../assets/category/south-korea.png">
         </div>
-    </button>
-    <button class="category-container">
+    </div>
+    <div class="category-container" v-on:click="go('wordFood')">
         <div class=cg-name>
             Food<br><img class= cg-img  src="../assets/category/apple.png">
         </div>
-    </button>
-    <button class="category-container">
+    </div>
+    <div class="category-container" v-on:click="go('wordJob')">
         <div class=cg-name>
             Job<br><img class= cg-img  src="../assets/category/firefighter.png">
         </div>
-    </button>
+    </div>
     <div class=logo>
             <div class=icon>
                 <img src="../assets/category/avocado.png" height="100%" width="100%">
             </div>
     </div>
-    <button class="category-container">
+    <button class="category-container" v-on:click="go('wordNature')">
         <div class=cg-name>
             Nature<br><img class= cg-img  src="../assets/category/sprout.png">
         </div>
@@ -321,6 +321,9 @@ export default {
                 }
             }
             return zero + num;
+        },
+        go(cate){
+          this.$router.push({name: "gameMain", params: {cate: cate}});
         }
 
 
