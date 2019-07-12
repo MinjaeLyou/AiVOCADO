@@ -6,10 +6,11 @@
 
 <div id="category">
 <div class="category-container">
+        <button>
                     <div class="cg-name">
                         Animal<br><img class="cg-img" src="../assets/category/cat.png">
                     </div>
-        </div>
+        </button>
         <button class="category-container">
                     <div class="cg-name">
                         Country<br><img class= "cg-img" src="../assets/category/south-korea.png">
