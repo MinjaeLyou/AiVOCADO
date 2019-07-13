@@ -5,49 +5,50 @@
 </div>
 
 <div id="category">
-    <div class="category-container">
-        <div class=cg-name>
-            Animal<br><img class= cg-img  src="../assets/category/cat.png">
+
+    <div class="category-container" v-on:click="go('wordAnimal')">
+        <div class="cg-name">
+            Animal<br><img class= "cg-img"  src="../assets/category/cat.png">
         </div>
     </div>
-    <div class="category-container">
-        <div class=cg-name>
-            Country<br><img class= cg-img  src="../assets/category/south-korea.png">
+    <div class="category-container" v-on:click="go('wordCountry')">
+        <div class="cg-name">
+            Country<br><img class= "cg-img" src="../assets/category/south-korea.png">
         </div>
     </div>
-    <div class="category-container">
-        <div class=cg-name>
-            Food<br><img class= cg-img  src="../assets/category/apple.png">
+    <div class="category-container" v-on:click="go('wordFood')">
+        <div class="cg-name">
+            Food<br><img class= "cg-img"  src="../assets/category/apple.png">
         </div>
     </div>
-    <div class="category-container">
-        <div class=cg-name>
-            Job<br><img class= cg-img  src="../assets/category/firefighter.png">
+    <div class="category-container" v-on:click="go('wordJob')">
+        <div class="cg-name">
+            Job<br><img class= "cg-img"  src="../assets/category/firefighter.png">
         </div>
     </div>
-    <div class=logo>
-            <div class=icon>
+    <div class="logo">
+            <div class="icon">
                 <!--<img src="../assets/category/avocado.png" height="100%" width="100%">-->
             </div>
     </div>
-    <div class="category-container">
-        <div class=cg-name>
-            Nature<br><img class= cg-img  src="../assets/category/sprout.png">
+    <div class="category-container" v-on:click="go('wordNature')">
+        <div class="cg-name">
+            Nature<br><img class= "cg-img"  src="../assets/category/sprout.png">
         </div>
     </div>
     <div class="category-container">
-        <div class=cg-name>
-            School<br><img class= cg-img  src="../assets/category/blackboard.png">
+        <div class="cg-name">
+            School<br><img class= "cg-img"  src="../assets/category/blackboard.png">
         </div>
     </div>
     <div class="category-container">
-        <div class=cg-name>
-            Sports<br><img class= cg-img  src="../assets/category/football.png">
+        <div class="cg-name">
+            Sports<br><img class= "cg-img"  src="../assets/category/football.png">
         </div>
     </div>
     <div class="category-container">
-        <div class=cg-name>
-            Vehicle<br><img class= cg-img  src="../assets/category/car.png">
+        <div class="cg-name">
+            Vehicle<br><img class= "cg-img"  src="../assets/category/car.png">
         </div>
     </div>
 
@@ -306,6 +307,9 @@ export default {
                 }
             }
             return zero + num;
+        },
+        go(cate){
+          this.$router.push({name: "gameMain", params: {cate: cate}});
         }
 
 

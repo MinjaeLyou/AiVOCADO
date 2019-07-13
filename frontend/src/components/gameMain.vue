@@ -39,7 +39,7 @@ export default {
       console.log(this.word.word);
       this.len = this.word.word.length;
       var cont = document.getElementById("quiz");
-      for (var i = 0; i < this.word.word.length; i++) {
+      for (var i = 0; i < this.len; i++) {
         this.arrWord[i] = await this.word.word.charAt(i);
         var jbBtn = document.createElement( 'span' );
         jbBtn.id = 'prob' + i;
@@ -49,7 +49,12 @@ export default {
         cont.appendChild( jbBtn );
         //document.getElementById("quiz").appendChild
       }
-      document.getElementById('quiz').setAttribute("style", "left: 30%");
+      if(this.len%2 == 0)
+        var pos = 55 - parseInt(this.len/2)*10;
+      else
+        var pos = 49 - parseInt(this.len/2)*10;
+      console.log("pos is "+pos);
+      document.getElementById('quiz').setAttribute("style", "left: "+pos+"%;");
     //const wordId = '1'
   },
   methods: {
@@ -89,6 +94,7 @@ export default {
       if(this.try == 7){
         //실패
         console.log("Fail!");
+        this.$router.push({name: "ranking"});
       }
     }
   },
