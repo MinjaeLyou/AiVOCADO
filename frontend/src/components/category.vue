@@ -28,7 +28,7 @@
     </div>
     <div class="logo">
             <div class="icon">
-                <!--<img src="../assets/category/avocado.png" height="100%" width="100%">-->
+                <img src="../assets/category/avocado_ani3.gif" height="60%" width="60%">
             </div>
     </div>
     <div class="category-container" v-on:click="go('wordNature')">
@@ -250,8 +250,11 @@
             padding-bottom: 5px;
             padding-top: 5px;
             text-align: center;
-            width: 60%;
+            width: 60%;;
             height: auto;
+        }
+        .icon{
+            text-align:center;
         }
 
     </style>
