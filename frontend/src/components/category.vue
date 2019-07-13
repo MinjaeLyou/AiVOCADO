@@ -1,55 +1,55 @@
 <template>
 <div>
 <div id="status">
-    <div id="time"></div>
+
 </div>
 
 <div id="category">
-    <button class="category-container">
+    <div class="category-container">
         <div class=cg-name>
             Animal<br><img class= cg-img  src="../assets/category/cat.png">
         </div>
-    </button>
-    <button class="category-container">
+    </div>
+    <div class="category-container">
         <div class=cg-name>
             Country<br><img class= cg-img  src="../assets/category/south-korea.png">
         </div>
-    </button>
-    <button class="category-container">
+    </div>
+    <div class="category-container">
         <div class=cg-name>
             Food<br><img class= cg-img  src="../assets/category/apple.png">
         </div>
-    </button>
-    <button class="category-container">
+    </div>
+    <div class="category-container">
         <div class=cg-name>
             Job<br><img class= cg-img  src="../assets/category/firefighter.png">
         </div>
-    </button>
+    </div>
     <div class=logo>
             <div class=icon>
-                <img src="../assets/category/avocado.png" height="100%" width="100%">
+                <!--<img src="../assets/category/avocado.png" height="100%" width="100%">-->
             </div>
     </div>
-    <button class="category-container">
+    <div class="category-container">
         <div class=cg-name>
             Nature<br><img class= cg-img  src="../assets/category/sprout.png">
         </div>
-    </button>
-    <button class="category-container">
+    </div>
+    <div class="category-container">
         <div class=cg-name>
             School<br><img class= cg-img  src="../assets/category/blackboard.png">
         </div>
-    </button>
-    <button class="category-container">
+    </div>
+    <div class="category-container">
         <div class=cg-name>
             Sports<br><img class= cg-img  src="../assets/category/football.png">
         </div>
-    </button>
-    <button class="category-container">
+    </div>
+    <div class="category-container">
         <div class=cg-name>
             Vehicle<br><img class= cg-img  src="../assets/category/car.png">
         </div>
-    </button>
+    </div>
 
 </div>
     <div id = "footer"> </div>
@@ -175,20 +175,20 @@
         }
         
         body{
-            background-image: url('../assets/background/background_2.jpeg');
+            background-image: url('../assets/background/category.jpg');
             background-repeat:no-repeat;
             background-size: cover;
         }
 
         #status {
-            height: 25%
+            height: 10%
         }
 
         #category {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            height: 50%;
+            height: 70%;
             padding: 30px;
             margin-top: 40px;
             margin-bottom: 40px;
@@ -201,18 +201,17 @@
             padding-top: 7px;
             padding-bottom: 7px;
             margin-top: 10px;
-            margin-left: 10px;
-            margin-right: 10px;
+            margin-left: 8px;
+            margin-right: 8px;
             text-decoration: none;
-            width: 25%;
+            width: 30%;
             height: 40%;
             border-radius: 90px;
-            background-color: #FFF69E;
-            box-shadow: 3px 3px 3px 3px #DCE775;
+            background-color: #f9f5f5;
         }
 
         #footer{
-            height: 25%;
+            height: 20%;
         }
 
         .logo {
@@ -222,9 +221,9 @@
             padding-top: 7px;
             padding-bottom: 7px;
             margin-top: 0px;
-            margin-left: 10px;
-            margin-right: 10px;
-            width: 25%;
+            margin-left: 8px;
+            margin-right: 8px;
+            width: 30%;
             height: 40%;
             border-radius: 100px;
             -webkit-animation: heartbeat 1.5s ease-in-out infinite both;
@@ -234,26 +233,12 @@
         .cg-name {
             position: relative;
             text-align: center;
-            margin-top: 5px; 
             margin-bottom: 5px;    
             font-size: 120%;
             padding-bottom: 5px;
             height: 85%;
             font-family: "Helvetica", "나눔 고딕", serif;
             font-weight: bold;
-        }
-
-        #time {
-            border:1px solid #558B2F; 
-            background-color: #558B2F;
-            width:15%; 
-            height:100%; 
-            line-height:100%; 
-            color:#dedede;
-            padding-bottom: 5px;
-            padding-top: 5px;
-            font-size:40px; 
-            text-align:center;
         }
 
         .cg-img{
