@@ -32,7 +32,7 @@ export default {
             animation-name : vibrate;
             animation-duration: 1s;
             animation-iteration-count: infinite;
-            /*background-size:cover;*/
+            background:none;
             border-width:0;
             position: relative;
             width: 40%;
