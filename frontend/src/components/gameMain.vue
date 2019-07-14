@@ -1,6 +1,6 @@
 <template>
 <div class="mainBackground">
-    <h1 class="cate">{{$route.params.cate}}</h1>
+    <h1 class="cate">{{cate}}</h1>
     <div class="center" id="quiz" style="left: 20%;">
     </div>
     <div class="alphabet">
@@ -24,7 +24,8 @@ export default {
       len: 0,
       ans: '',
       result: 0,
-      try: 0
+      try: 0,
+      cate: ''
     }
   },
   mounted: async function(){
@@ -32,29 +33,53 @@ export default {
   },
   created: async function () {
     const wordId = await Math.floor(Math.random() * 25) + 1;
-    console.log(wordId);
+    console.log(this.$route.params.user);
     const result = await this.$http.get(`/api/word/${this.$route.params.cate}/${wordId}`)
     this.word = await result.data;
-    console.log(this.word);
-    console.log(this.word.word);
+    switch(this.$route.params.cate){
+      case 'wordAnimal':
+        this.cate = '동물';
+        break;
+      case 'wordCountry':
+        this.cate = '나라';
+        break;
+      case 'wordFood':
+        this.cate = '음식';
+        break;
+      case 'wordJob':
+        this.cate = '직업';
+        break;
+      case 'wordNature':
+        this.cate = '자연';
+        break;
+      case 'wordSchool':
+        this.cate = '학교';
+        break;
+      case 'wordSports':
+        this.cate = '스포츠';
+        break;
+      case 'wordVehicle':
+        this.cate = '운송수단';
+        break;
+    }
     this.len = this.word.word.length;
     var cont = document.getElementById("quiz");
     for (var i = 0; i < this.len; i++) {
       this.arrWord[i] = await this.word.word.charAt(i);
       var jbBtn = document.createElement( 'span' );
-        jbBtn.id = 'prob' + i;
-        jbBtn.className = 'word';
-        var jbBtnText = document.createTextNode( this.arrWord[i] );
-        //jbBtn.appendChild( jbBtnText );
-        cont.appendChild( jbBtn );
-        //document.getElementById("quiz").appendChild
-      }
-      if(this.len%2 == 0)
-        var pos = 55 - parseInt(this.len/2)*10;
-      else
-        var pos = 49 - parseInt(this.len/2)*10;
-      console.log("pos is "+pos);
-      document.getElementById('quiz').setAttribute("style", "left: "+pos+"%;");
+      jbBtn.id = 'prob' + i;
+      jbBtn.className = 'word';
+      var jbBtnText = document.createTextNode( this.arrWord[i] );
+      //jbBtn.appendChild( jbBtnText );
+      cont.appendChild( jbBtn );
+      //document.getElementById("quiz").appendChild
+    }
+    if(this.len%2 == 0)
+      var pos = 50 - parseInt(this.len/2)*10;
+    else
+      var pos = 47 - parseInt(this.len/2)*10;
+    console.log("pos is "+pos);
+    document.getElementById('quiz').setAttribute("style", "left: "+pos+"%;");
     //const wordId = '1'
   },
   methods: {
@@ -103,47 +128,47 @@ export default {
 <style>
 .word {
   background: white;
-  border-radius: 5px;
   box-sizing: border-box;
   float: left;
-  font-size: 150px;
-  width: 150px;
+  font-size: 700%;
+  width: 180px;
   height: 180px;
   margin: 10px;
   padding: 20px;
   vertical-align: middle;
   text-align: center;
+  border-radius: 50%;
 }
 
 .cate {
   position: absolute;
+  font-size: 300%;
   top: 10%;
   left: 80%;
 }
 
 .center {
   position: absolute;
-  top: 30%;
-  left: 30%;
+  top: 20%;
   line-height: 100px;
 }
 
 .alphabet {
   position: absolute;
-  top: 70%;
+  top: 60%;
   left: 10%;
   line-height: 100px;
 }
 
 .but {
-  background: rgb(85,140,47);
-  border-radius: 5px;
+  background: rgb(112,173,71);
+  border-radius: 10%;
   padding: 0 5px;
   margin: 10px 10px;
   color: white;
   font-size: 100px;
-  width: 100px;
-  height: 140px;
+  width: 130px;
+  height: 130px;
   text-align: center;
   vertical-align: middle;
 }

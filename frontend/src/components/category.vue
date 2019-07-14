@@ -278,10 +278,11 @@ export default {
     }
   },
   mounted: async function () {
+    console.log(this.$route.params.user);
   },
   methods: {
         go(cate){
-          this.$router.push({name: "gameMain", params: {cate: cate}});
+          this.$router.push({name: "gameMain", params: {cate: cate, user: this.$route.params.user}});
         }
 
 

@@ -47,7 +47,7 @@ export default new Router({
       component: sub
     },
     {
-      path: '/category',
+      path: '/category/:user',
       name: 'category',
       component: Category
     },
@@ -57,7 +57,7 @@ export default new Router({
       component: RankingPage
     },
     {
-      path: '/main/:cate',
+      path: '/main/:cate/:user',
       name: 'gameMain',
       component: GameMain
     }
