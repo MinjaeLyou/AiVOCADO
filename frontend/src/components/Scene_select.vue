@@ -1,5 +1,8 @@
 <template>
     <div id="bg_select">
+        <audio autoplay>
+            <source src="../assets/sound/startmusic.mp3" type="audio/mpeg">
+        </audio>
         <div id="title">SELECT CHARACTER</div>
         <div id="container">
             <button v-on:click="go()" class="user_bt"><img src="../assets/character/voti.png" class="avocado" style="animation-name:vibrate1;" ></button>
