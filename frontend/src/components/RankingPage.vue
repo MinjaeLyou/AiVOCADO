@@ -45,7 +45,8 @@
 
   .ranking {
     height: 100%;
-    position: relative;
+    width: 100%;
+    position: absolute;
     text-align: center;
     background-image: url( "../assets/background/category.jpg" );
     background-repeat:no-repeat;
