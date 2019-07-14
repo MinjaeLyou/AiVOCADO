@@ -1,9 +1,22 @@
 <template>
 <div class="startBg">
-    <button class="startbutton"><img src="../assets/background/gamestart.png"></button>
+    <button class="startbutton" v-on:click="go()"><img src="../assets/background/gamestart.png"></button>
 </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+    }
+  },
+  methods: {
+    go(cate){
+      this.$router.push({name: "category"});
+    }
+  }
+}
+</script>
 <style>
     .startBg {
         height: 100%;

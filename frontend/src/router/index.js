@@ -1,34 +1,65 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import IndexPage from '@/components/IndexPage'
-import ShowPage from '@/components/showPage'
-import RegisterPage from '@/components/Register'
-import StartPage from '@/components/Scene_start'
+import Vue from "vue";
+import Router from "vue-router";
+import HelloWorld from "@/components/HelloWorld";
+import IndexPage from "@/components/IndexPage";
+import ShowPage from "@/components/showPage";
+import RegisterPage from "@/components/Register";
+import StartPage from "@/components/Scene_start";
+import sub from "@/components/sub";
+import "expose-loader?$!expose-loader?jQuery!jquery";
+import Category from "@/components/Category";
+import RankingPage from '@/components/RankingPage';
+import GameMain from "@/components/gameMain";
+import SelectPage from "@/components/Scene_select";
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: '/index',
-      name: 'index',
+      path: "/index",
+      name: "index",
       component: IndexPage
     },
     {
-      path: '/show/:id',
-      name: 'show',
+      path: "/show/:id",
+      name: "show",
       component: ShowPage
     },
     {
-      path: '/reg',
-      name: 'register',
+      path: "/reg",
+      name: "register",
       component: RegisterPage
     },
     {
-      path: '/',
-      name: 'start',
+      path: "/",
+      name: "start",
       component: StartPage
+    },
+    {
+      path: "/select",
+      name: "select",
+      component: SelectPage
+    },	      
+    {
+      path: "/sub",
+      name: "subsub",
+      component: sub
+    },
+    {
+      path: '/category',
+      name: 'category',
+      component: Category
+    },
+    {
+      path: '/ranking',
+      name: 'ranking',
+      component: RankingPage
+    },
+    {
+      path: '/main/:cate',
+      name: 'gameMain',
+      component: GameMain
     }
   ]
-})
+});
