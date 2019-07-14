@@ -1,5 +1,4 @@
 <template>
-    <br>
     <div id="bg_select">
         <div id="title">SELECT CHARACTER</div>
         <div id="container">

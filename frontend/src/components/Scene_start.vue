@@ -12,7 +12,7 @@ export default {
   },
   methods: {
     go(cate){
-      this.$router.push({name: "category"});
+      this.$router.push({name: "select"});
     }
   }
 }
