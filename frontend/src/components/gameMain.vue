@@ -32,16 +32,16 @@ export default {
   },
   created: async function () {
     const wordId = await Math.floor(Math.random() * 25) + 1;
-      console.log(wordId);
-      const result = await this.$http.get(`/api/word/${this.$route.params.cate}/${wordId}`)
-      this.word = await result.data;
-      console.log(this.word);
-      console.log(this.word.word);
-      this.len = this.word.word.length;
-      var cont = document.getElementById("quiz");
-      for (var i = 0; i < this.len; i++) {
-        this.arrWord[i] = await this.word.word.charAt(i);
-        var jbBtn = document.createElement( 'span' );
+    console.log(wordId);
+    const result = await this.$http.get(`/api/word/${this.$route.params.cate}/${wordId}`)
+    this.word = await result.data;
+    console.log(this.word);
+    console.log(this.word.word);
+    this.len = this.word.word.length;
+    var cont = document.getElementById("quiz");
+    for (var i = 0; i < this.len; i++) {
+      this.arrWord[i] = await this.word.word.charAt(i);
+      var jbBtn = document.createElement( 'span' );
         jbBtn.id = 'prob' + i;
         jbBtn.className = 'word';
         var jbBtnText = document.createTextNode( this.arrWord[i] );

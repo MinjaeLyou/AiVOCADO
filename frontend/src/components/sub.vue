@@ -1,5 +1,6 @@
 <template>
-  <div class="third">
+  <div class="divBg">
+    <div class="third">
       <main>
         여기에 메인 화면
       </main>
@@ -15,7 +16,7 @@
         </div>
       </div>
     </div>
-  </body>
+  </div>
 </template>
 
 <script>
@@ -55,29 +56,33 @@
   box-sizing: border-box;
 }
 
-html,
-body {
+.divBg {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
-}
-
-body {
+  position: absolute;
   background-color: #f6f5f6;
   font-weight: 400;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+/*body {*/
+/*  background-color: #f6f5f6;
+  font-weight: 400;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}*/
+
 main {
   width: 100%;
   height: 100%;
-  background-image: url("images/bg.jpg");
+  background-image: url("../assets/background/category.jpg");
   background-size: cover;
   transition: transform 0.4s;
   z-index: 3;
-  position: relative;
+  position: absolute;
 }
 
 .caption {

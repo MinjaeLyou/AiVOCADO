@@ -14,7 +14,7 @@ export default {
   },
   created: async function () {
     const userId = 'lmj'
-    const result = await this.$http.get(`/api/users/${userId}`)
+    const result = await this.$http.get(`/api/users/getUser/${userId}`)
     this.user = result.data;
     console.log(this.user);
   }
