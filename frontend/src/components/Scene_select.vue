@@ -2,11 +2,11 @@
     <div id="bg_select">
         <div id="title">SELECT CHARACTER</div>
         <div id="container">
-            <img src="../assets/character/voti.png" class="avocado" style="animation-name:vibrate1;">
-            <img src="../assets/character/ati.png" class="avocado" style="animation-name:vibrate2;">
-            <img src="../assets/character/keti.png" class="avocado" style="animation-name:vibrate3;">
-            <img src="../assets/character/kati.png" class="avocado" style="animation-name:vibrate2;">
-            <img src="../assets/character/doti.png" class="avocado" style="animation-name:vibrate1;">
+            <button v-on:click="go()" class="user_bt"><img src="../assets/character/voti.png" class="avocado" style="animation-name:vibrate1;" ></button>
+            <button v-on:click="go()" class="user_bt"><img src="../assets/character/ati.png" class="avocado" style="animation-name:vibrate2;" ></button>
+            <button v-on:click="go()" class="user_bt"><img src="../assets/character/keti.png" class="avocado" style="animation-name:vibrate3;" ></button>
+            <button v-on:click="go()" class="user_bt"><img src="../assets/character/kati.png" class="avocado" style="animation-name:vibrate2;" ></button>
+            <button v-on:click="go()" class="user_bt"><img src="../assets/character/doti.png" class="avocado" style="animation-name:vibrate1;" ></button>
             <br>
             <textarea class="avocado_name">VOTI</textarea>
             <textarea class="avocado_name">ATI</textarea>
@@ -17,6 +17,20 @@
     </div>
 
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+    }
+  },
+  methods: {
+    go(cate){
+      this.$router.push({name: "category"});
+    }
+  }
+}
+</script>
 
 <style>
       #bg_select{
@@ -33,13 +47,23 @@
           font-size:70px;
           text-align:center;
       }
+      .user_bt{
+          background:none;
+          border:none;
+          display:inline-block;
+          position:relative;
+          width:15%;
+          height:40%;
+          top:5%;
+
+          margin:30px;
+      }
       .avocado{
           animation-duration:1s; 
           animation-iteration-count: infinite;
           position:relative;
-          width:15%;
-          top:5%;
-          margin:30px;
+          width:100%;
+          /*margin:30px;*/
       }
       .avocado_name{
           background:none;
