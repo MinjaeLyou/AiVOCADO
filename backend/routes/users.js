@@ -5,13 +5,8 @@ const models = require('../models');
 
 /* GET users listing. */
 // Get all users
-router.get('/getUser/:userId', wrap(async (req, res) => {
-  console.log(req.params.userId);
-  const users = await models.user.findOne({
-    where: {
-      userId: req.params.userId
-    }
-  });
+router.get('/getUser', wrap(async (req, res) => {
+  const users = await models.user.findAll();
   res.send(users);
 }));
 
