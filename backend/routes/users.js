@@ -34,12 +34,13 @@ router.get('/score/:userId/:name', wrap(async (req, res) => {
   res.send(score);
 }));
 
-router.post('/updateScore', wrap(async (req, res) => {
+router.post('/updateScore/:score/:id', wrap(async (req, res) => {
+  console.log(req.params.score);
   const score = await models.user.update({
-    score: req.body.score
+    score: req.params.score + 10
   }, {
     where: {
-      id: req.body.id
+      id: req.params.id
     }
   });
   if (score) {
