@@ -1,7 +1,10 @@
 <template>
-<div class="startBg">
+  <div class="startBg">
+    <audio autoplay>
+      <source src="../assets/sound/startmusic.mp3" type="audio/mpeg">
+    </audio>
     <button class="startbutton" v-on:click="go()"><img src="../assets/background/gamestart.png"></button>
-</div>
+  </div>
 </template>
 
 <script>
