@@ -1,155 +1,139 @@
 <template>
-  <div>
-    <div class="js-clock">
-      <h1 class="">00:00</h1>
-      <span>카테고리 변경</span>
+  <div class="third">
+      <main>
+        여기에 메인 화면
+      </main>
+      <div class="caption">
+        <div class="content">
+          <h3>Swimming</h3>
+        </div>
+        <div class="content">
+          <span class="span">수영</span>
+        </div>
+        <div class="content">
+          <span>명사</span>
+        </div>
+      </div>
     </div>
-    <form action="" class="js-form form">
-      <input type="text" placeholder="What is your answer?" />
-    </form>
-    <main class="game-main">
-      <div class="game-voca">
-        <div class="voca"></div>
-        <div class="voca"></div>
-        <div class="voca"></div>
-        <div class="voca"></div>
-        <div class="voca"></div>
-        <div class="voca"></div>
-      </div>
-      <div class="game-wrapper">
-        <div class="game-wrong box">
-          <div class="voca"></div>
-          <div class="voca"></div>
-          <div class="voca"></div>
-        </div>
-        <div class="game-left box">
-          <div class="voca"></div>
-          <div class="voca"></div>
-        </div>
-      </div>
-    </main>
-  </div>
+  </body>
 </template>
 
 <script>
 //const clockContainer = this.$el.querySelector(".js-clock"),
   //clockTitle = clockContainer.querySelector("h1");
-export default {
-  data() {
-    return {
-      user: {},
-    }
-  },
-  created: async function () {
-    this.init();
+// export default {
+//   data() {
+//     return {
+//       user: {},
+//     }
+//   },
+//   created: async function () {
+//     this.init();
 
-  },
-  methods : {
-    init() {
-  getTime();
-  setInterval(getTime, 1000);
-},
-getTime() {
-  const date = new Date();
-  const minutes = date.getMinutes();
-  const hours = date.getHours();
-  clockTitle.innerText = `${hours < 10 ? `0${hours}` : hours}:${
-    minutes < 10 ? `0${minutes}` : minutes
-  }`;
-}
+//   },
+//   methods : {
+//     init() {
+//   getTime();
+//   setInterval(getTime, 1000);
+// },
+// getTime() {
+//   const date = new Date();
+//   const minutes = date.getMinutes();
+//   const hours = date.getHours();
+//   clockTitle.innerText = `${hours < 10 ? `0${hours}` : hours}:${
+//     minutes < 10 ? `0${minutes}` : minutes
+//   }`;
+// }
 
-  }
-}
+//   }
+// }
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600");
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
-  padding: 0;
-  margin: 0;
   width: 100%;
   height: 100%;
-  color: white;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background-color: rgb(52, 73, 94);
-}
-
-.js-clock {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  background-color: #f6f5f6;
+  font-weight: 400;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 main {
-  width: 80%;
-  height: 80%;
-  margin-left: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.voca {
-  width: 12%;
-  height: 30%;
-  background-color: white;
-  display: inline-block;
-}
-
-.box {
-  width: 40%;
-  height: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.game-voca {
-  width: 80%;
-  height: 40%;
-  padding: 0 30px 0 30px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.game-wrapper {
   width: 100%;
-  height: 25%;
-  display: flex;
-  justify-content: space-between;
+  height: 100%;
+  background-image: url("images/bg.jpg");
+  background-size: cover;
+  transition: transform 0.4s;
+  z-index: 3;
+  position: relative;
 }
 
-.game-voca,
-.game-wrong,
-.game-left {
-  background-color: #d8d987;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.bgImage {
+.caption {
+  background: #2c3f52;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  animation: fadeIn 1s linear;
+  color: #ed4e6e;
 }
 
-form {
-  text-align: center;
+.content {
+  width: 30%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.caption .span {
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 2px;
+  background: #ed4e6e;
+  margin-top: 10px;
+  color: white;
+}
+
+.caption h3 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.third {
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  background-color: #2c3f52;
+}
+
+.third .caption {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 30px 20px;
+  position: absolute;
+  z-index: 2;
+}
+
+.third:hover main {
+  transform: translateY(-50px) scale(0.5);
 }
 
 </style>
