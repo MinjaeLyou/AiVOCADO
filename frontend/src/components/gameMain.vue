@@ -1,5 +1,10 @@
 <template>
 <div class="mainBackground">
+  <img id="doti1" src="../assets/character/doti.png">
+  <img id="doti2" src="../assets/character/doti.png">
+  <img id="doti3" src="../assets/character/doti.png">
+  <img id="doti4" src="../assets/character/doti.png">
+  <img id="doti5" src="../assets/character/doti.png">
     <h1 class="cate">{{cate}}</h1>
     <div class="center" id="quiz" style="left: 20%;">
     </div>
@@ -25,7 +30,8 @@ export default {
       ans: '',
       result: 0,
       try: 0,
-      cate: ''
+      cate: '',
+      chk: 0
     }
   },
   mounted: async function(){
@@ -98,25 +104,46 @@ export default {
       }
     },
     async check(ans){
-      this.try++;
       console.log(ans);
       document.getElementById(ans).disabled = true;
       document.getElementById(ans).style.opacity = "0.3";
       for ( let i = 0; i < this.len; i++){
-        console.log("i is ", i);
         if(ans == this.arrWord[i]){
           console.log("correct!");
+          this.chk = 1;
           this.result++;
           var jbBtnText = document.createTextNode( this.arrWord[i] );
           document.getElementById('prob' + i).appendChild(jbBtnText);
           if(this.result == this.len){
             //성공
             console.log("Succeed!");
+            this.$http.post(`/api/users/updateScore/${this.$route.params.user.score}/${this.$route.params.user.id}`);
           }
         }
       }
+      if(this.chk == 0){
+        this.try++;
+        switch(this.try){
+          case 1:
+            document.getElementById('doti5').setAttribute("src", "/assets/gif/doti-failed.gif");
+            break;
+          case 2:
+            document.getElementById('doti4').setAttribute("src", "/assets/gif/doti-failed.gif");
+            break;
+          case 3:
+            document.getElementById('doti3').setAttribute("src", "/assets/gif/doti-failed.gif");
+            break;
+          case 4:
+            document.getElementById('doti2').setAttribute("src", "/assets/gif/doti-failed.gif");
+            break;
+          case 5:
+            document.getElementById('doti1').setAttribute("src", "/assets/gif/doti-failed.gif");
+            break;
+        }
+      }
+      this.chk = 0;
       console.log(this.try);
-      if(this.try == 7){
+      if(this.try == 5){
         //실패
         console.log("Fail!");
         this.$router.push({name: "ranking"});
@@ -181,6 +208,46 @@ export default {
   background-image: url('../assets/background/main.jpg'); 
   background-repeat:no-repeat;
   background-size: cover;
+}
+
+#doti1 {
+  position: absolute;
+  width: 5%;
+  height:auto;
+  top: 1%;
+  left: 12%;
+}
+
+#doti2 {
+  position: absolute;
+  width: 5%;
+  height:auto;
+  top: 1%;
+  left: 18%;
+}
+
+#doti3 {
+  position: absolute;
+  width: 5%;
+  height:auto;
+  top: 1%;
+  left: 24%;
+}
+
+#doti4 {
+  position: absolute;
+  width: 5%;
+  height:auto;
+  top: 1%;
+  left: 30%;
+}
+
+#doti5 {
+  position: absolute;
+  width: 5%;
+  height:auto;
+  top: 1%;
+  left: 36%;
 }
 
 </style>
