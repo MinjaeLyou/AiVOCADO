@@ -1,9 +1,10 @@
 <template>
     <div id="bg_select">
+        <br>
         <audio autoplay>
             <source src="../assets/sound/startmusic.mp3" type="audio/mpeg">
         </audio>
-        <div id="title">SELECT CHARACTER</div>
+        <div style="text-align:center;"><img src="../assets/background/selecttitle.png" id="select_title"></div>
         <div id="container">
             <button v-on:click="go(users[0])" class="user_bt"><img src="../assets/character/voti.png" class="avocado" style="animation-name:vibrate1;" ></button>
             <button v-on:click="go(users[1])" class="user_bt"><img src="../assets/character/ati.png" class="avocado" style="animation-name:vibrate2;" ></button>
@@ -49,12 +50,9 @@ export default {
           background-image:url("../assets/background/background_select.png");
           background-size:cover;
       }
-      #title{
-          color:white;
-          font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-          font-weight:bolder;
-          font-size:70px;
-          text-align:center;
+      #select_title{
+          width: 50%;
+          
       }
       .user_bt{
           background:none;
