@@ -5,17 +5,17 @@
         </audio>
         <div id="title">SELECT CHARACTER</div>
         <div id="container">
-            <button v-on:click="go()" class="user_bt"><img src="../assets/character/voti.png" class="avocado" style="animation-name:vibrate1;" ></button>
-            <button v-on:click="go()" class="user_bt"><img src="../assets/character/ati.png" class="avocado" style="animation-name:vibrate2;" ></button>
-            <button v-on:click="go()" class="user_bt"><img src="../assets/character/keti.png" class="avocado" style="animation-name:vibrate3;" ></button>
-            <button v-on:click="go()" class="user_bt"><img src="../assets/character/kati.png" class="avocado" style="animation-name:vibrate2;" ></button>
-            <button v-on:click="go()" class="user_bt"><img src="../assets/character/doti.png" class="avocado" style="animation-name:vibrate1;" ></button>
+            <button v-on:click="go(users[0])" class="user_bt"><img src="../assets/character/voti.png" class="avocado" style="animation-name:vibrate1;" ></button>
+            <button v-on:click="go(users[1])" class="user_bt"><img src="../assets/character/ati.png" class="avocado" style="animation-name:vibrate2;" ></button>
+            <button v-on:click="go(users[2])" class="user_bt"><img src="../assets/character/keti.png" class="avocado" style="animation-name:vibrate3;" ></button>
+            <button v-on:click="go(users[3])" class="user_bt"><img src="../assets/character/kati.png" class="avocado" style="animation-name:vibrate2;" ></button>
+            <button v-on:click="go(users[4])" class="user_bt"><img src="../assets/character/doti.png" class="avocado" style="animation-name:vibrate1;" ></button>
             <br>
-            <textarea class="avocado_name">VOTI</textarea>
-            <textarea class="avocado_name">ATI</textarea>
-            <textarea class="avocado_name">KETI</textarea>
-            <textarea class="avocado_name">KATI</textarea>
-            <textarea class="avocado_name">DOTI</textarea>
+            <textarea class="avocado_name">{{users[0].name}}</textarea>
+            <textarea class="avocado_name">{{users[1].name}}</textarea>
+            <textarea class="avocado_name">{{users[2].name}}</textarea>
+            <textarea class="avocado_name">{{users[3].name}}</textarea>
+            <textarea class="avocado_name">{{users[4].name}}</textarea>
         </div>   
     </div>
 
@@ -25,11 +25,17 @@
 export default {
   data() {
     return {
+      users: []
     }
   },
+  created: async function() {
+    const result = await this.$http.get('api/users/getUser');
+    this.users = result.data;
+    console.log(this.users);
+  },
   methods: {
-    go(cate){
-      this.$router.push({name: "category"});
+    go(user){
+      this.$router.push({name: "category", params: {user: user}});
     }
   }
 }
