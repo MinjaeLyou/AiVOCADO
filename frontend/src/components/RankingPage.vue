@@ -1,5 +1,8 @@
 <template>
   <div class="ranking">
+    <audio autoplay>
+      <source src="../assets/sound/gameAudio.mp3" type="audio/mpeg">
+    </audio>
     <div><img class="rankingImg"  src="../assets/ranking/ranking.png"></div>
 
     <div class="rankingBg">
