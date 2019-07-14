@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>게임 메인 화면</h1>
+<div class="mainBackground">
+    <h1 class="cate">{{$route.params.cate}}</h1>
     <div class="center" id="quiz" style="left: 20%;">
     </div>
     <div class="alphabet">
@@ -11,7 +11,7 @@
       <button class="but" id="u" v-on:click="check('u')">u</button><button class="but" id="v" v-on:click="check('v')">v</button><button class="but" id="w" v-on:click="check('w')">w</button><button class="but" id="x" v-on:click="check('x')">x</button><button class="but" id="y" v-on:click="check('y')">y</button>
       <button class="but" id="z" v-on:click="check('z')">z</button>
     </div>
-  </div>
+</div>
 </template>
 
 <script>
@@ -102,7 +102,7 @@ export default {
 </script>
 <style>
 .word {
-  background: rgb(225,234,119);
+  background: white;
   border-radius: 5px;
   box-sizing: border-box;
   float: left;
@@ -113,6 +113,12 @@ export default {
   padding: 20px;
   vertical-align: middle;
   text-align: center;
+}
+
+.cate {
+  position: absolute;
+  top: 10%;
+  left: 80%;
 }
 
 .center {
@@ -140,6 +146,16 @@ export default {
   height: 140px;
   text-align: center;
   vertical-align: middle;
+}
+
+.mainBackground {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  background-image: url('../assets/background/main.jpg'); 
+  background-repeat:no-repeat;
+  background-size: cover;
 }
 
 </style>

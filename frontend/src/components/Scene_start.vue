@@ -3,11 +3,27 @@
     <div class='bg' >
         <div class='title'>AiVOCADO</div>
         <img src="../../src/assets/avocado/avocado_1.png" class='avo'>
-        <div class='start'>GAME START</div>
+        <div class='start' v-on:click="go()">GAME START</div>
     </div>
     
 </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+    }
+  },
+  methods: {
+    go(cate){
+      this.$router.push({name: "category"});
+    }
+
+
+  
+}
+}
+</script>
 <style>
 .bg {
         width:100vw;

@@ -34,7 +34,7 @@
 </template>
 
 <style>
-  body {
+  .rankingBackground {
     background-image: url( "../assets/background/category.jpg" );
     background-repeat:no-repeat;
     background-size:cover;
@@ -44,6 +44,9 @@
     height: 100%;
     position: relative;
     text-align: center;
+    background-image: url( "../assets/background/category.jpg" );
+    background-repeat:no-repeat;
+    background-size:cover;
   }
 
   .rankingImg {

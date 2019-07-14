@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="cateBackground">
 <div id="status">
 
 </div>
@@ -175,10 +175,14 @@
             }
         }
         
-        body{
-            background-image: url('../assets/background/category.jpg');
-            background-repeat:no-repeat;
-            background-size: cover;
+        .cateBackground{
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          text-align: center;
+          background-image: url('../assets/background/category.jpg');
+          background-repeat:no-repeat;
+          background-size: cover;
         }
 
         #status {
@@ -274,43 +278,8 @@ export default {
     }
   },
   mounted: async function () {
-    this.printClock();
   },
   methods: {
-
-    async printClock() {
-
-            var clock = await document.getElementById("time");// 출력할 장소 선택
-            var currentDate = new Date();// 현재시간
-            var calendar = currentDate.getFullYear() + "-" + (currentDate.getMonth() + 1) + "-" + currentDate.getDate() // 현재 날짜
-            var amPm = 'AM'; // 초기값 AM
-            var currentHours = this.addZeros(currentDate.getHours(), 2);
-            var currentMinute = this.addZeros(currentDate.getMinutes(), 2);
-            //var currentSeconds = addZeros(currentDate.getSeconds(), 2);
-
-            if (currentHours >= 12) { // 시간이 12보다 클 때 PM으로 세팅, 12를 빼줌
-                amPm = 'PM';
-                currentHours = this.addZeros(currentHours - 12, 2);
-            }
-            console.log(clock);
-            clock.innerHTML = currentHours + ":" + currentMinute  + " <span style='font-size:30px;'>" + amPm + "</span>"; //날짜를 출력해 줌
-
-            setTimeout(() => {
-                this.printClock();
-            }, 60000);
-            //setTimeout(this.printClock(), 60000);  // 1초마다 printClock() 함수 호출
-        },
-
-        addZeros(num, digit) { // 자릿수 맞춰주기
-            var zero = '';
-            num = num.toString();
-            if (num.length < digit) {
-                for (let i = 0; i < digit - num.length; i++) {
-                    zero += '0';
-                }
-            }
-            return zero + num;
-        },
         go(cate){
           this.$router.push({name: "gameMain", params: {cate: cate}});
         }
