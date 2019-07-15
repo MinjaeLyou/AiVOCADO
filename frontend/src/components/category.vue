@@ -298,12 +298,37 @@ export default {
           var options={};
 					document.getElementById('checkrun').innerText = "OK";
           options.voicemsg="카테고리를 선택해주세요"
-            gigagenie.voice.getVoiceText(options,function(result_cd,result_msg,extra){
-                    if(result_cd===200){
-                    //console.log(extra.voicetext+':'+solution);
-                    document.getElementById('checkrun').innerText = extra.voicetext;
-
-                    if(extra.voicetext=="게임시작" || extra.voicetext=="게임 시작"){
+          gigagenie.voice.getVoiceText(options,function(result_cd,result_msg,extra){
+            if(result_cd===200){
+              //console.log(extra.voicetext+':'+solution);
+              document.getElementById('checkrun').innerText = extra.voicetext;
+              switch(extra.voicetext){
+                case "동물":
+                  location.href='/#/main/wordAnimal/voti/80';
+                  break;
+                case "나라":
+                  location.href='/#/main/wordCountry/voti/80';
+                  break;
+                case "음식":
+                  location.href='/#/main/wordFood/voti/80';
+                  break;
+                case "직업":
+                  location.href='/#/main/wordJob/voti/80';
+                  break;
+                case "자연":
+                  location.href='/#/main/wordNature/voti/80';
+                  break;
+                case "학교":
+                  location.href='/#/main/wordSchool/voti/80';
+                  break;
+                case "스포츠":
+                  location.href='/#/main/wordSports/voti/80';
+                  break;
+                case "탈것":
+                  location.href='/#/main/wordVehicle/voti/80';
+                  break;
+              }
+              if(extra.voicetext=="게임시작" || extra.voicetext=="게임 시작"){
                       document.getElementById('checkrun').innerText = "Start Gameeee";
                       //this.$router.push({name: "select"});
                       location.href="/#/select";

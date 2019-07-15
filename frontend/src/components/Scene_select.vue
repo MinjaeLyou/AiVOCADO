@@ -59,12 +59,12 @@ export default {
     async init() {
       console.log("initt");
       //document.getElementById('checkrun').innerText = await "initttttttt";
-		//document.getElementsByClassName("title").innerText = "이성문";
-		var options = {};
-		options.keytype = await "GBOXDEVM"; // 개발(GBOXDEVM) 또는 상용(GBOXCOMM) 키 종류 입력
-    options.apikey = await "RTUwMDI5OTN8R0JPWERFVk18MTU2MTUyMzk3MjI1Ng=="; // 개발자 포털에서 키를 발급받아 입력
-    console.log(options.apikey);
-		gigagenie.init(options, function (result_cd, result_msg, extra) {
+      //document.getElementsByClassName("title").innerText = "이성문";
+      var options = {};
+      options.keytype = await "GBOXDEVM"; // 개발(GBOXDEVM) 또는 상용(GBOXCOMM) 키 종류 입력
+      options.apikey = await "RTUwMDI5OTN8R0JPWERFVk18MTU2MTUyMzk3MjI1Ng=="; // 개발자 포털에서 키를 발급받아 입력
+      console.log(options.apikey);
+      gigagenie.init(options, function (result_cd, result_msg, extra) {
 				if (result_cd === 200) {
 					//init 성공
           //함수 호출 및 개발 진행
@@ -77,19 +77,19 @@ export default {
               document.getElementById('checkrun').innerText = extra.voicetext;
 
               if(extra.voicetext=="보티"){
-                location.href="/#/category/" + this.users[0].userId+'/'+this.users[0].score;
+                location.href="/#/category/voti/50";
               }
               else if(extra.voicetext=="아티"){
-                location.href="/#/category/" + this.users[1].userId+'/'+this.users[1].score;
+                location.href="/#/category/ati/80";
               }
               else if(extra.voicetext=="케티"){
-                location.href="/#/category/" + this.users[2].userId+'/'+this.users[2].score;
+                location.href="/#/category/keti/30";
               }
               else if(extra.voicetext=="카티"){
-                location.href="/#/category/" + this.users[3].userId+'/'+this.users[3].score;
+                location.href="/#/category/kati/10";
               }
               else if(extra.voicetext=="도티"){
-                location.href="/#/category/" + this.users[4].userId+'/'+this.users[4].score;
+                location.href="/#/category/doti/70";
               }
             }
           });
