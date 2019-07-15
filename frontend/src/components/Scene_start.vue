@@ -22,7 +22,9 @@ export default {
   },
   methods: {
     go(){
-      this.$router.push({name: "select"});
+      document.getElementById('checkrun').innerText = "Goooo";
+      location.href="/#/select";
+      //this.$router.push({name: "select"});
     },
     // 서비스 초기화
     async init() {
@@ -44,6 +46,7 @@ export default {
                     document.getElementById('checkrun').innerText = extra.voicetext;
 
                     if(extra.voicetext=="게임시작" || extra.voicetext=="게임 시작"){
+                      document.getElementById('checkrun').innerText = "Start Gameeee";
                       //this.$router.push({name: "select"});
                       this.go();
                     }
