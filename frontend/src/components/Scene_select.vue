@@ -3,6 +3,7 @@
         <br>
         <div style="text-align:center;"><img src="../assets/background/selecttitle.png" id="select_title"></div>
         <div id="container">
+            <div id="checkrun" style="height: 50px; text-align: center;z-index:1"> init?>> </div>
             <button v-on:click="go(users[0])" class="user_bt"><img src="../assets/character/voti.png" class="avocado" style="animation-name:vibrate1;" ></button>
             <button v-on:click="go(users[1])" class="user_bt"><img src="../assets/character/ati.png" class="avocado" style="animation-name:vibrate2;" ></button>
             <button v-on:click="go(users[2])" class="user_bt"><img src="../assets/character/keti.png" class="avocado" style="animation-name:vibrate3;" ></button>
@@ -14,8 +15,6 @@
             <textarea class="avocado_name">{{users[2].name}}</textarea>
             <textarea class="avocado_name">{{users[3].name}}</textarea>
             <textarea class="avocado_name">{{users[4].name}}</textarea>
-
-            <div id="checkrun" style="height: 50px; text-align: center;z-index:1"> init?>> </div>
         </div>   
     </div>
 
