@@ -1,7 +1,7 @@
 <template>
     <div id="bg_select">
         <br>
-        <div id="checkrun" style="height: 50px; text-align: center;z-index:1"> init?>> </div>
+        
         <div style="text-align:center;"><img src="../assets/background/selecttitle.png" id="select_title"></div>
         <div id="container">
             <button v-on:click="go(users[0])" class="user_bt">
@@ -24,7 +24,9 @@
                 <img src="../assets/character/doti.png" class="avocado" style="animation-name:vibrate1;" >
                 <textarea class="avocado_name">{{users[4].name}}</textarea>
             </button>
-        </div>   
+            <div id="checkrun" style="height: 50px; text-align: center;z-index:1"> init?>> </div>   
+        </div>
+        
     </div>
 
 </template>
@@ -37,16 +39,16 @@ export default {
       users: []
     }
   },
+  created: async function() {
+    const result = await this.$http.get('api/users/getUser');
+    this.users = result.data;
+    console.log(this.users);
+  },
   mounted(){
     //this.init();
     this.$nextTick(() => {
       this.init();
     });
-  },
-  created: async function() {
-    const result = await this.$http.get('api/users/getUser');
-    this.users = result.data;
-    console.log(this.users);
   },
   methods: {
     go(user){
@@ -56,7 +58,7 @@ export default {
     // 초기화
     async init() {
       console.log("initt");
-      //document.getElementById('checkrun').innerText = "initttttttt";
+      //document.getElementById('checkrun').innerText = await "initttttttt";
 		//document.getElementsByClassName("title").innerText = "이성문";
 		var options = {};
 		options.keytype = await "GBOXDEVM"; // 개발(GBOXDEVM) 또는 상용(GBOXCOMM) 키 종류 입력
@@ -67,7 +69,7 @@ export default {
 					//init 성공
           //함수 호출 및 개발 진행
           var options={};
-					document.getElementById('checkrun').innerText = "OK";
+					//document.getElementById('checkrun').innerText = "OK";
           options.voicemsg="캐릭터를 선택해주세요"
           gigagenie.voice.getVoiceText(options,function(result_cd,result_msg,extra){
             if(result_cd===200){
