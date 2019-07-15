@@ -1,9 +1,6 @@
 <template>
     <div id="bg_select">
         <br>
-        <audio autoplay>
-            <source src="../assets/sound/startmusic.mp3" type="audio/mpeg">
-        </audio>
         <div style="text-align:center;"><img src="../assets/background/selecttitle.png" id="select_title"></div>
         <div id="container">
             <button v-on:click="go(users[0])" class="user_bt"><img src="../assets/character/voti.png" class="avocado" style="animation-name:vibrate1;" ></button>
@@ -17,6 +14,8 @@
             <textarea class="avocado_name">{{users[2].name}}</textarea>
             <textarea class="avocado_name">{{users[3].name}}</textarea>
             <textarea class="avocado_name">{{users[4].name}}</textarea>
+
+            <div id="checkrun" style="height: 50px; text-align: center;z-index:1"> init?>> </div>
         </div>   
     </div>
 
@@ -56,9 +55,17 @@ export default {
 				gigagenie.voice.sendTTS(options,function(result_cd,result_msg,extra){
 						if(result_cd===200){
 							document.getElementById('checkrun').innerText = extra.voicetext;
-                            if(extra.voicetext=="도티"){
-                                
+                            
+                            gigagenie.voice.getVoiceText(options,function(result_cd,result_msg,extra){
+                            if(result_cd===200){
+                            //console.log(extra.voicetext+':'+solution);
+                                document.getElementById('checkrun').innerText = extra.voicetext;
+
+                                if(extra.voicetext=="보티"){
+                                    this.go(users[0]);
+                                }
                             }
+                        });
 						} else {
 							//extra.reason 에 voice 오류 전달
 					   };
