@@ -1,71 +1,86 @@
 <template>
-  <div class="divBg">
+  
     <div class="third">
+      
       <main>
         여기에 메인 화면
       </main>
+
+      <div class = "message_contianer">
+        <img id = "m_img" src = "../assets/gif/success.gif">
+        <img id = "m_text" src ="../assets/gif/goodjob.gif">
+      </div>
+      
       <div class="caption">
         <div class="content">
-          <h3>Swimming</h3>
+          <span>Swimming</span>
         </div>
         <div class="content">
-          <span class="span">수영</span>
+          <span>수영</span>
         </div>
         <div class="content">
-          <span>명사</span>
+          <span>명사(n)</span>
         </div>
       </div>
+
     </div>
-  </div>
+  
 </template>
 
 <script>
-//const clockContainer = this.$el.querySelector(".js-clock"),
-  //clockTitle = clockContainer.querySelector("h1");
-// export default {
-//   data() {
-//     return {
-//       user: {},
-//     }
-//   },
-//   created: async function () {
-//     this.init();
+/*
+$( document ).ready(function() {
+  var speed = 75;
+  typeEffect($('#m_text'), speed);
 
-//   },
-//   methods : {
-//     init() {
-//   getTime();
-//   setInterval(getTime, 1000);
-// },
-// getTime() {
-//   const date = new Date();
-//   const minutes = date.getMinutes();
-//   const hours = date.getHours();
-//   clockTitle.innerText = `${hours < 10 ? `0${hours}` : hours}:${
-//     minutes < 10 ? `0${minutes}` : minutes
-//   }`;
-// }
+});
+*/
 
-//   }
-// }
+export default {
+  data() {
+    return { 
+      user: {},
+    }
+  },
+  mounted: async function () {
+  },
+  methods: {
+        go(cate){
+          this.$router.push({name: "gameMain", params: {cate: cate}});
+        },
+
+        /*typeEffect(element, speed) {
+          var text = $(element).text();
+          $(element).html('');
+          
+          var i = 0;
+          var timer = setInterval(function() {
+					if (i < text.length) {
+						$(element).append(text.charAt(i));
+						i++;
+					} else {
+						clearInterval(timer);
+					}
+				}, speed);
+        }
+        */
+  
+}
+}
+
 </script>
 
 <style>
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600");
+@import url("https://fonts.googleapis.com/css?family=Monoton");
 * {
   box-sizing: border-box;
 }
 
-.divBg {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  background-color: #f6f5f6;
-  font-weight: 400;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+.message_contianer{
+  height:50%;
+  width:50%;
 }
 
 /*body {*/
@@ -85,60 +100,61 @@ main {
   position: absolute;
 }
 
-.caption {
-  background: #2c3f52;
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: #ed4e6e;
+#m_img{
+  top : 30%;
+  left : 50%;
+  transform : translateX(-50%);
+  position : absolute;
+  float : left;
+
 }
 
-.content {
-  width: 30%;
-  height: 30%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#m_text{
+  top:30%;
+  left:60%;
+  position : absolute;
+  float : left;
 }
 
-.caption .span {
-  padding: 5px 10px;
-  text-decoration: none;
-  border-radius: 2px;
-  background: #ed4e6e;
-  margin-top: 10px;
-  color: white;
-}
-
-.caption h3 {
-  margin: 0;
-  padding: 0;
-  margin-bottom: 5px;
-  color: #fff;
-}
 
 .third {
   width: 100%;
   height: 100%;
   text-align: left;
-  position: relative;
-  overflow: hidden;
-  background-color: #2c3f52;
+  position: absolute;
+
+  background-image: url('../assets/background/meaning.jpg');
+  background-repeat:no-repeat;
+  background-size: cover;
 }
 
-.third .caption {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding: 30px 20px;
-  position: absolute;
-  z-index: 2;
+.caption {
+  height: 40%;
+  width: 80%;
+  padding: 20px 5px 20px 5px;
+  position:absolute;
+  left:50%;
+  top:60%;
+  transform: translatex(-50%);
+  display : flex;
+  justify-content : space-around;
+  align-items : center;
+}
+
+.caption .content {
+  font-size: 50px;
+  text-align:center;
+  width:20%;
+  padding:10px 30px 10px 30px;
+  margin: 20px;
+  background: #385723; 
+  color: white;
+  border-radius: 40px;
+  transform: translateY(-20%);
 }
 
 .third:hover main {
-  transform: translateY(-50px) scale(0.5);
+  display:none;
 }
 
 </style>
