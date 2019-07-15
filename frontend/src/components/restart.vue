@@ -3,8 +3,10 @@
     <audio autoplay>
       <source src="../assets/sound/gameAudio.mp3" type="audio/mpeg">
     </audio>
+
     <div class="ch">
       <div><img class="charImg"  src="../assets/gif/success.gif"></div>
+      
       <div class="buttons">
         <button class='again' v-on:click="goAgain()">
           <img class='againImg' src="../assets/restart/againBtn.png">
@@ -13,7 +15,9 @@
             <img class='exitImg' src="../assets/restart/exitBtn.png">
         </button>
       </div>
+
     </div>
+
   </div>
 </template>
 
@@ -27,25 +31,27 @@
           background-image: url('../assets/restart/restart.png');
           background-position: center;
           background-repeat:no-repeat;
-  } 
-
-  .ch{
-    position: absolute;
   }
 
+  .ch{
+    position:absolute;
+    top:25%;
+    left:30%;
+  } 
+
   .charImg{
+    float:left;
     height:70%;
-    margin-top: 40%;
   }
 
   .buttons{
-    display: flex;
+    float:right;
+    height: 30%;
   }
 
   .again{
     border-width:0;
     background:none;
-    margin-left: 170%;
     position: relative;
     text-align: right;
   }
@@ -53,7 +59,6 @@
   .exit{
     border-width:0;
     background:none;
-    margin-left:5%;
     position: relative;
     text-align: right;
   }
