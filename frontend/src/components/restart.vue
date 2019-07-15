@@ -6,12 +6,12 @@
     <div class="ch">
       <div><img class="charImg"  src="../assets/gif/success.gif"></div>
       <div class="buttons">
-        <span class='again' v-on:click="goAgain()">
+        <button class='again' v-on:click="goAgain()">
           <img class='againImg' src="../assets/restart/againBtn.png">
-        </span>
-        <span class='exit' v-on:click="Exit()">
+        </button>
+        <button class='exit' v-on:click="Exit()">
             <img class='exitImg' src="../assets/restart/exitBtn.png">
-        </span>
+        </button>
       </div>
     </div>
   </div>
@@ -43,12 +43,16 @@
   }
 
   .again{
+    border-width:0;
+    background:none;
     margin-left: 170%;
     position: relative;
     text-align: right;
   }
 
   .exit{
+    border-width:0;
+    background:none;
     margin-left:5%;
     position: relative;
     text-align: right;
