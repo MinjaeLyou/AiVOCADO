@@ -186,7 +186,7 @@
         }
 
         #status {
-            height: 10%
+            height: 5%
         }
 
         #category {
@@ -216,7 +216,7 @@
         }
 
         #footer{
-            height: 20%;
+            height: 25%;
         }
 
         .logo {

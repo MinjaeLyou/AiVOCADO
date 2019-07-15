@@ -35,10 +35,7 @@
 
   .charImg{
     height:70%;
-    margin-left: 80%;
     margin-top: 40%;
-    position: relative;
-    text-align: left;
   }
 
   .buttons{
