@@ -48,7 +48,7 @@ export default {
                     if(extra.voicetext=="게임시작" || extra.voicetext=="게임 시작"){
                       document.getElementById('checkrun').innerText = "Start Gameeee";
                       //this.$router.push({name: "select"});
-                      this.go();
+                      location.href="/#/select";
                     }
 
                     //document.getElementById('checkrun').innerText = "김가연";
