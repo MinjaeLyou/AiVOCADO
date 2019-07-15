@@ -51,7 +51,8 @@ export default {
     },
     // 초기화
     async init() {
-		document.getElementsByClassName("title").innerText = "이성문";
+      document.getElementById('checkrun').innerText = "initttttttt";
+		//document.getElementsByClassName("title").innerText = "이성문";
 		var options = {};
 		options.keytype = "GBOXDEVM"; // 개발(GBOXDEVM) 또는 상용(GBOXCOMM) 키 종류 입력
 		options.apikey = "RTUwMDI5OTN8R0JPWERFVk18MTU2MTUyMzk3MjI1Ng=="; // 개발자 포털에서 키를 발급받아 입력
