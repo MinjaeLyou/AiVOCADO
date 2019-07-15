@@ -151,7 +151,7 @@ export default {
           margin : 0;
           width:100%;
           height:80%;
-          left:0;
+          left:3%;
           display : flex;
           justify-content : space-between;
           align-items:flex-start;
