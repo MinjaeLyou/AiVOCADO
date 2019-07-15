@@ -1,12 +1,10 @@
 <template>
   <div class="startBg">
-    <audio autoplay>
-      <source src="../assets/sound/startmusic.mp3" type="audio/mpeg">
-    </audio>
     <div id = "backimg">
       <img src = "../assets/gif/startgif.gif">
     </div>
     <button class="startbutton" v-on:click="go()"><img src="../assets/background/gamestart.png"></button>
+    <div id="checkrun" style="height: 50px; text-align: center;z-index:1"> init?>> </div>
     <div id = "backimg2">
       <img src = "../assets/gif/startgif.gif">
     </div>
@@ -19,42 +17,92 @@ export default {
     return {
     }
   },
+  mounted(){
+    this.init();
+  },
   methods: {
     go(cate){
       this.$router.push({name: "select"});
     },
     // 서비스 초기화
-    init() {
-      document.getElementsByClassName("title").innerText = "이성문";
-      var options = {};
-      options.keytype = "GBOXDEVM"; // 개발(GBOXDEVM) 또는 상용(GBOXCOMM) 키 종류 입력
-      options.apikey = "RTUwMDI5OTN8R0JPWERFVk18MTU2MTUyMzk3MjI1Ng=="; // 개발자 포털에서 키를 발급받아 입력
-      gigagenie.init(options, function (result_cd, result_msg, extra) {
-        if (result_cd === 200) {
-          //init 성공
-          //함수 호출 및 개발 진행
-          //document.getElementById('checkrun').innerText = "OK";
+    async init() {
+      console.log("inittttt");
+      //var options = {};
+			var options = {};
+			options.keytype = await "GBOXDEVM"; // 개발(GBOXDEVM) 또는 상용(GBOXCOMM) 키 종류 입력
+			options.apikey = await "RTUwMDI5OTN8R0JPWERFVk18MTU2MTUyMzk3MjI1Ng=="; // 개발자 포털에서 키를 발급받아 입력
+			gigagenie.init(options, function (result_cd, result_msg, extra) {
+				if (result_cd === 200) {
+					//init 성공
+					//함수 호출 및 개발 진행
+					document.getElementById('checkrun').innerText = "OK";
 
-          var options={};
-          options.ttstext="이쿠조 이쿠조 이쿠조";
-          //startAvocado();
-          gigagenie.voice.sendTTS(options,function(result_cd,result_msg,extra){
-              if(result_cd===200){
-                startAvocado();
-                //do next action
-              } else {
-                //extra.reason 에 voice 오류 전달.
-              };
-          });
+					//callback 방식
+					var options={};
+          options.ttstext="기가지니[P2]기가지니[P2]기가지니[P2]기가지니[P2]";
+          //this.startAvocado();
+					gigagenie.voice.sendTTS(options,function(result_cd,result_msg,extra){
+					    if(result_cd===200){
+                  //do next action
+                  document.getElementById('checkrun').innerText = "OKKKKK";
+                  options.voicemsg="게임시작을 말해주세요"
+                  gigagenie.voice.getVoiceText(options,function(result_cd,result_msg,extra){
+                    if(result_cd===200){
+                    //console.log(extra.voicetext+':'+solution);
+                    document.getElementById('checkrun').innerText = extra.voicetext;
 
+                    if(extra.voicetext=="게임시작" || extra.voicetext=="게임 시작"){
+                      location.href="template.html";
+                    }
 
-        };
-      });
-    }
-  },
-  mounted(){
-    this.callFunction();
-  }
+                    //document.getElementById('checkrun').innerText = "김가연";
+                    // if(parseInt(extra.voicetext)===solution){
+                    // 	alert(extra.voicetext+" 정답입니다");
+                    // } else {
+                    // 	alert(extra.voicetext+" 틀렸습니다.");
+                    // }
+                    // } else {
+                    // alert("다시해보세요");
+                    }
+                  });
+                  //this.startAvocado();
+					    } else {
+					        //extra.reason 에 voice 오류 전달.
+					    };
+					});
+				};
+			});
+    },
+    startAvocado(){
+		document.getElementById('checkrun').innerText = "START";
+		var options={};
+		//options.voicelanguage=1;
+		//var numbers=getNumber();
+		//options.voicemsg=numbers[0]+' '+numbers[1];
+		//var solution=numbers[0]*numbers[1];
+    options.voicemsg="게임시작을 말해주세요"
+		gigagenie.voice.getVoiceText(options,function(result_cd,result_msg,extra){
+			if(result_cd===200){
+			//console.log(extra.voicetext+':'+solution);
+			document.getElementById('checkrun').innerText = extra.voicetext;
+
+			if(extra.voicetext=="게임시작" || extra.voicetext=="게임 시작"){
+				location.href="template.html";
+			}
+
+			//document.getElementById('checkrun').innerText = "김가연";
+			// if(parseInt(extra.voicetext)===solution){
+			// 	alert(extra.voicetext+" 정답입니다");
+			// } else {
+			// 	alert(extra.voicetext+" 틀렸습니다.");
+			// }
+			// } else {
+			// alert("다시해보세요");
+			}
+		});
+	}
+  
+  }  
 }
 </script>
 <style>
