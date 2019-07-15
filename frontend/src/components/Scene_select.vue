@@ -1,5 +1,6 @@
 <template>
     <div id="bg_select">
+        <br>
         <div id="checkrun" style="height: 50px; text-align: center;z-index:1"> init?>> </div>
         <div style="text-align:center;"><img src="../assets/background/selecttitle.png" id="select_title"></div>
         <div id="container">
@@ -147,7 +148,7 @@ export default {
           /* background-color: white; */
           position:relative;
           margin : 0;
-          padding : 10% 5%;
+          padding : 0 5%;
           width:100%;
           height:80%;
           display : flex;
