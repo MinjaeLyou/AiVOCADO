@@ -3,17 +3,26 @@
         <br>
         <div style="text-align:center;"><img src="../assets/background/selecttitle.png" id="select_title"></div>
         <div id="container">
-            <button v-on:click="go(users[0])" class="user_bt"><img src="../assets/character/voti.png" class="avocado" style="animation-name:vibrate1;" ></button>
-            <button v-on:click="go(users[1])" class="user_bt"><img src="../assets/character/ati.png" class="avocado" style="animation-name:vibrate2;" ></button>
-            <button v-on:click="go(users[2])" class="user_bt"><img src="../assets/character/keti.png" class="avocado" style="animation-name:vibrate3;" ></button>
-            <button v-on:click="go(users[3])" class="user_bt"><img src="../assets/character/kati.png" class="avocado" style="animation-name:vibrate2;" ></button>
-            <button v-on:click="go(users[4])" class="user_bt"><img src="../assets/character/doti.png" class="avocado" style="animation-name:vibrate1;" ></button>
-            <br>
-            <textarea class="avocado_name">{{users[0].name}}</textarea>
-            <textarea class="avocado_name">{{users[1].name}}</textarea>
-            <textarea class="avocado_name">{{users[2].name}}</textarea>
-            <textarea class="avocado_name">{{users[3].name}}</textarea>
-            <textarea class="avocado_name">{{users[4].name}}</textarea>
+            <button v-on:click="go(users[0])" class="user_bt">
+                <img src="../assets/character/voti.png" class="avocado" style="animation-name:vibrate1;" >
+                <textarea class="avocado_name">{{users[0].name}}</textarea>
+            </button>
+            <button v-on:click="go(users[1])" class="user_bt">
+                <img src="../assets/character/ati.png" class="avocado" style="animation-name:vibrate2;" >
+                <textarea class="avocado_name">{{users[1].name}}</textarea>
+            </button>
+            <button v-on:click="go(users[2])" class="user_bt">
+                <img src="../assets/character/keti.png" class="avocado" style="animation-name:vibrate3;" >
+                <textarea class="avocado_name">{{users[2].name}}</textarea>
+            </button>
+            <button v-on:click="go(users[3])" class="user_bt">
+                <img src="../assets/character/kati.png" class="avocado" style="animation-name:vibrate2;" >
+                <textarea class="avocado_name">{{users[3].name}}</textarea>
+            </button>
+            <button v-on:click="go(users[4])" class="user_bt">
+                <img src="../assets/character/doti.png" class="avocado" style="animation-name:vibrate1;" >
+                <textarea class="avocado_name">{{users[4].name}}</textarea>
+            </button>
 
             <div id="checkrun" style="height: 50px; text-align: center;z-index:1"> init?>> </div>
         </div>   
@@ -111,13 +120,13 @@ export default {
       .user_bt{
           background:none;
           border:none;
-          display:inline-block;
+          display:block;
           position:relative;
-          width:10%;
+          text-align:center;
+          flex-wrap:nowrap;
+          width:13%;
           height:40%;
           top:5%;
-
-          margin:30px;
       }
       .avocado{
           animation-duration:1s; 
@@ -130,8 +139,8 @@ export default {
           background:none;
           border-width:0;
           position:relative;
-          width:15%;
-          margin:30px;
+          width:100%;
+          margin:50px 0;
           text-align:center;
           font-size:50px;
           font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -139,9 +148,13 @@ export default {
       #container{
           /* background-color: white; */
           position:relative;
-          width:80%;
+          margin : 0;
+          width:100%;
           height:80%;
           left:10%;
+          display : flex;
+          justify-content : space-between;
+          align-items:center;
       }
 
       @keyframes vibrate1{
