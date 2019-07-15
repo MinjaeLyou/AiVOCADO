@@ -8,6 +8,7 @@
     <h1 class="cate">{{cate}}</h1>
     <div class="center" id="quiz" style="left: 20%;">
     </div>
+    <div id="checkrun" style="height: 50px; text-align: center;z-index:1 top: 10%"> init?>> </div>
     <div class="alphabet">
       <button class="but" id="a" v-on:click="check('a')" >a</button><button class="but" id="b" v-on:click="check('b')">b</button><button class="but" id="c" v-on:click="check('c')">c</button><button class="but" id="d" v-on:click="check('d')">d</button><button class="but" id="e" v-on:click="check('e')">e</button>
       <button class="but" id="f" v-on:click="check('f')">f</button><button class="but" id="g" v-on:click="check('g')">g</button><button class="but" id="h" v-on:click="check('h')">h</button><button class="but" id="i" v-on:click="check('i')">i</button><button class="but" id="j" v-on:click="check('j')">j</button>
@@ -35,7 +36,7 @@ export default {
     }
   },
   mounted: async function(){
-    
+    this.init();
   },
   created: async function () {
     const wordId = await Math.floor(Math.random() * 25) + 1;
@@ -105,6 +106,7 @@ export default {
     },
     async check(ans){
       console.log(ans);
+      document.getElementById('checkrun').innerText = 'check is a';
       document.getElementById(ans).disabled = true;
       document.getElementById(ans).style.opacity = "0.3";
       for ( let i = 0; i < this.len; i++){
@@ -148,6 +150,43 @@ export default {
         console.log("Fail!");
         this.$router.push({name: "ranking"});
       }
+    },
+    async init() {
+      //var options = {};
+			var options = {};
+			options.keytype = await "GBOXDEVM"; // 개발(GBOXDEVM) 또는 상용(GBOXCOMM) 키 종류 입력
+			options.apikey = await "RTUwMDI5OTN8R0JPWERFVk18MTU2MTUyMzk3MjI1Ng=="; // 개발자 포털에서 키를 발급받아 입력
+			gigagenie.init(options, function (result_cd, result_msg, extra) {
+				if (result_cd === 200) {
+					//init 성공
+          //함수 호출 및 개발 진행
+          var options={};
+					document.getElementById('checkrun').innerText = "OK";
+          options.voicemsg="알파벳을 말해주세요"
+          gigagenie.voice.getVoiceText(options,function(result_cd,result_msg,extra){
+            if(result_cd===200){
+              //console.log(extra.voicetext+':'+solution);
+              document.getElementById('checkrun').innerText = extra.voicetext;
+              switch(extra.voicetext){
+                case '에이' || '애이':
+                  document.getElementById('checkrun').innerText = 'a';
+                  this.check('a');
+                  break;
+              }
+              
+
+              //document.getElementById('checkrun').innerText = "김가연";
+              // if(parseInt(extra.voicetext)===solution){
+              // 	alert(extra.voicetext+" 정답입니다");
+              // } else {
+              // 	alert(extra.voicetext+" 틀렸습니다.");
+              // }
+                    // } else {
+                    // alert("다시해보세요");
+            }
+          });
+				};
+			});
     }
   },
 }
