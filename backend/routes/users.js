@@ -33,7 +33,8 @@ router.get('/score/:userId/:name', wrap(async (req, res) => {
   const score = await models.user.findOne({
     where: {
       userId: req.params.userId,
-      name: req.params.name
+      name: req.params.name,
+      image: req.params.image
     }
   });
   res.send(score);

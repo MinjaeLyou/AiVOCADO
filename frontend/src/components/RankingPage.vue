@@ -9,25 +9,25 @@
       <ul>
         <li>
           <span class="medal"><img class="medalImg" src="../assets/ranking/gold-medal.png"></span>
-          <span class="userImg"><img class="img" src="../assets/character/doti.png"></span>
+          <span class="userImg"><img class="img" :src="require('@/assets/character/keti.png')"></span>
           <span class="userName">{{ users[0].name }}</span>
           <span class="score">{{ users[0].score }}</span>
         </li>
         <li>
           <span class="medal"><img class="medalImg" src="../assets/ranking/silver-medal.png"></span>
-          <span class="userImg"><img class="img" src="../assets/character/ati.png"></span>
+          <span class="userImg"><img class="img" :src= "require('@/assets/character/voti.png')"></span>
           <span class="userName">{{ users[1].name }}</span>
           <span class="score">{{ users[1].score }}</span>
         </li>
         <li>
           <span class="medal"><img class="medalImg" src="../assets/ranking/bronze-medal.png"></span>
-          <span class="userImg"><img class="img" src="../assets/character/kati.png"></span>
+          <span class="userImg"><img class="img"  :src= "require('@/assets/character/doti.png')" ></span>
           <span class="userName">{{ users[2].name }}</span>
           <span class="score">{{ users[2].score }}</span>
         </li>
         <li>
           <span class="medal"><img class="forthMedalImg" src="../assets/ranking/4th.png"></span>
-          <span class="userImg"><img class="img" src="../assets/character/voti.png"></span>
+          <span class="userImg"><img class="img" :src= "require('@/assets/character/ati.png')"></span>
           <span class="userName">{{ users[3].name }}</span>
           <span class="score">{{ users[3].score }}</span>
         </li>
@@ -36,16 +36,12 @@
   </div>
 </template>
 
-<style>
-  .rankingBackground {
-    background-image: url( "../assets/background/category.jpg" );
-    background-repeat:no-repeat;
-    background-size:cover;
-  }
 
+<style>
   .ranking {
     height: 100%;
-    position: relative;
+    width: 100%;
+    position: absolute;
     text-align: center;
     background-image: url( "../assets/background/category.jpg" );
     background-repeat:no-repeat;
@@ -163,19 +159,26 @@ export default {
     }
   },
   created: async function () {
-    // this.$http.get('/api/movies')
-    // .then((response) => {
-    //   this.movies = response.data
-    //   console.log(this.movies);
-    // })
+
     const result = await this.$http.get('api/users/getScore');
     console.log("user is", result.data);
     this.users = result.data;
+    this.users[2].image = "'@/assets/character/voti.png'"
+    console.log(this.users[2].image);
+  },
+  methods: {
+    goRestart(rest){
+      this.$router.push({name: "restart"});
+    },
+    callFunction() {
+      var self = this;
+      setTimeout(function() {
+        self.goRestart() 
+      }, 3000);
+    }
+  },
+  mounted(){
+    this.callFunction();
   }
-  // data () {
-  //   return {
-  //     movies: []
-  //   }
-  // }
 }
 </script>

@@ -10,6 +10,7 @@ import "expose-loader?$!expose-loader?jQuery!jquery";
 import Category from "@/components/Category";
 import RankingPage from '@/components/RankingPage';
 import GameMain from "@/components/gameMain";
+import Restart from "@/components/restart";
 
 Vue.use(Router);
 
@@ -54,6 +55,21 @@ export default new Router({
       path: '/main/:cate',
       name: 'gameMain',
       component: GameMain
+    },
+    {
+      path: '/main/:st',
+      name: 'start',
+      component: StartPage
+    },
+    {
+      path: '/main/:rest',
+      name: 'restart',
+      component: Restart
+    },
+    {
+      path: '/restart',
+      name: 'restart',
+      component: Restart
     }
   ]
 });
