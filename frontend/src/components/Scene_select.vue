@@ -151,10 +151,10 @@ export default {
           margin : 0;
           width:100%;
           height:80%;
-          left:10%;
+          left:0;
           display : flex;
           justify-content : space-between;
-          align-items:center;
+          align-items:flex-start;
       }
 
       @keyframes vibrate1{
