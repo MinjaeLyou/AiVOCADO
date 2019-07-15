@@ -1,6 +1,6 @@
 <template>
     <div id="bg_select">
-        <br>
+        <div id="checkrun" style="height: 50px; text-align: center;z-index:1"> init?>> </div>
         <div style="text-align:center;"><img src="../assets/background/selecttitle.png" id="select_title"></div>
         <div id="container">
             <button v-on:click="go(users[0])" class="user_bt">
@@ -23,8 +23,6 @@
                 <img src="../assets/character/doti.png" class="avocado" style="animation-name:vibrate1;" >
                 <textarea class="avocado_name">{{users[4].name}}</textarea>
             </button>
-
-            <div id="checkrun" style="height: 50px; text-align: center;z-index:1"> init?>> </div>
         </div>   
     </div>
 
@@ -149,11 +147,11 @@ export default {
           /* background-color: white; */
           position:relative;
           margin : 0;
+          padding : 10% 5%;
           width:100%;
           height:80%;
-          left:3%;
           display : flex;
-          justify-content : space-between;
+          justify-content : space-around;
           align-items:flex-start;
       }
 
