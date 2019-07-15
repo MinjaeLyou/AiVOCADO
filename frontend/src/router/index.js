@@ -6,8 +6,8 @@ import ShowPage from "@/components/showPage";
 import RegisterPage from "@/components/Register";
 import StartPage from "@/components/Scene_start";
 import "expose-loader?$!expose-loader?jQuery!jquery";
-import sub from "@/components/sub";
-import Category from "@/components/Category";
+import MeaningPage from "@/components/meaningPage";
+import Category from "@/components/category";
 import RankingPage from '@/components/RankingPage';
 import GameMain from "@/components/gameMain";
 import SelectPage from "@/components/Scene_select";
@@ -42,9 +42,9 @@ export default new Router({
       component: SelectPage
     },	      
     {
-      path: "/sub",
-      name: "subsub",
-      component: sub
+      path: "/meaning",
+      name: "meaningPage",
+      component: MeaningPage
     },
     {
       path: '/category/:user',
