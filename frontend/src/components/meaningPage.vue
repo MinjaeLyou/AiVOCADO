@@ -1,5 +1,4 @@
-<template>
-  
+<template>  
     <div class="third">
       
       <main>
