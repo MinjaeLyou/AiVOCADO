@@ -63,10 +63,24 @@ export default {
                             if(result_cd===200){
                             //console.log(extra.voicetext+':'+solution);
                                 document.getElementById('checkrun').innerText = extra.voicetext;
+                                var self = this;
 
                                 if(extra.voicetext=="보티"){
-                                    this.go(users[0]);
+                                    self.go(users[0]);
                                 }
+                                else if(extra.voicetext=="아티"){
+                                    self.go(users[1]);
+                                }
+                                else if(extra.voicetext=="게티"){
+                                    self.go(users[2]);
+                                }
+                                else if(extra.voicetext=="카티"){
+                                    self.go(users[3]);
+                                }
+                                else if(extra.voicetext=="도티"){
+                                    self.go(users[4]);
+                                }
+
                             }
                         });
 						} else {
