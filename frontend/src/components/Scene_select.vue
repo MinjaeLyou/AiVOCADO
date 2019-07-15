@@ -113,7 +113,7 @@ export default {
           border:none;
           display:inline-block;
           position:relative;
-          width:15%;
+          width:10%;
           height:40%;
           top:5%;
 
