@@ -36,17 +36,17 @@
             Nature<br><img class= "cg-img"  src="../assets/category/sprout.png">
         </div>
     </div>
-    <div class="category-container">
+    <div class="category-container" v-on:click="go('wordSchool')">
         <div class="cg-name">
             School<br><img class= "cg-img"  src="../assets/category/blackboard.png">
         </div>
     </div>
-    <div class="category-container">
+    <div class="category-container" v-on:click="go('wordSports')">
         <div class="cg-name">
             Sports<br><img class= "cg-img"  src="../assets/category/football.png">
         </div>
     </div>
-    <div class="category-container">
+    <div class="category-container" v-on:click="go('wordVehicle')">
         <div class="cg-name">
             Vehicle<br><img class= "cg-img"  src="../assets/category/car.png">
         </div>
