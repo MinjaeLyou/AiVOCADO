@@ -63,22 +63,21 @@ export default {
                             if(result_cd===200){
                             //console.log(extra.voicetext+':'+solution);
                                 document.getElementById('checkrun').innerText = extra.voicetext;
-                                var self = this;
 
                                 if(extra.voicetext=="보티"){
-                                    self.go(users[0]);
+                                    location.href="/#/category:" + this.users[0];
                                 }
                                 else if(extra.voicetext=="아티"){
-                                    self.go(users[1]);
+                                    this.go(this.users[1]);
                                 }
                                 else if(extra.voicetext=="게티"){
-                                    self.go(users[2]);
+                                    this.go(this.users[2]);
                                 }
                                 else if(extra.voicetext=="카티"){
-                                    self.go(users[3]);
+                                    this.go(this.users[3]);
                                 }
                                 else if(extra.voicetext=="도티"){
-                                    self.go(users[4]);
+                                    this.go(this.users[4]);
                                 }
 
                             }
