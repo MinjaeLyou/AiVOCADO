@@ -28,6 +28,9 @@ export default {
       users: []
     }
   },
+  mounted(){
+    this.init();
+  },
   created: async function() {
     const result = await this.$http.get('api/users/getUser');
     this.users = result.data;
@@ -96,7 +99,7 @@ export default {
           border:none;
           display:inline-block;
           position:relative;
-          width:15%;
+          width:10%;
           height:40%;
           top:5%;
 
