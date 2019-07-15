@@ -5,12 +5,13 @@ import IndexPage from "@/components/IndexPage";
 import ShowPage from "@/components/showPage";
 import RegisterPage from "@/components/Register";
 import StartPage from "@/components/Scene_start";
-import sub from "@/components/sub";
 import "expose-loader?$!expose-loader?jQuery!jquery";
-import Category from "@/components/Category";
+import MeaningPage from "@/components/meaningPage";
+import Category from "@/components/category";
 import RankingPage from '@/components/RankingPage';
 import GameMain from "@/components/gameMain";
 import Restart from "@/components/restart";
+import SelectPage from "@/components/Scene_select";
 
 Vue.use(Router);
 
@@ -37,12 +38,17 @@ export default new Router({
       component: StartPage
     },
     {
-      path: "/sub",
-      name: "subsub",
-      component: sub
+      path: "/select",
+      name: "select",
+      component: SelectPage
+    },	      
+    {
+      path: "/meaning",
+      name: "meaningPage",
+      component: MeaningPage
     },
     {
-      path: '/category',
+      path: '/category/:user',
       name: 'category',
       component: Category
     },
@@ -52,7 +58,7 @@ export default new Router({
       component: RankingPage
     },
     {
-      path: '/main/:cate',
+      path: '/main/:cate/:user',
       name: 'gameMain',
       component: GameMain
     },

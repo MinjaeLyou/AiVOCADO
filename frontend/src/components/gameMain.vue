@@ -1,6 +1,11 @@
 <template>
 <div class="mainBackground">
-    <h1 class="cate">{{$route.params.cate}}</h1>
+  <img id="doti1" src="../assets/character/doti.png">
+  <img id="doti2" src="../assets/character/doti.png">
+  <img id="doti3" src="../assets/character/doti.png">
+  <img id="doti4" src="../assets/character/doti.png">
+  <img id="doti5" src="../assets/character/doti.png">
+    <h1 class="cate">{{cate}}</h1>
     <div class="center" id="quiz" style="left: 20%;">
     </div>
     <div class="alphabet">
@@ -24,7 +29,9 @@ export default {
       len: 0,
       ans: '',
       result: 0,
-      try: 0
+      try: 0,
+      cate: '',
+      chk: 0
     }
   },
   mounted: async function(){
@@ -32,29 +39,53 @@ export default {
   },
   created: async function () {
     const wordId = await Math.floor(Math.random() * 25) + 1;
-      console.log(wordId);
-      const result = await this.$http.get(`/api/word/${this.$route.params.cate}/${wordId}`)
-      this.word = await result.data;
-      console.log(this.word);
-      console.log(this.word.word);
-      this.len = this.word.word.length;
-      var cont = document.getElementById("quiz");
-      for (var i = 0; i < this.len; i++) {
-        this.arrWord[i] = await this.word.word.charAt(i);
-        var jbBtn = document.createElement( 'span' );
-        jbBtn.id = 'prob' + i;
-        jbBtn.className = 'word';
-        var jbBtnText = document.createTextNode( this.arrWord[i] );
-        //jbBtn.appendChild( jbBtnText );
-        cont.appendChild( jbBtn );
-        //document.getElementById("quiz").appendChild
-      }
-      if(this.len%2 == 0)
-        var pos = 55 - parseInt(this.len/2)*10;
-      else
-        var pos = 49 - parseInt(this.len/2)*10;
-      console.log("pos is "+pos);
-      document.getElementById('quiz').setAttribute("style", "left: "+pos+"%;");
+    console.log(this.$route.params.user);
+    const result = await this.$http.get(`/api/word/${this.$route.params.cate}/${wordId}`)
+    this.word = await result.data;
+    switch(this.$route.params.cate){
+      case 'wordAnimal':
+        this.cate = '동물';
+        break;
+      case 'wordCountry':
+        this.cate = '나라';
+        break;
+      case 'wordFood':
+        this.cate = '음식';
+        break;
+      case 'wordJob':
+        this.cate = '직업';
+        break;
+      case 'wordNature':
+        this.cate = '자연';
+        break;
+      case 'wordSchool':
+        this.cate = '학교';
+        break;
+      case 'wordSports':
+        this.cate = '스포츠';
+        break;
+      case 'wordVehicle':
+        this.cate = '운송수단';
+        break;
+    }
+    this.len = this.word.word.length;
+    var cont = document.getElementById("quiz");
+    for (var i = 0; i < this.len; i++) {
+      this.arrWord[i] = await this.word.word.charAt(i);
+      var jbBtn = document.createElement( 'span' );
+      jbBtn.id = 'prob' + i;
+      jbBtn.className = 'word';
+      var jbBtnText = document.createTextNode( this.arrWord[i] );
+      //jbBtn.appendChild( jbBtnText );
+      cont.appendChild( jbBtn );
+      //document.getElementById("quiz").appendChild
+    }
+    if(this.len%2 == 0)
+      var pos = 50 - parseInt(this.len/2)*10;
+    else
+      var pos = 47 - parseInt(this.len/2)*10;
+    console.log("pos is "+pos);
+    document.getElementById('quiz').setAttribute("style", "left: "+pos+"%;");
     //const wordId = '1'
   },
   methods: {
@@ -73,25 +104,46 @@ export default {
       }
     },
     async check(ans){
-      this.try++;
       console.log(ans);
       document.getElementById(ans).disabled = true;
       document.getElementById(ans).style.opacity = "0.3";
       for ( let i = 0; i < this.len; i++){
-        console.log("i is ", i);
         if(ans == this.arrWord[i]){
           console.log("correct!");
+          this.chk = 1;
           this.result++;
           var jbBtnText = document.createTextNode( this.arrWord[i] );
           document.getElementById('prob' + i).appendChild(jbBtnText);
           if(this.result == this.len){
             //성공
             console.log("Succeed!");
+            this.$http.post(`/api/users/updateScore/${this.$route.params.user.score}/${this.$route.params.user.id}`);
           }
         }
       }
+      if(this.chk == 0){
+        this.try++;
+        switch(this.try){
+          case 1:
+            document.getElementById('doti5').setAttribute("src", "/assets/gif/doti-failed.gif");
+            break;
+          case 2:
+            document.getElementById('doti4').setAttribute("src", "/assets/gif/doti-failed.gif");
+            break;
+          case 3:
+            document.getElementById('doti3').setAttribute("src", "/assets/gif/doti-failed.gif");
+            break;
+          case 4:
+            document.getElementById('doti2').setAttribute("src", "/assets/gif/doti-failed.gif");
+            break;
+          case 5:
+            document.getElementById('doti1').setAttribute("src", "/assets/gif/doti-failed.gif");
+            break;
+        }
+      }
+      this.chk = 0;
       console.log(this.try);
-      if(this.try == 7){
+      if(this.try == 5){
         //실패
         console.log("Fail!");
         this.$router.push({name: "ranking"});
@@ -103,47 +155,47 @@ export default {
 <style>
 .word {
   background: white;
-  border-radius: 5px;
   box-sizing: border-box;
   float: left;
-  font-size: 150px;
-  width: 150px;
+  font-size: 700%;
+  width: 180px;
   height: 180px;
   margin: 10px;
   padding: 20px;
   vertical-align: middle;
   text-align: center;
+  border-radius: 50%;
 }
 
 .cate {
   position: absolute;
+  font-size: 300%;
   top: 10%;
   left: 80%;
 }
 
 .center {
   position: absolute;
-  top: 30%;
-  left: 30%;
+  top: 20%;
   line-height: 100px;
 }
 
 .alphabet {
   position: absolute;
-  top: 70%;
+  top: 60%;
   left: 10%;
   line-height: 100px;
 }
 
 .but {
-  background: rgb(85,140,47);
-  border-radius: 5px;
+  background: rgb(112,173,71);
+  border-radius: 10%;
   padding: 0 5px;
   margin: 10px 10px;
   color: white;
   font-size: 100px;
-  width: 100px;
-  height: 140px;
+  width: 130px;
+  height: 130px;
   text-align: center;
   vertical-align: middle;
 }
@@ -156,6 +208,46 @@ export default {
   background-image: url('../assets/background/main.jpg'); 
   background-repeat:no-repeat;
   background-size: cover;
+}
+
+#doti1 {
+  position: absolute;
+  width: 5%;
+  height:auto;
+  top: 1%;
+  left: 12%;
+}
+
+#doti2 {
+  position: absolute;
+  width: 5%;
+  height:auto;
+  top: 1%;
+  left: 18%;
+}
+
+#doti3 {
+  position: absolute;
+  width: 5%;
+  height:auto;
+  top: 1%;
+  left: 24%;
+}
+
+#doti4 {
+  position: absolute;
+  width: 5%;
+  height:auto;
+  top: 1%;
+  left: 30%;
+}
+
+#doti5 {
+  position: absolute;
+  width: 5%;
+  height:auto;
+  top: 1%;
+  left: 36%;
 }
 
 </style>

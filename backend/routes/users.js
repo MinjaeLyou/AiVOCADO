@@ -5,13 +5,8 @@ const models = require('../models');
 
 /* GET users listing. */
 // Get all users
-router.get('/getUser/:userId', wrap(async (req, res) => {
-  console.log(req.params.userId);
-  const users = await models.user.findAll({
-    where: {
-      userId: req.params.userId
-    }
-  });
+router.get('/getUser', wrap(async (req, res) => {
+  const users = await models.user.findAll();
   res.send(users);
 }));
 
@@ -40,12 +35,13 @@ router.get('/score/:userId/:name', wrap(async (req, res) => {
   res.send(score);
 }));
 
-router.post('/score', wrap(async (req, res) => {
+router.post('/updateScore/:score/:id', wrap(async (req, res) => {
+  console.log(req.params.score);
   const score = await models.user.update({
-    score: req.body.score
+    score: req.params.score + 10
   }, {
     where: {
-      id: req.body.id
+      id: req.params.id
     }
   });
   if (score) {
@@ -60,7 +56,6 @@ router.post('/score', wrap(async (req, res) => {
 }));
 
 router.get('/getScore', wrap(async (req, res) => {
-  console.log("scoreeee user");
   const user = await models.user.findAll({
     order: models.sequelize.literal('score DESC'),
     limit: 4
