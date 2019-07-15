@@ -1,9 +1,6 @@
 <template>
     <div id="bg_select">
         <br>
-        <audio autoplay>
-            <source src="../assets/sound/startmusic.mp3" type="audio/mpeg">
-        </audio>
         <div style="text-align:center;"><img src="../assets/background/selecttitle.png" id="select_title"></div>
         <div id="container">
             <button v-on:click="go(users[0])" class="user_bt"><img src="../assets/character/voti.png" class="avocado" style="animation-name:vibrate1;" ></button>
@@ -17,6 +14,8 @@
             <textarea class="avocado_name">{{users[2].name}}</textarea>
             <textarea class="avocado_name">{{users[3].name}}</textarea>
             <textarea class="avocado_name">{{users[4].name}}</textarea>
+
+            <div id="checkrun" style="height: 50px; text-align: center;z-index:1"> init?>> </div>
         </div>   
     </div>
 
@@ -29,6 +28,9 @@ export default {
       users: []
     }
   },
+  mounted(){
+    this.init();
+  },
   created: async function() {
     const result = await this.$http.get('api/users/getUser');
     this.users = result.data;
@@ -37,7 +39,45 @@ export default {
   methods: {
     go(user){
       this.$router.push({name: "category", params: {user: user}});
-    }
+    },
+    // 초기화
+    async init() {
+		document.getElementsByClassName("title").innerText = "이성문";
+		var options = {};
+		options.keytype = "GBOXDEVM"; // 개발(GBOXDEVM) 또는 상용(GBOXCOMM) 키 종류 입력
+		options.apikey = "RTUwMDI5OTN8R0JPWERFVk18MTU2MTUyMzk3MjI1Ng=="; // 개발자 포털에서 키를 발급받아 입력
+		gigagenie.init(options, function (result_cd, result_msg, extra) {
+			if (result_cd === 200) {
+				//init 성공
+				//함수 호출 및 개발 진행
+				//document.getElementById('checkrun').innerText = "OK";
+
+				var options={};
+				options.ttstext="케릭터를 선택해주세요";
+				//startAvocado();
+				gigagenie.voice.sendTTS(options,function(result_cd,result_msg,extra){
+						if(result_cd===200){
+							document.getElementById('checkrun').innerText = extra.voicetext;
+                            
+                            gigagenie.voice.getVoiceText(options,function(result_cd,result_msg,extra){
+                            if(result_cd===200){
+                            //console.log(extra.voicetext+':'+solution);
+                                document.getElementById('checkrun').innerText = extra.voicetext;
+
+                                if(extra.voicetext=="보티"){
+                                    this.go(users[0]);
+                                }
+                            }
+                        });
+						} else {
+							//extra.reason 에 voice 오류 전달
+					   };
+				});
+
+
+			};
+		});
+	}
   }
 }
 </script>
@@ -51,7 +91,6 @@ export default {
           background-size:cover;
       }
       #select_title{
-          margin-top:10px;
           width: 50%;
           
       }
@@ -81,7 +120,7 @@ export default {
           margin:30px;
           text-align:center;
           font-size:50px;
-          font-family: 'Franklin Gothic Medium';
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
       }
       #container{
           /* background-color: white; */

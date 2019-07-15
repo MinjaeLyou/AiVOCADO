@@ -21,8 +21,10 @@ export default {
     this.init();
   },
   methods: {
-    go(cate){
-      this.$router.push({name: "select"});
+    go(){
+      document.getElementById('checkrun').innerText = "Goooo";
+      location.href="/#/select";
+      //this.$router.push({name: "select"});
     },
     // 서비스 초기화
     async init() {
@@ -34,12 +36,34 @@ export default {
 			gigagenie.init(options, function (result_cd, result_msg, extra) {
 				if (result_cd === 200) {
 					//init 성공
-					//함수 호출 및 개발 진행
+          //함수 호출 및 개발 진행
+          var options={};
 					document.getElementById('checkrun').innerText = "OK";
+          options.voicemsg="게임시작을 말해주세요"
+                  gigagenie.voice.getVoiceText(options,function(result_cd,result_msg,extra){
+                    if(result_cd===200){
+                    //console.log(extra.voicetext+':'+solution);
+                    document.getElementById('checkrun').innerText = extra.voicetext;
 
+                    if(extra.voicetext=="게임시작" || extra.voicetext=="게임 시작"){
+                      document.getElementById('checkrun').innerText = "Start Gameeee";
+                      //this.$router.push({name: "select"});
+                      this.go();
+                    }
+
+                    //document.getElementById('checkrun').innerText = "김가연";
+                    // if(parseInt(extra.voicetext)===solution){
+                    // 	alert(extra.voicetext+" 정답입니다");
+                    // } else {
+                    // 	alert(extra.voicetext+" 틀렸습니다.");
+                    // }
+                    // } else {
+                    // alert("다시해보세요");
+                    }
+                  });
 					//callback 방식
-					var options={};
-          options.ttstext="기가지니[P2]기가지니[P2]기가지니[P2]기가지니[P2]";
+					/*var options={};
+          //options.ttstext="기가지니[P2]기가지니[P2]기가지니[P2]기가지니[P2]";
           //this.startAvocado();
 					gigagenie.voice.sendTTS(options,function(result_cd,result_msg,extra){
 					    if(result_cd===200){
@@ -52,7 +76,7 @@ export default {
                     document.getElementById('checkrun').innerText = extra.voicetext;
 
                     if(extra.voicetext=="게임시작" || extra.voicetext=="게임 시작"){
-                      location.href="template.html";
+                      this.$router.push({name: "select"});
                     }
 
                     //document.getElementById('checkrun').innerText = "김가연";
@@ -69,7 +93,7 @@ export default {
 					    } else {
 					        //extra.reason 에 voice 오류 전달.
 					    };
-					});
+					});*/
 				};
 			});
     },
