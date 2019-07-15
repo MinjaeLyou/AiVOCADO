@@ -51,6 +51,7 @@ export default {
           background-size:cover;
       }
       #select_title{
+          margin-top:10px;
           width: 50%;
           
       }
@@ -80,7 +81,7 @@ export default {
           margin:30px;
           text-align:center;
           font-size:50px;
-          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+          font-family: 'Franklin Gothic Medium';
       }
       #container{
           /* background-color: white; */

@@ -31,12 +31,13 @@ export default {
         position: absolute;
         top: 15%;
         left: 10%;
+        width: 10%;
     }
     
     #backimg2{
         position: absolute;
         top: 15%;
-        left: 85%;
+        right: 10%;
     }
 
     .startBg {
