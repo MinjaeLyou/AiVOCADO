@@ -28,7 +28,7 @@ export default {
     },
     // 서비스 초기화
     async init() {
-      console.log("inittttt");
+      document.getElementById('checkrun').innerText = "initttttttt";
       //var options = {};
 			var options = {};
 			options.keytype = await "GBOXDEVM"; // 개발(GBOXDEVM) 또는 상용(GBOXCOMM) 키 종류 입력

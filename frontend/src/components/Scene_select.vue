@@ -30,6 +30,7 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
@@ -37,7 +38,10 @@ export default {
     }
   },
   mounted(){
-    this.init();
+    //this.init();
+    this.$nextTick(() => {
+      this.init();
+    });
   },
   created: async function() {
     const result = await this.$http.get('api/users/getUser');
@@ -51,11 +55,13 @@ export default {
     },
     // 초기화
     async init() {
-      document.getElementById('checkrun').innerText = "initttttttt";
+      console.log("initt");
+      //document.getElementById('checkrun').innerText = "initttttttt";
 		//document.getElementsByClassName("title").innerText = "이성문";
 		var options = {};
-		options.keytype = "GBOXDEVM"; // 개발(GBOXDEVM) 또는 상용(GBOXCOMM) 키 종류 입력
-		options.apikey = "RTUwMDI5OTN8R0JPWERFVk18MTU2MTUyMzk3MjI1Ng=="; // 개발자 포털에서 키를 발급받아 입력
+		options.keytype = await "GBOXDEVM"; // 개발(GBOXDEVM) 또는 상용(GBOXCOMM) 키 종류 입력
+    options.apikey = await "RTUwMDI5OTN8R0JPWERFVk18MTU2MTUyMzk3MjI1Ng=="; // 개발자 포털에서 키를 발급받아 입력
+    console.log(options.apikey);
 		gigagenie.init(options, function (result_cd, result_msg, extra) {
 				if (result_cd === 200) {
 					//init 성공
