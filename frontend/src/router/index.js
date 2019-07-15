@@ -58,7 +58,7 @@ export default new Router({
       component: RankingPage
     },
     {
-      path: '/main/:cate/:user',
+      path: '/main/:cate/:userId/:score',
       name: 'gameMain',
       component: GameMain
     },
