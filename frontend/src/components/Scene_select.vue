@@ -38,7 +38,8 @@ export default {
   },
   methods: {
     go(user){
-      this.$router.push({name: "category", params: {user: user}});
+      //this.$router.push({name: "category", params: {user: user}});
+      location.href="/#/category:" + this.users[0];
     },
     // 초기화
     async init() {
