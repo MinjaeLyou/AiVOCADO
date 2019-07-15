@@ -48,7 +48,7 @@ export default new Router({
       component: MeaningPage
     },
     {
-      path: '/category/:user',
+      path: '/category/:userId/:score',
       name: 'category',
       component: Category
     },
