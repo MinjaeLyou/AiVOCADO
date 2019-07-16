@@ -194,6 +194,7 @@ export default {
                   ref.check('b');
                   break;
               }
+              ref.init();
             }
           });
 				};
