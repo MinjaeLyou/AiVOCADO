@@ -43,7 +43,7 @@ export default new Router({
       component: SelectPage
     },	      
     {
-      path: "/meaning",
+      path: "/meaning/:userId/:score",
       name: "meaningPage",
       component: MeaningPage
     },
