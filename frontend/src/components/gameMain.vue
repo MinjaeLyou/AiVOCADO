@@ -198,25 +198,58 @@ export default {
                   document.getElementById('checkrun').innerText = 'a입니다';
                   ref.check('a');
                   break;
-                case '비' || '비이' || 'b' || '삐' || '삐이':
+                case '비' :
+                case '비이' :
+                case 'b' :
+                case '삐' :
+                case '삐이':
                   document.getElementById('checkrun').innerText = 'b입니다';
                   ref.check('b');
                   break;
-                case '시' || '씨이' || 'c' || 'cgv' || '씨':
+                case '시' :
+                case '씨이' :
+                case 'c' :
+                case 'cgv' :
+                case '씨':
                   document.getElementById('checkrun').innerText = 'c입니다';
                   ref.check('c');
                   break;
-                case '디' || '디이' || 'd' :
+                case '디' :
+                case '디이' :
+                case 'd' :
                   document.getElementById('checkrun').innerText = 'd입니다';
                   ref.check('d');
                   break;
-                case '이' || '이이' || 'e' || 'ee' :
+                case '이' :
+                case '이이' :
+                case 'e' :
+                case 'ee' :
                   document.getElementById('checkrun').innerText = 'e입니다';
                   ref.check('e');
                   break;
-                case '에프' || '에플' || 'f' || '애프' || '애플':
+                case '에프' :
+                case '에플' :
+                case 'f' :
+                case '애프' :
+                case '애플':
                   document.getElementById('checkrun').innerText = 'f입니다';
                   ref.check('f');
+                  break;
+                case '쥐':
+                case '지':
+                case 'g':
+                case '쥐이':
+                  document.getElementById('checkrun').innerText = 'g입니다';
+                  ref.check('g');
+                  break;
+                case '에이치':
+                case '에치':
+                case '엣치':
+                case 'h':
+                case '에이칫':
+                case '에이취':
+                  document.getElementById('checkrun').innerText = 'h입니다';
+                  ref.check('h');
                   break;
                 default:
                   document.getElementById('checkrun').innerText = 'default 입니다';
