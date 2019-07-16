@@ -10,6 +10,8 @@
       <div class="center" id="quiz" style="left: 20%;">
       </div>
       <div id="checkrun" style="height: 50px; text-align: center;z-index:1 top: 25%"> init?>> </div>
+      <div id="checkrun2" style="height: 50px; text-align: center;z-index:1 top: 28%"> init22 </div>
+      <div style="height: 50px; text-align: center;z-index:1 top: 25%; display:none"> init?>> </div>
       <div class="alphabet">
         <button class="but" id="a" v-on:click="check('a')" >a</button><button class="but" id="b" v-on:click="check('b')">b</button><button class="but" id="c" v-on:click="check('c')">c</button><button class="but" id="d" v-on:click="check('d')">d</button><button class="but" id="e" v-on:click="check('e')">e</button>
         <button class="but" id="f" v-on:click="check('f')">f</button><button class="but" id="g" v-on:click="check('g')">g</button><button class="but" id="h" v-on:click="check('h')">h</button><button class="but" id="i" v-on:click="check('i')">i</button><button class="but" id="j" v-on:click="check('j')">j</button>
@@ -110,7 +112,7 @@ export default {
   methods: {
     async check(ans){
       console.log(ans);
-      document.getElementById('checkrun').innerText = 'check is '+ans;
+      document.getElementById('checkrun2').innerText = 'check is '+ans;
       document.getElementById(ans).disabled = true;
       document.getElementById(ans).style.opacity = "0.3";
       for ( let i = 0; i < this.len; i++){
@@ -186,7 +188,7 @@ export default {
             var ref = this;
             if(result_cd===200){
               //console.log(extra.voicetext+':'+solution);
-              //document.getElementById('checkrun').innerText = extra.voicetext;
+              document.getElementById('checkrun2').innerText = extra.voicetext;
               switch(extra.voicetext){
                 case '에이' || '애이' || 'a' || '에' || '애':
                   document.getElementById('checkrun').innerText = 'a입니다';
