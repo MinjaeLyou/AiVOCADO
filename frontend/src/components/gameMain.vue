@@ -303,6 +303,37 @@ export default {
                   document.getElementById('checkrun').innerText = 'o입니다';
                   ref.check('o');
                   break;
+                case '피':
+                case 'pee':
+                case 'p':
+                case '피이':
+                case '퓌':
+                  document.getElementById('checkrun').innerText = 'p입니다';
+                  ref.check('p');
+                  break;
+                case '큐':
+                case '큐우':
+                case 'q':
+                case 'que':
+                  document.getElementById('checkrun').innerText = 'q입니다';
+                  ref.check('q');
+                  break;
+                case 'r':
+                case '알':
+                case '아알':
+                case '어알':
+                case 'are':
+                  document.getElementById('checkrun').innerText = 'r입니다';
+                  ref.check('r');
+                  break;
+                case 's':
+                case '에스':
+                case '스':
+                case '예습':
+                case '쓰':
+                  document.getElementById('checkrun').innerText = 's입니다';
+                  ref.check('s');
+                  break;
                 default:
                   document.getElementById('checkrun').innerText = 'default 입니다';
                   refff.init();
