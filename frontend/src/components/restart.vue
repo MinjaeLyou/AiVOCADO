@@ -104,7 +104,7 @@ export default {
                     if(extra.voicetext=="다시하기" || extra.voicetext=="종료"){
                       document.getElementById('checkrun').innerText = "Start Gameeee";
                       //this.$router.push({name: "select"});
-                      location.href="/#/start";
+                      location.href="/#/";
                     }
 
                     
