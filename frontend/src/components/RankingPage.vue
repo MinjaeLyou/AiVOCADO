@@ -99,7 +99,7 @@
 
   .rankingBg img {
     height : 100%;
-    width: 100%;
+    width: 80%;
     margin: 0;
     padding: 0;
   }
@@ -148,7 +148,7 @@
     font-weight: bold;
     position: relative;
     text-align: center;
-    line-height: 200%;
+    line-height: 150%;
   }
 
   .score{
@@ -158,7 +158,7 @@
     font-weight: bold;
     position: relative;
     text-align: center;
-    line-height: 200%;
+    line-height: 150%;
   }
 </style>
 
