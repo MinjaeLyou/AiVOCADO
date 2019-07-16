@@ -5,7 +5,7 @@
     </audio>
 
     <div class="ch">
-      <div class = "top"></div>
+      <div class = "padding"></div>
 
       <div class= "middle"><img class="charImg"  src="../assets/gif/success.gif"></div>
       
@@ -20,6 +20,7 @@
       </div>
 
     </div>
+    <div class = "padding"></div>
 
   </div>
 </template>
@@ -43,7 +44,7 @@
     top:25%;
 
   } 
-  .top{
+  .padding{
     height:30%;
   }
 
