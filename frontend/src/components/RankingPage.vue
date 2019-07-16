@@ -75,7 +75,7 @@
     padding: 10px;
     position: relative;
     width: 50%;
-    height: 93%;
+    height: 100%;
   }
 
   .rankingBg ul li{
