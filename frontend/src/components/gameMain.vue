@@ -10,7 +10,7 @@
       <div class="center" id="quiz" style="left: 20%;">
       </div>
       <div id="checkrun" style="height: 50px; text-align: center;z-index:1 top: 25%"> init?>> </div>
-      <div id="checkrun2" style="z-index:1; top: 15%; left: 50%; position: absolute; color: white; font-size:60px; font-weight:bold;"> 정답 </div>
+      <div id="checkrun2" style="z-index:1; top: 7%; left: 45%; position: absolute; color: white; font-size:60px; font-weight:bold;"> 정답 </div>
       <div class="alphabet">
         <button class="but" id="a" v-on:click="check('a')" >a</button><button class="but" id="b" v-on:click="check('b')">b</button><button class="but" id="c" v-on:click="check('c')">c</button><button class="but" id="d" v-on:click="check('d')">d</button><button class="but" id="e" v-on:click="check('e')">e</button>
         <button class="but" id="f" v-on:click="check('f')">f</button><button class="but" id="g" v-on:click="check('g')">g</button><button class="but" id="h" v-on:click="check('h')">h</button><button class="but" id="i" v-on:click="check('i')">i</button><button class="but" id="j" v-on:click="check('j')">j</button><br>
@@ -333,6 +333,8 @@ export default {
                 case '큐우':
                 case 'q':
                 case 'que':
+                case '규':
+                case '뀨':
                   document.getElementById('checkrun2').innerText = 'q';
                   ref.check('q');
                   break;
