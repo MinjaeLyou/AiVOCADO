@@ -3,10 +3,10 @@
     <audio autoplay>
       <source src="../assets/sound/gameAudio.mp3" type="audio/mpeg">
     </audio>
-
+    <div class = "padding"></div>
+    
     <div class="ch">
-      <div class = "padding"></div>
-
+      
       <div class= "middle"><img class="charImg"  src="../assets/gif/success.gif"></div>
       
       <div class="buttons">
@@ -20,7 +20,9 @@
       </div>
 
     </div>
+
     <div class = "padding"></div>
+    
 
   </div>
 </template>
@@ -41,25 +43,31 @@
     left: 50%;
     transform: translateX(-50%);
     width: 50%;
+    height:40%;
     top:25%;
 
   } 
+  .charImg{
+    height:80%;
+  }
   .padding{
+    position:absolute;
     height:30%;
   }
 
   .middle{
-    height:30%;
+    height:70%;
     left:35%;
   }
 
   .buttons{
     float:right;
-    height: 10%;
+    height: 30%;
   }
 
   .again{
     border-width:0;
+    height:80%;
     background:none;
   }
 

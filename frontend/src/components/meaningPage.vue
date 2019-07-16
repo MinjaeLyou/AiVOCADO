@@ -41,8 +41,6 @@ export default {
       user: {},
     }
   },
-  mounted: async function () {
-  },
   methods: {
         go(cate){
           this.$router.push({name: "gameMain", params: {cate: cate}});
@@ -64,7 +62,7 @@ export default {
         }
         */
   
-}
+  }
 }
 
 </script>
@@ -100,7 +98,7 @@ main {
 }
 
 #m_img{
-  top : 30%;
+  top : 20%;
   left : 50%;
   transform : translateX(-50%);
   position : absolute;
@@ -119,7 +117,6 @@ main {
 .third {
   width: 100%;
   height: 100%;
-  text-align: left;
   position: absolute;
 
   background-image: url('../assets/background/meaning.jpg');
@@ -144,7 +141,7 @@ main {
   font-size: 50px;
   text-align:center;
   width:20%;
-  padding:10px 30px 10px 30px;
+  padding:10px 10px 10px 10px;
   margin: 20px;
   background: #385723; 
   color: white;
