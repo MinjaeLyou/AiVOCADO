@@ -185,16 +185,35 @@ export default {
               //console.log(extra.voicetext+':'+solution);
               document.getElementById('checkrun').innerText = extra.voicetext;
               switch(extra.voicetext){
-                case '에이' || '애이':
-                  document.getElementById('checkrun').innerText = 'a';
+                case '에이' || '애이' || 'a' || '에' || '애':
+                  document.getElementById('checkrun').innerText = 'a입니다';
                   ref.check('a');
                   break;
-                case '비' || '비이':
-                  document.getElementById('checkrun').innerText = 'b';
+                case '비' || '비이' || 'b' || '삐' || '삐이':
+                  document.getElementById('checkrun').innerText = 'b입니다';
                   ref.check('b');
                   break;
+                case '시' || '씨이' || 'c' || 'cgv' || '씨':
+                  document.getElementById('checkrun').innerText = 'c입니다';
+                  ref.check('c');
+                  break;
+                case '디' || '디이' || 'd' :
+                  document.getElementById('checkrun').innerText = 'd입니다';
+                  ref.check('d');
+                  break;
+                case '이' || '이이' || 'e' || 'ee' :
+                  document.getElementById('checkrun').innerText = 'e입니다';
+                  ref.check('e');
+                  break;
+                case '에프' || '에플' || 'f' || '애프' || '애플':
+                  document.getElementById('checkrun').innerText = 'f입니다';
+                  ref.check('f');
+                  break;
               }
-              ref.init();
+              setTimeout(function() {
+                ref.init();
+              }, 3000);
+              
             }
           });
 				};
