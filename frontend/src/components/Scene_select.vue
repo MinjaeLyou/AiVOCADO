@@ -60,6 +60,7 @@ export default {
       console.log("initt");
       //document.getElementById('checkrun').innerText = await "initttttttt";
       //document.getElementsByClassName("title").innerText = "이성문";
+      var ref = this;
       var options = {};
       options.keytype = await "GBOXDEVM"; // 개발(GBOXDEVM) 또는 상용(GBOXCOMM) 키 종류 입력
       options.apikey = await "RTUwMDI5OTN8R0JPWERFVk18MTU2MTUyMzk3MjI1Ng=="; // 개발자 포털에서 키를 발급받아 입력
@@ -82,7 +83,7 @@ export default {
               else if(extra.voicetext=="아티"){
                 location.href="/#/category/ati/80";
               }
-              else if(extra.voicetext=="케티"){
+              else if(extra.voicetext=="케티" || extra.voicetext=="kt"){
                 location.href="/#/category/keti/30";
               }
               else if(extra.voicetext=="카티"){
@@ -91,6 +92,8 @@ export default {
               else if(extra.voicetext=="도티"){
                 location.href="/#/category/doti/70";
               }
+              else
+                ref.init();
             }
           });
 				};

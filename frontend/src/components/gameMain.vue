@@ -10,13 +10,12 @@
       <div class="center" id="quiz" style="left: 20%;">
       </div>
       <div id="checkrun" style="height: 50px; text-align: center;z-index:1 top: 25%"> init?>> </div>
-      <div id="checkrun2" style="height: 50px; text-align: center;z-index:1 top: 28%"> init22 </div>
-      <div style="height: 50px; text-align: center;z-index:1 top: 25%; display:none"> init?>> </div>
+      <div id="checkrun2" style="z-index:1; top: 7%; left: 45%; position: absolute; color: white; font-size:60px; font-weight:bold;"> 정답 </div>
       <div class="alphabet">
         <button class="but" id="a" v-on:click="check('a')" >a</button><button class="but" id="b" v-on:click="check('b')">b</button><button class="but" id="c" v-on:click="check('c')">c</button><button class="but" id="d" v-on:click="check('d')">d</button><button class="but" id="e" v-on:click="check('e')">e</button>
-        <button class="but" id="f" v-on:click="check('f')">f</button><button class="but" id="g" v-on:click="check('g')">g</button><button class="but" id="h" v-on:click="check('h')">h</button><button class="but" id="i" v-on:click="check('i')">i</button><button class="but" id="j" v-on:click="check('j')">j</button>
-        <button class="but" id="k" v-on:click="check('k')">k</button><button class="but" id="l" v-on:click="check('l')">l</button><button class="but" id="m" v-on:click="check('m')">m</button><br><button class="but" id="n" v-on:click="check('n')">n</button><button class="but" id="o" v-on:click="check('o')">o</button>
-        <button class="but" id="p" v-on:click="check('p')">p</button><button class="but" id="q" v-on:click="check('q')">q</button><button class="but" id="r" v-on:click="check('r')">r</button><button class="but" id="s" v-on:click="check('s')">s</button><button class="but" id="t" v-on:click="check('t')">t</button>
+        <button class="but" id="f" v-on:click="check('f')">f</button><button class="but" id="g" v-on:click="check('g')">g</button><button class="but" id="h" v-on:click="check('h')">h</button><button class="but" id="i" v-on:click="check('i')">i</button><button class="but" id="j" v-on:click="check('j')">j</button><br>
+        <button class="but" id="k" v-on:click="check('k')">k</button><button class="but" id="l" v-on:click="check('l')">l</button><button class="but" id="m" v-on:click="check('m')">m</button><button class="but" id="n" v-on:click="check('n')">n</button><button class="but" id="o" v-on:click="check('o')">o</button>
+        <button class="but" id="p" v-on:click="check('p')">p</button><button class="but" id="q" v-on:click="check('q')">q</button><button class="but" id="r" v-on:click="check('r')">r</button><button class="but" id="s" v-on:click="check('s')">s</button><button class="but" id="t" v-on:click="check('t')">t</button><br>
         <button class="but" id="u" v-on:click="check('u')">u</button><button class="but" id="v" v-on:click="check('v')">v</button><button class="but" id="w" v-on:click="check('w')">w</button><button class="but" id="x" v-on:click="check('x')">x</button><button class="but" id="y" v-on:click="check('y')">y</button>
         <button class="but" id="z" v-on:click="check('z')">z</button>
       </div>
@@ -101,9 +100,9 @@ export default {
       //document.getElementById("quiz").appendChild
     }
     if(this.len%2 == 0)
-      var pos = 50 - parseInt(this.len/2)*10;
+      var pos = 45 - parseInt(this.len/2)*10;
     else
-      var pos = 47 - parseInt(this.len/2)*10;
+      var pos = 45 - parseInt(this.len/2)*10;
     console.log("pos is "+pos);
     document.getElementById('quiz').setAttribute("style", "left: "+pos+"%;");
     console.log(this.word.word);
@@ -112,7 +111,7 @@ export default {
   methods: {
     async check(ans){
       console.log(ans);
-      document.getElementById('checkrun2').innerText = 'check is '+ans;
+      document.getElementById('checkrun').innerText = 'check is '+ans;
       document.getElementById(ans).disabled = true;
       document.getElementById(ans).style.opacity = "0.3";
       for ( let i = 0; i < this.len; i++){
@@ -126,10 +125,14 @@ export default {
             //성공
             console.log("Succeed!");
             this.$http.post(`/api/users/updateScore/${this.$route.params.score}/${this.$route.params.userId}`);
-            document.getElementById('main').style.display = 'none';
+            setTimeout(function() {
+              document.getElementById('main').style.display = 'none';
+            }, 3000);
+            //document.getElementById('main').style.display = 'none';
             setTimeout(function() {
               location.reload();
-            }, 7000);
+            }, 10000);
+            return;
             //location.href=`/#/meaning/${this.$route.params.userId}/${this.$route.params.score}`;
           }
         }
@@ -156,19 +159,23 @@ export default {
       }
       this.chk = 0;
       console.log(this.try);
-      if(this.try == 5){
+      if(this.try == 20){
         //실패
         console.log("Fail!");
         document.getElementById('m_img').setAttribute("src", "/assets/gif/doti-failed.gif");
         document.getElementById('m_text').setAttribute("src", "/assets/gif/cheerup.gif");
-        document.getElementById('main').style.display = 'none';
+        setTimeout(function() {
+          document.getElementById('main').style.display = 'none';
+        }, 3000);
+        //document.getElementById('main').style.display = 'none';
         setTimeout(function() {
           location.href='/#/ranking';
-        }, 7000);
+        }, 10000);
     
         //this.$router.push({name: "ranking"});
       }
-      this.init();
+      if(this.result != this.len || this.try != 20)
+        this.init();
     },
     async init() {
       //var options = {};
@@ -188,14 +195,14 @@ export default {
             var refff = reff;
             if(result_cd===200){
               //console.log(extra.voicetext+':'+solution);
-              document.getElementById('checkrun2').innerText = extra.voicetext;
+              document.getElementById('checkrun').innerText = extra.voicetext;
               switch(extra.voicetext){
                 case '에이' :
                 case '애이' :
                 case  'a' :
                 case '에' :
                 case '애':
-                  document.getElementById('checkrun').innerText = 'a입니다';
+                  document.getElementById('checkrun2').innerText = 'a';
                   ref.check('a');
                   break;
                 case '비' :
@@ -203,28 +210,32 @@ export default {
                 case 'b' :
                 case '삐' :
                 case '삐이':
-                  document.getElementById('checkrun').innerText = 'b입니다';
+                case 'bee':
+                case 'be':
+                  document.getElementById('checkrun2').innerText = 'b';
                   ref.check('b');
                   break;
                 case '시' :
                 case '씨이' :
                 case 'c' :
-                case 'cgv' :
+                case 'she' :
                 case '씨':
-                  document.getElementById('checkrun').innerText = 'c입니다';
+                  document.getElementById('checkrun2').innerText = 'c';
                   ref.check('c');
                   break;
                 case '디' :
                 case '디이' :
                 case 'd' :
-                  document.getElementById('checkrun').innerText = 'd입니다';
+                case 'the':
+                  document.getElementById('checkrun2').innerText = 'd';
                   ref.check('d');
                   break;
                 case '이' :
                 case '이이' :
                 case 'e' :
                 case 'ee' :
-                  document.getElementById('checkrun').innerText = 'e입니다';
+                case '이리' :
+                  document.getElementById('checkrun2').innerText = 'e';
                   ref.check('e');
                   break;
                 case '에프' :
@@ -232,14 +243,17 @@ export default {
                 case 'f' :
                 case '애프' :
                 case '애플':
-                  document.getElementById('checkrun').innerText = 'f입니다';
+                case 'ref':
+                  document.getElementById('checkrun2').innerText = 'f';
                   ref.check('f');
                   break;
                 case '쥐':
                 case '지':
                 case 'g':
                 case '쥐이':
-                  document.getElementById('checkrun').innerText = 'g입니다';
+                case '취소':
+                case '치':
+                  document.getElementById('checkrun2').innerText = 'g';
                   ref.check('g');
                   break;
                 case '에이치':
@@ -248,17 +262,169 @@ export default {
                 case 'h':
                 case '에이칫':
                 case '에이취':
-                  document.getElementById('checkrun').innerText = 'h입니다';
+                  document.getElementById('checkrun2').innerText = 'h';
                   ref.check('h');
                   break;
+                case '아이':
+                case '아아이':
+                case 'i':
+                case '아이이':
+                  document.getElementById('checkrun2').innerText = 'i';
+                  ref.check('i');
+                  break;
+                case '제이':
+                case '줴이':
+                case 'j':
+                case '재이':
+                  document.getElementById('checkrun2').innerText = 'j';
+                  ref.check('j');
+                  break;
+                case '케이':
+                case '캐이':
+                case 'k':
+                case 'kt':
+                  document.getElementById('checkrun2').innerText = 'k';
+                  ref.check('k');
+                  break;
+                case '엘':
+                case '앨':
+                case 'l':
+                case '에르':
+                case '애르':
+                case '응':
+                  document.getElementById('checkrun2').innerText = 'l';
+                  ref.check('l');
+                  break;
+                case '엠':
+                case '앰':
+                case 'm':
+                case '에므':
+                  document.getElementById('checkrun2').innerText = 'm';
+                  ref.check('m');
+                  break;
+                case '앤':
+                case '엔':
+                case 'n':
+                case '애느':
+                case '애모':
+                case 'ann':
+                  document.getElementById('checkrun2').innerText = 'n';
+                  ref.check('n');
+                  break;
+                case '오':
+                case '오우':
+                case 'o':
+                case 'oh':
+                case '어우':
+                case 'all':
+                case '옴':
+                  document.getElementById('checkrun2').innerText = 'o';
+                  ref.check('o');
+                  break;
+                case '피':
+                case 'pee':
+                case 'p':
+                case '피이':
+                case '퓌':
+                  document.getElementById('checkrun2').innerText = 'p';
+                  ref.check('p');
+                  break;
+                case '큐':
+                case '큐우':
+                case 'q':
+                case 'que':
+                case '규':
+                case '뀨':
+                  document.getElementById('checkrun2').innerText = 'q';
+                  ref.check('q');
+                  break;
+                case 'r':
+                case '알':
+                case '아알':
+                case '어알':
+                case '아래':
+                case 'are':
+                case '얼':
+                  document.getElementById('checkrun2').innerText = 'r';
+                  ref.check('r');
+                  break;
+                case 's':
+                case '에스':
+                case '애스':
+                case '예습':
+                case '예쓰':
+                case 'yes':
+                  document.getElementById('checkrun2').innerText = 's';
+                  ref.check('s');
+                  break;
+                case '티이':
+                case '티':
+                case 't':
+                case 'tea':
+                case 'ti':
+                case 'tee':
+                  document.getElementById('checkrun2').innerText = 't';
+                  ref.check('t');
+                  break;
+                case 'u':
+                case 'you':
+                case '유':
+                  document.getElementById('checkrun2').innerText = 'u';
+                  ref.check('u');
+                  break;
+                case 'v':
+                case '브이':
+                case '부위':
+                  document.getElementById('checkrun2').innerText = 'w';
+                  ref.check('v');
+                  break;
+                case 'w':
+                case '더블유':
+                case '더블':
+                case '다블유':
+                case '떠블유':
+                case '떠블':
+                  document.getElementById('checkrun2').innerText = 'w';
+                  ref.check('w');
+                  break;
+                case 'x':
+                case '엑스':
+                case '액스':
+                case '악스':
+                case '억스':
+                case 'ax':
+                case 'axe':
+                case 'ex':
+                  document.getElementById('checkrun2').innerText = 'x';
+                  ref.check('x');
+                  break;
+                case 'y':
+                case '와이':
+                case '와아이':
+                case '오아이':
+                case 'why':
+                  document.getElementById('checkrun2').innerText = 'y';
+                  ref.check('y');
+                  break;
+                case 'z':
+                case '제트':
+                case '재트':
+                case '지트':
+                case '젵':
+                case '젯':
+                case '잿':
+                case '제투':
+                  document.getElementById('checkrun2').innerText = 'z';
+                  ref.check('z');
+                  break;
                 default:
-                  document.getElementById('checkrun').innerText = 'default 입니다';
-                  reff.check('a');
+                  document.getElementById('checkrun2').innerText = '다시';
+                  refff.init();
                   break;
               }
-              setTimeout(function() {
+              /*setTimeout(function() {
                 refff.init();
-              }, 3000);
+              }, 3000);*/
               
             }
           });
@@ -273,9 +439,9 @@ export default {
   background: white;
   box-sizing: border-box;
   float: left;
-  font-size: 700%;
-  width: 180px;
-  height: 180px;
+  font-size: 650%;
+  width: 130px;
+  height: 130px;
   margin: 10px;
   padding: 20px;
   vertical-align: middle;
@@ -286,21 +452,21 @@ export default {
 .cate {
   position: absolute;
   font-size: 300%;
-  top: 10%;
+  top: 6%;
   left: 80%;
 }
 
 .center {
   position: absolute;
-  top: 20%;
+  top: 19%;
   line-height: 100px;
 }
 
 .alphabet {
   position: absolute;
-  top: 60%;
+  top: 47%;
   left: 10%;
-  line-height: 100px;
+  line-height: 80px;
 }
 
 .but {
@@ -309,9 +475,9 @@ export default {
   padding: 0 5px;
   margin: 10px 10px;
   color: white;
-  font-size: 100px;
-  width: 130px;
-  height: 130px;
+  font-size: 60px;
+  width: 80px;
+  height: 80px;
   text-align: center;
   vertical-align: middle;
 }
