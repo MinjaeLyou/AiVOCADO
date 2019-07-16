@@ -203,6 +203,8 @@ export default {
                 case 'b' :
                 case '삐' :
                 case '삐이':
+                case 'bee':
+                case 'be':
                   document.getElementById('checkrun').innerText = 'b입니다';
                   ref.check('b');
                   break;
