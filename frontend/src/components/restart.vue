@@ -30,7 +30,6 @@
           height: 100%;
           width: 100%;
           position: absolute;
-          text-align: center;
           background-image: url('../assets/restart/restart.png');
           background-position: center;
           background-repeat:no-repeat;
@@ -40,7 +39,7 @@
     position:absolute;
     left: 50%;
     transform: translateX(-50%);
-    width: 60%;
+    width: 50%;
     top:25%;
 
   } 
@@ -54,22 +53,18 @@
   }
 
   .buttons{
-    right:10%;
+    float:right;
     height: 10%;
   }
 
   .again{
     border-width:0;
     background:none;
-    position: relative;
-    text-align: right;
   }
 
   .exit{
     border-width:0;
     background:none;
-    position: relative;
-    text-align: right;
   }
 
 </style>
