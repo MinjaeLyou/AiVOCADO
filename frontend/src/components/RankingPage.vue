@@ -97,9 +97,16 @@
     padding: 0;
   }
 
-  .rankingBg img {
+  .rankingBg .img {
     height : 100%;
     width: 80%;
+    margin: 0;
+    padding: 0;
+  }
+
+    .rankingBg .medalImg {
+    height : 90%;
+    width: 110%;
     margin: 0;
     padding: 0;
   }
@@ -107,7 +114,7 @@
   #medal4{
     height: 75%;
     width: auto;
-    margin-left: 3%;
+    margin-left: 10%;
     margin-top: 15%;
     padding: 0;
   }
@@ -148,7 +155,7 @@
     font-weight: bold;
     position: relative;
     text-align: center;
-    line-height: 150%;
+    line-height: 170%;
   }
 
   .score{
@@ -185,7 +192,7 @@ export default {
       var self = this;
       setTimeout(function() {
         self.goRestart() 
-      }, 700000);
+      }, 7000);
     }
   },
   mounted(){
