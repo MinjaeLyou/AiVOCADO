@@ -67,13 +67,11 @@
   .again{
     border-width:0;
     background:none;
-    width:80%;
   }
 
   .exit{
     border-width:0;
     background:none;
-    width:80%;
   }
 
 </style>
