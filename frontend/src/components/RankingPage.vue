@@ -189,10 +189,10 @@ export default {
       this.$router.push({name: "restart"});
     },
     callFunction() {
-      var self = this;
-      setTimeout(function() {
-        self.goRestart() 
-      }, 7000);
+      // var self = this;
+      // setTimeout(function() {
+      //   self.goRestart() 
+      // }, 700000);
     }
   },
   mounted(){

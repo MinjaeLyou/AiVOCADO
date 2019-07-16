@@ -28,8 +28,6 @@ export default {
     },
     // 서비스 초기화
     async init() {
-      //document.getElementById('checkrun').innerText = "initttttttt";
-      //var options = {};
 			var options = {};
 			options.keytype = await "GBOXDEVM"; // 개발(GBOXDEVM) 또는 상용(GBOXCOMM) 키 종류 입력
 			options.apikey = await "RTUwMDI5OTN8R0JPWERFVk18MTU2MTUyMzk3MjI1Ng=="; // 개발자 포털에서 키를 발급받아 입력
@@ -38,55 +36,17 @@ export default {
 					//init 성공
           //함수 호출 및 개발 진행
           var options={};
-					//document.getElementById('checkrun').innerText = "OK";
           options.voicemsg="게임시작을 말해주세요"
-                  gigagenie.voice.getVoiceText(options,function(result_cd,result_msg,extra){
-                    if(result_cd===200){
-                    //console.log(extra.voicetext+':'+solution);
-                    //document.getElementById('checkrun').innerText = extra.voicetext;
-
-                    if(extra.voicetext=="게임시작" || extra.voicetext=="게임 시작"){
-                      //document.getElementById('checkrun').innerText = "Start Gameeee";
-                      //this.$router.push({name: "select"});
-                      location.href="/#/select";
-                    }
-
-                    
-                    }
-                  });
-					
+            gigagenie.voice.getVoiceText(options,function(result_cd,result_msg,extra){
+            if(result_cd===200){
+              if(extra.voicetext=="게임시작" || extra.voicetext=="게임 시작"){
+                location.href="/#/select";
+              }
+            }
+          });
 				};
 			});
-    },
-    startAvocado(){
-		document.getElementById('checkrun').innerText = "START";
-		var options={};
-		//options.voicelanguage=1;
-		//var numbers=getNumber();
-		//options.voicemsg=numbers[0]+' '+numbers[1];
-		//var solution=numbers[0]*numbers[1];
-    options.voicemsg="게임시작을 말해주세요"
-		gigagenie.voice.getVoiceText(options,function(result_cd,result_msg,extra){
-			if(result_cd===200){
-			//console.log(extra.voicetext+':'+solution);
-			document.getElementById('checkrun').innerText = extra.voicetext;
-
-			if(extra.voicetext=="게임시작" || extra.voicetext=="게임 시작"){
-				location.href="template.html";
-			}
-
-			//document.getElementById('checkrun').innerText = "김가연";
-			// if(parseInt(extra.voicetext)===solution){
-			// 	alert(extra.voicetext+" 정답입니다");
-			// } else {
-			// 	alert(extra.voicetext+" 틀렸습니다.");
-			// }
-			// } else {
-			// alert("다시해보세요");
-			}
-		});
-	}
-  
+    }  
   }  
 }
 </script>
