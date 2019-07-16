@@ -167,14 +167,14 @@ export default {
     console.log(this.users[2].image);
   },
   methods: {
-    goRestart(rest){
+    goRestart(){
       this.$router.push({name: "restart"});
     },
     callFunction() {
       var self = this;
       setTimeout(function() {
         self.goRestart() 
-      }, 3000);
+      }, 7000);
     }
   },
   mounted(){

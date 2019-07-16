@@ -63,16 +63,6 @@ export default new Router({
       component: GameMain
     },
     {
-      path: '/main/:st',
-      name: 'start',
-      component: StartPage
-    },
-    {
-      path: '/main/:rest',
-      name: 'restart',
-      component: Restart
-    },
-    {
       path: '/restart',
       name: 'restart',
       component: Restart
