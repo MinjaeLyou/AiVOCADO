@@ -20,7 +20,6 @@
       </div>
 
     </div>
-
     <div class = "padding"></div>
     
 
@@ -56,7 +55,7 @@
   }
 
   .middle{
-    height:70%;
+    height:90%;
     left:35%;
   }
 
@@ -68,11 +67,13 @@
   .again{
     border-width:0;
     background:none;
+    width:80%;
   }
 
   .exit{
     border-width:0;
     background:none;
+    width:80%;
   }
 
 </style>
