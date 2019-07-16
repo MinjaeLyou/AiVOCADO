@@ -218,7 +218,6 @@ export default {
                 case '디이' :
                 case 'd' :
                 case 'the':
-                case 'tea':
                   document.getElementById('checkrun').innerText = 'd입니다';
                   ref.check('d');
                   break;
@@ -234,6 +233,7 @@ export default {
                 case 'f' :
                 case '애프' :
                 case '애플':
+                case 'ref':
                   document.getElementById('checkrun').innerText = 'f입니다';
                   ref.check('f');
                   break;
@@ -294,12 +294,16 @@ export default {
                 case '엔':
                 case 'n':
                 case '애느':
+                case '애모':
+                case 'ann':
                   document.getElementById('checkrun').innerText = 'n입니다';
                   ref.check('n');
                   break;
                 case '오':
                 case '오우':
                 case 'o':
+                case 'oh':
+                case '어우':
                   document.getElementById('checkrun').innerText = 'o입니다';
                   ref.check('o');
                   break;
@@ -328,11 +332,21 @@ export default {
                   break;
                 case 's':
                 case '에스':
-                case '스':
+                case '애스':
                 case '예습':
-                case '쓰':
+                case '예쓰':
+                case 'yes':
                   document.getElementById('checkrun').innerText = 's입니다';
                   ref.check('s');
+                  break;
+                case '티이':
+                case '티':
+                case 't':
+                case 'tea':
+                case 'ti':
+                case 'tee':
+                  document.getElementById('checkrun').innerText = 't입니다';
+                  ref.check('t');
                   break;
                 default:
                   document.getElementById('checkrun').innerText = 'default 입니다';
