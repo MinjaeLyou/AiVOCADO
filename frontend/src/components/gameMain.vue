@@ -183,6 +183,7 @@ export default {
 					document.getElementById('checkrun').innerText = "OK";
           options.voicemsg="알파벳을 말해주세요"
           gigagenie.voice.getVoiceText(options,function(result_cd,result_msg,extra){
+            var ref = this;
             if(result_cd===200){
               //console.log(extra.voicetext+':'+solution);
               //document.getElementById('checkrun').innerText = extra.voicetext;
