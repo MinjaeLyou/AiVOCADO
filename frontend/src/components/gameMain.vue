@@ -111,7 +111,7 @@ export default {
   methods: {
     async check(ans){
       console.log(ans);
-      document.getElementById('checkrun2').innerText = 'check is '+ans;
+      document.getElementById('checkrun').innerText = 'check is '+ans;
       document.getElementById(ans).disabled = true;
       document.getElementById(ans).style.opacity = "0.3";
       for ( let i = 0; i < this.len; i++){
@@ -193,7 +193,7 @@ export default {
             var refff = reff;
             if(result_cd===200){
               //console.log(extra.voicetext+':'+solution);
-              document.getElementById('checkrun2').innerText = extra.voicetext;
+              //document.getElementById('checkrun2').innerText = extra.voicetext;
               switch(extra.voicetext){
                 case '에이' :
                 case '애이' :
@@ -414,7 +414,7 @@ export default {
                   ref.check('z');
                   break;
                 default:
-                  document.getElementById('checkrun2').innerText = 'default';
+                  document.getElementById('checkrun2').innerText = '다시';
                   refff.init();
                   break;
               }
