@@ -131,7 +131,7 @@ export default {
             //document.getElementById('main').style.display = 'none';
             setTimeout(function() {
               location.reload();
-            }, 7000);
+            }, 10000);
             //location.href=`/#/meaning/${this.$route.params.userId}/${this.$route.params.score}`;
           }
         }
@@ -169,7 +169,7 @@ export default {
         //document.getElementById('main').style.display = 'none';
         setTimeout(function() {
           location.href='/#/ranking';
-        }, 7000);
+        }, 10000);
     
         //this.$router.push({name: "ranking"});
       }
