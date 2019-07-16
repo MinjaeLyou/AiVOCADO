@@ -56,7 +56,7 @@
 
 </div>
     <div id = "footer"> </div>
-
+<div id="checkrun" style="height: 50px; text-align: center;z-index:1 top: 25%"> init?>> </div><div id="checkrun" style="height: 50px; text-align: center;z-index:1 top: 25%"> init?>> </div>
 </div>
 </template>
 
