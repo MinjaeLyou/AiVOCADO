@@ -5,7 +5,9 @@
     </audio>
 
     <div class="ch">
-      <div><img class="charImg"  src="../assets/gif/success.gif"></div>
+      <div class = "top"></div>
+
+      <div class= "middle"><img class="charImg"  src="../assets/gif/success.gif"></div>
       
       <div class="buttons">
         <button class='again' v-on:click="goAgain()">
@@ -35,18 +37,24 @@
 
   .ch{
     position:absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
     top:25%;
-    left:30%;
-  } 
 
-  .charImg{
-    float:left;
-    height:70%;
+  } 
+  .top{
+    height:30%;
+  }
+
+  .middle{
+    height:30%;
+    left:35%;
   }
 
   .buttons{
-    float:right;
-    height: 30%;
+    right:10%;
+    height: 10%;
   }
 
   .again{
