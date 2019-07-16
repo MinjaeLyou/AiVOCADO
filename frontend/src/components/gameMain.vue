@@ -180,17 +180,21 @@ export default {
 				if (result_cd === 200) {
 					//init 성공
           //함수 호출 및 개발 진행
-          var ref = this;
+          var reff = ref;
           var options={};
 					document.getElementById('checkrun').innerText = "OK";
           options.voicemsg="알파벳을 말해주세요"
           gigagenie.voice.getVoiceText(options,function(result_cd,result_msg,extra){
-            var ref = this;
+            var refff = reff;
             if(result_cd===200){
               //console.log(extra.voicetext+':'+solution);
               document.getElementById('checkrun2').innerText = extra.voicetext;
               switch(extra.voicetext){
-                case '에이' || '애이' || 'a' || '에' || '애':
+                case '에이' :
+                case '애이' :
+                case  'a' :
+                case '에' :
+                case '애':
                   document.getElementById('checkrun').innerText = 'a입니다';
                   ref.check('a');
                   break;
@@ -214,9 +218,13 @@ export default {
                   document.getElementById('checkrun').innerText = 'f입니다';
                   ref.check('f');
                   break;
+                default:
+                  document.getElementById('checkrun').innerText = 'default 입니다';
+                  reff.check('a');
+                  break;
               }
               setTimeout(function() {
-                ref.init();
+                refff.init();
               }, 3000);
               
             }
