@@ -26,8 +26,8 @@
           <span class="score">{{ users[2].score }}</span>
         </li>
         <li>
-          <span class="medal"><img class="forthMedalImg" src="../assets/ranking/4th.png"></span>
-          <span class="userImg"><img class="img" :src= "require('@/assets/character/ati.png')"></span>
+          <span class="medal"><img class="forthMedalImg" id="medal4" src="../assets/ranking/4th.png"></span>
+          <span class="userImg"><img class="img" id="user4" :src= "require('@/assets/character/ati.png')"></span>
           <span class="userName">{{ users[3].name }}</span>
           <span class="score">{{ users[3].score }}</span>
         </li>
@@ -38,6 +38,8 @@
 
 
 <style>
+  
+
   .ranking {
     height: 100%;
     width: 100%;
@@ -57,26 +59,6 @@
     width: 35%;
   }
 
-  .userImg .img {
-    height: 100%;
-    width: auto;
-  }
-
-  .medalImg{
-    height: 90%;
-    width: auto;
-    margin: 0;
-    padding: 0;
-  }
-
-  .forthMedalImg{
-    height: 75%;
-    width: auto;
-    margin-left: 3%;
-    margin-top: 15%;
-    padding: 0;
-  }
-
   .rankingBg{
     font-family: "Helvetica", "나눔 고딕", serif;
     height: 80%;
@@ -93,6 +75,7 @@
     padding: 10px;
     position: relative;
     width: 50%;
+    height: 93%;
   }
 
   .rankingBg ul li{
@@ -101,12 +84,40 @@
     box-sizing: border-box;
     color: rgb(85,140,47);
     display: flex;
-    height: 150px;
+    height: 21.5%;
     margin: 20px;
     transition: .5s;
+    justify-content: space-between;
+    align-items: center;
   }
 
-  .rankingBg ul li span:nth-child(1){
+  span {
+    width: 20%;
+    height: 100%;
+    padding: 0;
+  }
+
+  .rankingBg img {
+    height : 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #medal4{
+    height: 75%;
+    width: auto;
+    margin-left: 3%;
+    margin-top: 15%;
+    padding: 0;
+  }
+
+  #user4 {
+    height: 110%;
+    transform: translateY(-10%);
+  }
+
+  /* .rankingBg ul li span:nth-child(1){
     height: auto;
     padding: 0px 15px;
     width: 20%;
@@ -128,16 +139,16 @@
     margin: 15px 0;
     padding: 10px 20px;
     width: 5%;
-  }
+  } */
 
   .userName{
     color: rgb(150,32,5);
     font-family: "Helvetica", "나눔 고딕", serif;
-    font-size: 70px;
+    font-size: 68px;
     font-weight: bold;
-    left: 16px;
     position: relative;
     text-align: center;
+    line-height: 200%;
   }
 
   .score{
@@ -145,9 +156,9 @@
     font-family: "Helvetica", "나눔 고딕", serif;
     font-size: 70px;
     font-weight: bold;
-    left: 60px;
     position: relative;
     text-align: center;
+    line-height: 200%;
   }
 </style>
 
@@ -174,7 +185,7 @@ export default {
       var self = this;
       setTimeout(function() {
         self.goRestart() 
-      }, 7000);
+      }, 700000);
     }
   },
   mounted(){
