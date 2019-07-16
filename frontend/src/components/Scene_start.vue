@@ -4,7 +4,7 @@
       <img src = "../assets/gif/startgif.gif">
     </div>
     <button class="startbutton" v-on:click="go()"><img src="../assets/background/gamestart.png" class="startimg"></button>
-    //<div id="checkrun" style="height: 50px; text-align: center;z-index:1"> init?>> </div>
+    <!--<div id="checkrun" style="height: 50px; text-align: center;z-index:1"> init?>></div>-->
     <div id = "backimg2">
       <img src = "../assets/gif/startgif.gif">
     </div>
@@ -93,15 +93,16 @@ export default {
 <style>
     #backimg{
         position: absolute;
-        top: 10%;
-        left: 10%;
+        top: 0%;
+        left: 5%;
         width: 10%;
     }
     
     #backimg2{
         position: absolute;
-        top: 10%;
-        right: 10%;
+        top: 0%;
+        right: 5%;
+        width: 10%;
     }
 
     .startBg {
@@ -120,8 +121,8 @@ export default {
             position: absolute;
             width: 50%;
             height: 40%;
-            left: 30%;
-            top:50%;
+            left: 27%;
+            top:45%;
             
     }
 
