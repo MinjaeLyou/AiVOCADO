@@ -52,7 +52,7 @@
   }
   .padding{
     position:absolute;
-    height:30%;
+    height:25%;
   }
 
   .middle{
@@ -67,7 +67,6 @@
 
   .again{
     border-width:0;
-    height:80%;
     background:none;
   }
 
