@@ -63,7 +63,7 @@ export default new Router({
       component: GameMain
     },
     {
-      path: '/main/:st',
+      path: '/main',
       name: 'start',
       component: StartPage
     },
