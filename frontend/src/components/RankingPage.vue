@@ -192,7 +192,7 @@ export default {
       var self = this;
       setTimeout(function() {
         self.goRestart() 
-      }, 700000);
+      }, 7000);
     }
   },
   mounted(){
