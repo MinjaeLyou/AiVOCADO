@@ -209,7 +209,7 @@ export default {
                 case '시' :
                 case '씨이' :
                 case 'c' :
-                case 'cgv' :
+                case 'she' :
                 case '씨':
                   document.getElementById('checkrun').innerText = 'c입니다';
                   ref.check('c');
@@ -306,7 +306,7 @@ export default {
 
 .alphabet {
   position: absolute;
-  top: 50%;
+  top: 47%;
   left: 10%;
   line-height: 80px;
 }

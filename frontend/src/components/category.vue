@@ -288,6 +288,7 @@ export default {
     async init() {
       document.getElementById('checkrun').innerText = "initttttttt";
       //var options = {};
+      var ref = this;
 			var options = {};
 			options.keytype = await "GBOXDEVM"; // 개발(GBOXDEVM) 또는 상용(GBOXCOMM) 키 종류 입력
 			options.apikey = await "RTUwMDI5OTN8R0JPWERFVk18MTU2MTUyMzk3MjI1Ng=="; // 개발자 포털에서 키를 발급받아 입력
@@ -326,6 +327,9 @@ export default {
                   break;
                 case "탈것":
                   location.href='/#/main/wordVehicle/voti/80';
+                  break;
+                default:
+                  ref.init();
                   break;
               }
                     
