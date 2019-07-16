@@ -355,8 +355,8 @@ export default {
 }
 
 #m_img{
-  height: 20%;
-  top : 10%;
+  height: 50%;
+  top : 20%;
   left : 50%;
   transform : translateX(-50%);
   position : absolute;
