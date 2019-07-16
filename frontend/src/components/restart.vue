@@ -11,9 +11,10 @@
         <button class='again' v-on:click="goAgain()">
           <img class='againImg' src="../assets/restart/againBtn.png">
         </button>
-        <button class='exit' v-on:click="Exit()">
+        <button class='exit' v-on:click="goExit()">
             <img class='exitImg' src="../assets/restart/exitBtn.png">
         </button>
+        <div id="checkrun" style="height: 50px; text-align: center;z-index:1"> init?>> </div>
       </div>
 
     </div>
@@ -71,13 +72,48 @@ export default {
     return {
     }
   },
+  mounted(){
+    this.init();
+  },
   methods: {
-    goAgain(st){
+    goAgain(){
       this.$router.push({name: "start"});
     },
-    goExit(st){
+    goExit(){
       this.$router.push({name: "start"});
-    }
+    },
+    // 서비스 초기화
+    async init() {
+      document.getElementById('checkrun').innerText = "initttttttt";
+      //var options = {};
+			var options = {};
+			options.keytype = await "GBOXDEVM"; // 개발(GBOXDEVM) 또는 상용(GBOXCOMM) 키 종류 입력
+			options.apikey = await "RTUwMDI5OTN8R0JPWERFVk18MTU2MTUyMzk3MjI1Ng=="; // 개발자 포털에서 키를 발급받아 입력
+			gigagenie.init(options, function (result_cd, result_msg, extra) {
+				if (result_cd === 200) {
+					//init 성공
+          //함수 호출 및 개발 진행
+          var options={};
+					document.getElementById('checkrun').innerText = "OK";
+          options.voicemsg="다시 하시겠습니까?"
+                  gigagenie.voice.getVoiceText(options,function(result_cd,result_msg,extra){
+                    if(result_cd===200){
+                    //console.log(extra.voicetext+':'+solution);
+                    document.getElementById('checkrun').innerText = extra.voicetext;
+
+                    if(extra.voicetext=="다시하기" || extra.voicetext=="종료"){
+                      document.getElementById('checkrun').innerText = "Start Gameeee";
+                      //this.$router.push({name: "select"});
+                      location.href="/#/start";
+                    }
+
+                    
+                    }
+                  });
+					
+				};
+			});
+    },
   } 
 }
 </script>
