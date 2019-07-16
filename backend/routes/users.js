@@ -37,13 +37,17 @@ router.get('/score/:userId/:name', wrap(async (req, res) => {
 
 router.post('/updateScore/:score/:id', wrap(async (req, res) => {
   console.log(req.params.score);
+  console.log(req.params.id);
+  const tmp = parseInt(req.params.score) + 10;
+
   const score = await models.user.update({
-    score: req.params.score + 10
+    score: tmp
   }, {
     where: {
-      id: req.params.id
+      userId: req.params.id
     }
   });
+  console.log(score);
   if (score) {
     res.send ({
       result: true
