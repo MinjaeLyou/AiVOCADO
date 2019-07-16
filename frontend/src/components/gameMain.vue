@@ -217,6 +217,7 @@ export default {
                 case '디' :
                 case '디이' :
                 case 'd' :
+                case 'the':
                   document.getElementById('checkrun').innerText = 'd입니다';
                   ref.check('d');
                   break;
@@ -251,6 +252,13 @@ export default {
                   document.getElementById('checkrun').innerText = 'h입니다';
                   ref.check('h');
                   break;
+                case '아이':
+                case '아아이':
+                case 'i':
+                case '아이이':
+                  document.getElementById('checkrun').innerText = 'g입니다';
+                  ref.check('g');
+                  break;
                 default:
                   document.getElementById('checkrun').innerText = 'default 입니다';
                   refff.init();
@@ -274,8 +282,8 @@ export default {
   box-sizing: border-box;
   float: left;
   font-size: 650%;
-  width: 150px;
-  height: 150px;
+  width: 130px;
+  height: 130px;
   margin: 10px;
   padding: 20px;
   vertical-align: middle;
@@ -286,13 +294,13 @@ export default {
 .cate {
   position: absolute;
   font-size: 300%;
-  top: 10%;
+  top: 6%;
   left: 80%;
 }
 
 .center {
   position: absolute;
-  top: 20%;
+  top: 19%;
   line-height: 100px;
 }
 
@@ -309,9 +317,9 @@ export default {
   padding: 0 5px;
   margin: 10px 10px;
   color: white;
-  font-size: 80px;
-  width: 100px;
-  height: 100px;
+  font-size: 60px;
+  width: 80px;
+  height: 80px;
   text-align: center;
   vertical-align: middle;
 }
