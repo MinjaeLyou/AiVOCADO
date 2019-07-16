@@ -195,7 +195,7 @@ export default {
             var refff = reff;
             if(result_cd===200){
               //console.log(extra.voicetext+':'+solution);
-              //document.getElementById('checkrun2').innerText = extra.voicetext;
+              document.getElementById('checkrun').innerText = extra.voicetext;
               switch(extra.voicetext){
                 case '에이' :
                 case '애이' :
