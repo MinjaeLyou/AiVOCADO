@@ -10,7 +10,7 @@
       <div class="center" id="quiz" style="left: 20%;">
       </div>
       <div id="checkrun" style="height: 50px; text-align: center;z-index:1 top: 25%"> init?>> </div>
-      <div id="checkrun2" style="height: 50px; text-align: center;z-index:1 top: 28%"> init22 </div>
+      <div id="checkrun2" style="height: 50px; text-align: center;z-index:1 top: 28%; color: white; font-size:80px; font-weight:bold;"> 정답 </div>
       <div class="alphabet">
         <button class="but" id="a" v-on:click="check('a')" >a</button><button class="but" id="b" v-on:click="check('b')">b</button><button class="but" id="c" v-on:click="check('c')">c</button><button class="but" id="d" v-on:click="check('d')">d</button><button class="but" id="e" v-on:click="check('e')">e</button>
         <button class="but" id="f" v-on:click="check('f')">f</button><button class="but" id="g" v-on:click="check('g')">g</button><button class="but" id="h" v-on:click="check('h')">h</button><button class="but" id="i" v-on:click="check('i')">i</button><button class="but" id="j" v-on:click="check('j')">j</button><br>
@@ -200,7 +200,7 @@ export default {
                 case  'a' :
                 case '에' :
                 case '애':
-                  document.getElementById('checkrun').innerText = 'a입니다';
+                  document.getElementById('checkrun2').innerText = 'a';
                   ref.check('a');
                   break;
                 case '비' :
@@ -210,7 +210,7 @@ export default {
                 case '삐이':
                 case 'bee':
                 case 'be':
-                  document.getElementById('checkrun').innerText = 'b입니다';
+                  document.getElementById('checkrun2').innerText = 'b';
                   ref.check('b');
                   break;
                 case '시' :
@@ -218,14 +218,14 @@ export default {
                 case 'c' :
                 case 'she' :
                 case '씨':
-                  document.getElementById('checkrun').innerText = 'c입니다';
+                  document.getElementById('checkrun2').innerText = 'c';
                   ref.check('c');
                   break;
                 case '디' :
                 case '디이' :
                 case 'd' :
                 case 'the':
-                  document.getElementById('checkrun').innerText = 'd입니다';
+                  document.getElementById('checkrun2').innerText = 'd';
                   ref.check('d');
                   break;
                 case '이' :
@@ -233,7 +233,7 @@ export default {
                 case 'e' :
                 case 'ee' :
                 case '이리' :
-                  document.getElementById('checkrun').innerText = 'e입니다';
+                  document.getElementById('checkrun2').innerText = 'e';
                   ref.check('e');
                   break;
                 case '에프' :
@@ -242,7 +242,7 @@ export default {
                 case '애프' :
                 case '애플':
                 case 'ref':
-                  document.getElementById('checkrun').innerText = 'f입니다';
+                  document.getElementById('checkrun2').innerText = 'f';
                   ref.check('f');
                   break;
                 case '쥐':
@@ -251,7 +251,7 @@ export default {
                 case '쥐이':
                 case '취소':
                 case '치':
-                  document.getElementById('checkrun').innerText = 'g입니다';
+                  document.getElementById('checkrun2').innerText = 'g';
                   ref.check('g');
                   break;
                 case '에이치':
@@ -260,28 +260,28 @@ export default {
                 case 'h':
                 case '에이칫':
                 case '에이취':
-                  document.getElementById('checkrun').innerText = 'h입니다';
+                  document.getElementById('checkrun2').innerText = 'h';
                   ref.check('h');
                   break;
                 case '아이':
                 case '아아이':
                 case 'i':
                 case '아이이':
-                  document.getElementById('checkrun').innerText = 'i입니다';
+                  document.getElementById('checkrun2').innerText = 'i';
                   ref.check('i');
                   break;
                 case '제이':
                 case '줴이':
                 case 'j':
                 case '재이':
-                  document.getElementById('checkrun').innerText = 'j입니다';
+                  document.getElementById('checkrun2').innerText = 'j';
                   ref.check('j');
                   break;
                 case '케이':
                 case '캐이':
                 case 'k':
                 case 'kt':
-                  document.getElementById('checkrun').innerText = 'k입니다';
+                  document.getElementById('checkrun2').innerText = 'k';
                   ref.check('k');
                   break;
                 case '엘':
@@ -290,14 +290,14 @@ export default {
                 case '에르':
                 case '애르':
                 case '응':
-                  document.getElementById('checkrun').innerText = 'l입니다';
+                  document.getElementById('checkrun2').innerText = 'l';
                   ref.check('l');
                   break;
                 case '엠':
                 case '앰':
                 case 'm':
                 case '에므':
-                  document.getElementById('checkrun').innerText = 'm입니다';
+                  document.getElementById('checkrun2').innerText = 'm';
                   ref.check('m');
                   break;
                 case '앤':
@@ -306,7 +306,7 @@ export default {
                 case '애느':
                 case '애모':
                 case 'ann':
-                  document.getElementById('checkrun').innerText = 'n입니다';
+                  document.getElementById('checkrun2').innerText = 'n';
                   ref.check('n');
                   break;
                 case '오':
@@ -316,7 +316,7 @@ export default {
                 case '어우':
                 case 'all':
                 case '옴':
-                  document.getElementById('checkrun').innerText = 'o입니다';
+                  document.getElementById('checkrun2').innerText = 'o';
                   ref.check('o');
                   break;
                 case '피':
@@ -324,14 +324,14 @@ export default {
                 case 'p':
                 case '피이':
                 case '퓌':
-                  document.getElementById('checkrun').innerText = 'p입니다';
+                  document.getElementById('checkrun2').innerText = 'p';
                   ref.check('p');
                   break;
                 case '큐':
                 case '큐우':
                 case 'q':
                 case 'que':
-                  document.getElementById('checkrun').innerText = 'q입니다';
+                  document.getElementById('checkrun2').innerText = 'q';
                   ref.check('q');
                   break;
                 case 'r':
@@ -341,7 +341,7 @@ export default {
                 case '아래':
                 case 'are':
                 case '얼':
-                  document.getElementById('checkrun').innerText = 'r입니다';
+                  document.getElementById('checkrun2').innerText = 'r';
                   ref.check('r');
                   break;
                 case 's':
@@ -350,7 +350,7 @@ export default {
                 case '예습':
                 case '예쓰':
                 case 'yes':
-                  document.getElementById('checkrun').innerText = 's입니다';
+                  document.getElementById('checkrun2').innerText = 's';
                   ref.check('s');
                   break;
                 case '티이':
@@ -359,19 +359,19 @@ export default {
                 case 'tea':
                 case 'ti':
                 case 'tee':
-                  document.getElementById('checkrun').innerText = 't입니다';
+                  document.getElementById('checkrun2').innerText = 't';
                   ref.check('t');
                   break;
                 case 'u':
                 case 'you':
                 case '유':
-                  document.getElementById('checkrun').innerText = 'u입니다';
+                  document.getElementById('checkrun2').innerText = 'u';
                   ref.check('u');
                   break;
                 case 'v':
                 case '브이':
                 case '부위':
-                  document.getElementById('checkrun').innerText = 'w입니다';
+                  document.getElementById('checkrun2').innerText = 'w';
                   ref.check('v');
                   break;
                 case 'w':
@@ -380,7 +380,7 @@ export default {
                 case '다블유':
                 case '떠블유':
                 case '떠블':
-                  document.getElementById('checkrun').innerText = 'w입니다';
+                  document.getElementById('checkrun2').innerText = 'w';
                   ref.check('w');
                   break;
                 case 'x':
@@ -391,7 +391,7 @@ export default {
                 case 'ax':
                 case 'axe':
                 case 'ex':
-                  document.getElementById('checkrun').innerText = 'x입니다';
+                  document.getElementById('checkrun2').innerText = 'x';
                   ref.check('x');
                   break;
                 case 'y':
@@ -399,7 +399,7 @@ export default {
                 case '와아이':
                 case '오아이':
                 case 'why':
-                  document.getElementById('checkrun').innerText = 'y입니다';
+                  document.getElementById('checkrun2').innerText = 'y';
                   ref.check('y');
                   break;
                 case 'z':
@@ -410,11 +410,11 @@ export default {
                 case '젯':
                 case '잿':
                 case '제투':
-                  document.getElementById('checkrun').innerText = 'z입니다';
+                  document.getElementById('checkrun2').innerText = 'z';
                   ref.check('z');
                   break;
                 default:
-                  document.getElementById('checkrun').innerText = 'default 입니다';
+                  document.getElementById('checkrun2').innerText = 'default';
                   refff.init();
                   break;
               }
