@@ -359,7 +359,7 @@ export default {
 #m_img{
   height: 50%;
   top : 20%;
-  left : 50%;
+  left : 40%;
   transform : translateX(-50%);
   position : absolute;
   float : left;
@@ -368,7 +368,7 @@ export default {
 
 #m_text{
   top:30%;
-  left:60%;
+  left:50%;
   position : absolute;
   float : left;
 }
