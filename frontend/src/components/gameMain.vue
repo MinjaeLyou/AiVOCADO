@@ -112,7 +112,7 @@ export default {
   methods: {
     async check(ans){
       console.log(ans);
-      document.getElementById('checkrun').innerText = 'check is '+ans;
+      //document.getElementById('checkrun').innerText = 'check is '+ans;
       document.getElementById(ans).disabled = true;
       document.getElementById(ans).style.opacity = "0.3";
       for ( let i = 0; i < this.len; i++){
@@ -190,13 +190,13 @@ export default {
           //함수 호출 및 개발 진행
           var reff = ref;
           var options={};
-					document.getElementById('checkrun').innerText = "OK";
+					//document.getElementById('checkrun').innerText = "OK";
           options.voicemsg="알파벳을 말해주세요"
           gigagenie.voice.getVoiceText(options,function(result_cd,result_msg,extra){
             var refff = reff;
             if(result_cd===200){
               //console.log(extra.voicetext+':'+solution);
-              document.getElementById('checkrun').innerText = extra.voicetext;
+              //document.getElementById('checkrun').innerText = extra.voicetext;
               switch(extra.voicetext){
                 case '에이' :
                 case '애이' :
