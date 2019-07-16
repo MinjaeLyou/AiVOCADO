@@ -462,6 +462,7 @@ export default {
   font-size: 300%;
   top: 6%;
   left: 47%;
+  color: white;
 }
 
 .center {
