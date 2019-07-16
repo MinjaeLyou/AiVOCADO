@@ -118,10 +118,10 @@ export default {
             background:none;
             border-width:0;
             position: relative;
-            width: 40%;
+            width: 50%;
             height: 40%;
             left: 30%;
-            top:45%;
+            top:65%;
             
     }
 
