@@ -9,25 +9,25 @@
       <ul>
         <li>
           <span class="medal"><img class="medalImg" src="../assets/ranking/gold-medal.png"></span>
-          <span class="userImg"><img class="img" :src="require('@/assets/character/keti.png')"></span>
+          <span class="userImg"><img id="img1" src="../assets/character/keti.png"></span>
           <span class="userName">{{ users[0].name }}</span>
           <span class="score">{{ users[0].score }}</span>
         </li>
         <li>
           <span class="medal"><img class="medalImg" src="../assets/ranking/silver-medal.png"></span>
-          <span class="userImg"><img class="img" :src= "require('@/assets/character/voti.png')"></span>
+          <span class="userImg"><img id="img2" src="../assets/character/voti.png"></span>
           <span class="userName">{{ users[1].name }}</span>
           <span class="score">{{ users[1].score }}</span>
         </li>
         <li>
           <span class="medal"><img class="medalImg" src="../assets/ranking/bronze-medal.png"></span>
-          <span class="userImg"><img class="img"  :src= "require('@/assets/character/doti.png')" ></span>
+          <span class="userImg"><img id="img3" src= "../assets/character/doti.png" ></span>
           <span class="userName">{{ users[2].name }}</span>
           <span class="score">{{ users[2].score }}</span>
         </li>
         <li>
           <span class="medal"><img class="forthMedalImg" id="medal4" src="../assets/ranking/4th.png"></span>
-          <span class="userImg"><img class="img" id="user4" :src= "require('@/assets/character/ati.png')"></span>
+          <span class="userImg"><img id="img4" id="user4" src= "../assets/character/ati.png"></span>
           <span class="userName">{{ users[3].name }}</span>
           <span class="score">{{ users[3].score }}</span>
         </li>
@@ -97,7 +97,25 @@
     padding: 0;
   }
 
-  .rankingBg .img {
+  .rankingBg #img1 {
+    height : 100%;
+    width: 80%;
+    margin: 0;
+    padding: 0;
+  }
+  .rankingBg #img2 {
+    height : 100%;
+    width: 80%;
+    margin: 0;
+    padding: 0;
+  }
+  .rankingBg #img3 {
+    height : 100%;
+    width: 80%;
+    margin: 0;
+    padding: 0;
+  }
+  .rankingBg #img4 {
     height : 100%;
     width: 80%;
     margin: 0;
@@ -181,22 +199,39 @@ export default {
     const result = await this.$http.get('api/users/getScore');
     console.log("user is", result.data);
     this.users = result.data;
-    this.users[2].image = "'@/assets/character/voti.png'"
-    console.log(this.users[2].image);
+
+    this.$nextTick(function() {
+      var image1 =  document.getElementById('img1');
+      var image2 =  document.getElementById('img2');
+      var image3 =  document.getElementById('img3');
+      var image4 =  document.getElementById('img4');
+      
+      image1.setAttribute('src', this.users[0].image);
+      image2.setAttribute('src', this.users[1].image);
+      image3.setAttribute('src', this.users[2].image);
+      image4.setAttribute('src', this.users[3].image);
+      console.log(image3);
+      console.log(this.users[2].image);
+
+    });
+ 
+    
   },
   methods: {
     goRestart(){
       this.$router.push({name: "restart"});
     },
+    
     callFunction() {
       var self = this;
       setTimeout(function() {
         self.goRestart() 
-      }, 7000);
+      }, 9000);
     }
   },
-  mounted(){
+  mounted() {
     this.callFunction();
   }
+  
 }
 </script>
