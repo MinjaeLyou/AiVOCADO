@@ -384,6 +384,7 @@ export default {
                 case '억스':
                 case 'ax':
                 case 'axe':
+                case 'ex':
                   document.getElementById('checkrun').innerText = 'x입니다';
                   ref.check('x');
                   break;
