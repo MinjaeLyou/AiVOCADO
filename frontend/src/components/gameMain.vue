@@ -125,6 +125,9 @@ export default {
             console.log("Succeed!");
             this.$http.post(`/api/users/updateScore/${this.$route.params.score}/${this.$route.params.userId}`);
             document.getElementById('main').style.display = 'none';
+            setTimeout(function() {
+              location.reload();
+            }, 7000);
             //location.href=`/#/meaning/${this.$route.params.userId}/${this.$route.params.score}`;
           }
         }
@@ -154,7 +157,14 @@ export default {
       if(this.try == 5){
         //실패
         console.log("Fail!");
-        this.$router.push({name: "ranking"});
+        document.getElementById('m_img').setAttribute("src", "/assets/gif/doti-failed.gif");
+        document.getElementById('m_text').setAttribute("src", "/assets/gif/cheerup.gif");
+        document.getElementById('main').style.display = 'none';
+        setTimeout(function() {
+          location.href='/#/ranking';
+        }, 7000);
+    
+        //this.$router.push({name: "ranking"});
       }
     },
     async init() {
