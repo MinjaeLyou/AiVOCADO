@@ -24,7 +24,7 @@
                 <img src="../assets/character/doti.png" class="avocado" style="animation-name:vibrate1;" >
                 <textarea class="avocado_name">{{users[4].name}}</textarea>
             </button>
-            <div id="checkrun" style="height: 50px; text-align: center;z-index:1"> init?>> </div>   
+            <!--div id="checkrun" style="height: 50px; text-align: center;z-index:1"> init?>> </div-->   
         </div>
         
     </div>
@@ -75,7 +75,7 @@ export default {
           gigagenie.voice.getVoiceText(options,function(result_cd,result_msg,extra){
             if(result_cd===200){
               //console.log(extra.voicetext+':'+solution);
-              document.getElementById('checkrun').innerText = extra.voicetext;
+              //document.getElementById('checkrun').innerText = extra.voicetext;
 
               if(extra.voicetext=="보티"){
                 location.href="/#/category/voti/50";
