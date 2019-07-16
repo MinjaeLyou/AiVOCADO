@@ -47,7 +47,7 @@
 
   } 
   .charImg{
-    height:80%;
+    height:90%;
   }
   .padding{
     position:absolute;
@@ -55,8 +55,8 @@
   }
 
   .middle{
-    height:90%;
-    left:35%;
+    height:100%;
+    left:40%;
   }
 
   .buttons{
@@ -67,13 +67,11 @@
   .again{
     border-width:0;
     background:none;
-    width:80%;
   }
 
   .exit{
     border-width:0;
     background:none;
-    width:80%;
   }
 
 </style>
