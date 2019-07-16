@@ -98,7 +98,6 @@ main {
 }
 
 #m_img{
-  top : 20%;
   left : 50%;
   transform : translateX(-50%);
   position : absolute;
@@ -140,7 +139,7 @@ main {
 .caption .content {
   font-size: 50px;
   text-align:center;
-  width:20%;
+  width:30%;
   padding:10px 10px 10px 10px;
   margin: 20px;
   background: #385723; 
