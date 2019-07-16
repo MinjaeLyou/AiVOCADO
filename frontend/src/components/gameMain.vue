@@ -259,8 +259,49 @@ export default {
                 case '아아이':
                 case 'i':
                 case '아이이':
-                  document.getElementById('checkrun').innerText = 'g입니다';
-                  ref.check('g');
+                  document.getElementById('checkrun').innerText = 'i입니다';
+                  ref.check('i');
+                  break;
+                case '제이':
+                case '줴이':
+                case 'j':
+                case '재이':
+                  document.getElementById('checkrun').innerText = 'j입니다';
+                  ref.check('j');
+                  break;
+                case '케이':
+                case '캐이':
+                case 'k':
+                  document.getElementById('checkrun').innerText = 'k입니다';
+                  ref.check('k');
+                  break;
+                case '엘':
+                case '앨':
+                case 'l':
+                case '에르':
+                case '애르':
+                  document.getElementById('checkrun').innerText = 'l입니다';
+                  ref.check('l');
+                  break;
+                case '엠':
+                case '앰':
+                case 'm':
+                case '에므':
+                  document.getElementById('checkrun').innerText = 'm입니다';
+                  ref.check('m');
+                  break;
+                case '앤':
+                case '엔':
+                case 'n':
+                case '애느':
+                  document.getElementById('checkrun').innerText = 'n입니다';
+                  ref.check('n');
+                  break;
+                case '오':
+                case '오우':
+                case 'o':
+                  document.getElementById('checkrun').innerText = 'o입니다';
+                  ref.check('o');
                   break;
                 default:
                   document.getElementById('checkrun').innerText = 'default 입니다';
