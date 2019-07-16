@@ -227,6 +227,7 @@ export default {
                 case '이이' :
                 case 'e' :
                 case 'ee' :
+                case '이리' :
                   document.getElementById('checkrun').innerText = 'e입니다';
                   ref.check('e');
                   break;
@@ -282,6 +283,7 @@ export default {
                 case 'l':
                 case '에르':
                 case '애르':
+                case '응':
                   document.getElementById('checkrun').innerText = 'l입니다';
                   ref.check('l');
                   break;
@@ -306,6 +308,8 @@ export default {
                 case 'o':
                 case 'oh':
                 case '어우':
+                case 'all':
+                case '옴':
                   document.getElementById('checkrun').innerText = 'o입니다';
                   ref.check('o');
                   break;
@@ -328,6 +332,7 @@ export default {
                 case '알':
                 case '아알':
                 case '어알':
+                case '아래':
                 case 'are':
                   document.getElementById('checkrun').innerText = 'r입니다';
                   ref.check('r');
