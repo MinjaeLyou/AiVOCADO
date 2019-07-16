@@ -10,22 +10,22 @@
 
     <div class="category-container" v-on:click="go('wordAnimal')">
         <div class="cg-name">
-            Animal<br><img class= "cg-img"  src="../assets/category/cat.png">
+            동물<br><img class= "cg-img"  src="../assets/category/cat.png">
         </div>
     </div>
     <div class="category-container" v-on:click="go('wordCountry')">
         <div class="cg-name">
-            Country<br><img class= "cg-img" src="../assets/category/south-korea.png">
+            나라<br><img class= "cg-img" src="../assets/category/south-korea.png">
         </div>
     </div>
     <div class="category-container" v-on:click="go('wordFood')">
         <div class="cg-name">
-            Food<br><img class= "cg-img"  src="../assets/category/apple.png">
+            음식<br><img class= "cg-img"  src="../assets/category/apple.png">
         </div>
     </div>
     <div class="category-container" v-on:click="go('wordJob')">
         <div class="cg-name">
-            Job<br><img class= "cg-img"  src="../assets/category/firefighter.png">
+            직업<br><img class= "cg-img"  src="../assets/category/firefighter.png">
         </div>
     </div>
     <div class="logo">
@@ -35,22 +35,22 @@
     </div>
     <div class="category-container" v-on:click="go('wordNature')">
         <div class="cg-name">
-            Nature<br><img class= "cg-img"  src="../assets/category/sprout.png">
+            자연<br><img class= "cg-img"  src="../assets/category/sprout.png">
         </div>
     </div>
     <div class="category-container" v-on:click="go('wordSchool')">
         <div class="cg-name">
-            School<br><img class= "cg-img"  src="../assets/category/blackboard.png">
+            학교<br><img class= "cg-img"  src="../assets/category/blackboard.png">
         </div>
     </div>
     <div class="category-container" v-on:click="go('wordSports')">
         <div class="cg-name">
-            Sports<br><img class= "cg-img"  src="../assets/category/football.png">
+            스포츠<br><img class= "cg-img"  src="../assets/category/football.png">
         </div>
     </div>
     <div class="category-container" v-on:click="go('wordVehicle')">
         <div class="cg-name">
-            Vehicle<br><img class= "cg-img"  src="../assets/category/car.png">
+            탈 것<br><img class= "cg-img"  src="../assets/category/car.png">
         </div>
     </div>
 
@@ -328,15 +328,9 @@ export default {
                   location.href='/#/main/wordVehicle/voti/80';
                   break;
               }
-              if(extra.voicetext=="게임시작" || extra.voicetext=="게임 시작"){
-                      document.getElementById('checkrun').innerText = "Start Gameeee";
-                      //this.$router.push({name: "select"});
-                      location.href="/#/select";
-                    }
-
                     
-                    }
-                  });
+            }
+          });
 					
 				};
 			});
