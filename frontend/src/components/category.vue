@@ -3,7 +3,9 @@
 <div id="status">
 
 </div>
+<!--
 <div id="checkrun" style="height: 50px; text-align: center;z-index:1"> init?>> </div>
+-->
 <div id="category">
 
     <div class="category-container" v-on:click="go('wordAnimal')">
@@ -195,8 +197,6 @@
             transform: translateX(-50%);
             height: 70%;
             padding: 30px;
-            margin-top: 40px;
-            margin-bottom: 40px;
         }
 
         .category-container {
