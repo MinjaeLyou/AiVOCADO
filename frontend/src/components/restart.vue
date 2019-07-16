@@ -47,7 +47,7 @@
 
   } 
   .charImg{
-    height:80%;
+    height:70%;
   }
   .padding{
     position:absolute;
