@@ -11,7 +11,6 @@
       </div>
       <div id="checkrun" style="height: 50px; text-align: center;z-index:1 top: 25%"> init?>> </div>
       <div id="checkrun2" style="height: 50px; text-align: center;z-index:1 top: 28%"> init22 </div>
-      <div style="height: 50px; text-align: center;z-index:1 top: 25%; display:none"> init?>> </div>
       <div class="alphabet">
         <button class="but" id="a" v-on:click="check('a')" >a</button><button class="but" id="b" v-on:click="check('b')">b</button><button class="but" id="c" v-on:click="check('c')">c</button><button class="but" id="d" v-on:click="check('d')">d</button><button class="but" id="e" v-on:click="check('e')">e</button>
         <button class="but" id="f" v-on:click="check('f')">f</button><button class="but" id="g" v-on:click="check('g')">g</button><button class="but" id="h" v-on:click="check('h')">h</button><button class="but" id="i" v-on:click="check('i')">i</button><button class="but" id="j" v-on:click="check('j')">j</button><br>
@@ -126,7 +125,10 @@ export default {
             //성공
             console.log("Succeed!");
             this.$http.post(`/api/users/updateScore/${this.$route.params.score}/${this.$route.params.userId}`);
-            document.getElementById('main').style.display = 'none';
+            setTimeout(function() {
+              document.getElementById('main').style.display = 'none';
+            }, 3000);
+            //document.getElementById('main').style.display = 'none';
             setTimeout(function() {
               location.reload();
             }, 7000);
@@ -161,7 +163,10 @@ export default {
         console.log("Fail!");
         document.getElementById('m_img').setAttribute("src", "/assets/gif/doti-failed.gif");
         document.getElementById('m_text').setAttribute("src", "/assets/gif/cheerup.gif");
-        document.getElementById('main').style.display = 'none';
+        setTimeout(function() {
+          document.getElementById('main').style.display = 'none';
+        }, 3000);
+        //document.getElementById('main').style.display = 'none';
         setTimeout(function() {
           location.href='/#/ranking';
         }, 7000);
@@ -335,6 +340,7 @@ export default {
                 case '어알':
                 case '아래':
                 case 'are':
+                case '얼':
                   document.getElementById('checkrun').innerText = 'r입니다';
                   ref.check('r');
                   break;
