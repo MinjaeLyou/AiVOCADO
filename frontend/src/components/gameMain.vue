@@ -8,7 +8,7 @@
     <h1 class="cate">{{cate}}</h1>
     <div class="center" id="quiz" style="left: 20%;">
     </div>
-    <div id="checkrun" style="height: 50px; text-align: center;z-index:1 top: 10%"> init?>> </div>
+    <div id="checkrun" style="height: 50px; text-align: center;z-index:1 top: 25%"> init?>> </div>
     <div class="alphabet">
       <button class="but" id="a" v-on:click="check('a')" >a</button><button class="but" id="b" v-on:click="check('b')">b</button><button class="but" id="c" v-on:click="check('c')">c</button><button class="but" id="d" v-on:click="check('d')">d</button><button class="but" id="e" v-on:click="check('e')">e</button>
       <button class="but" id="f" v-on:click="check('f')">f</button><button class="but" id="g" v-on:click="check('g')">g</button><button class="but" id="h" v-on:click="check('h')">h</button><button class="but" id="i" v-on:click="check('i')">i</button><button class="but" id="j" v-on:click="check('j')">j</button>
@@ -90,20 +90,6 @@ export default {
     //const wordId = '1'
   },
   methods: {
-    async func(){
-      console.log(this.$route.params);
-      const wordId = Math.floor(Math.random() * 25) + 1;
-      console.log(wordId);
-      const result = await this.$http.get(`/api/word/${this.$route.params.cate}/${wordId}`)
-      this.word = result.data;
-      console.log(this.word);
-      console.log(this.word.word);
-      console.log(this.word.word.charAt(2));
-      for (var i = 0; i < this.word.word.length; i++) {
-        this.arr[i] = await this.word.word.charAt(i);
-        
-      }
-    },
     async check(ans){
       console.log(ans);
       document.getElementById('checkrun').innerText = 'check is a';
@@ -119,7 +105,7 @@ export default {
           if(this.result == this.len){
             //성공
             console.log("Succeed!");
-            this.$http.post(`/api/users/updateScore/${this.$route.params.user.score}/${this.$route.params.user.id}`);
+            this.$http.post(`/api/users/updateScore/${this.$route.params.score}/${this.$route.params.userId}`);
           }
         }
       }
@@ -155,7 +141,8 @@ export default {
       //var options = {};
 			var options = {};
 			options.keytype = await "GBOXDEVM"; // 개발(GBOXDEVM) 또는 상용(GBOXCOMM) 키 종류 입력
-			options.apikey = await "RTUwMDI5OTN8R0JPWERFVk18MTU2MTUyMzk3MjI1Ng=="; // 개발자 포털에서 키를 발급받아 입력
+      options.apikey = await "RTUwMDI5OTN8R0JPWERFVk18MTU2MTUyMzk3MjI1Ng=="; // 개발자 포털에서 키를 발급받아 입력
+      var ref = this;
 			gigagenie.init(options, function (result_cd, result_msg, extra) {
 				if (result_cd === 200) {
 					//init 성공
@@ -170,19 +157,13 @@ export default {
               switch(extra.voicetext){
                 case '에이' || '애이':
                   document.getElementById('checkrun').innerText = 'a';
-                  this.check('a');
+                  ref.check('a');
+                  break;
+                case '비' || '비이':
+                  document.getElementById('checkrun').innerText = 'b';
+                  ref.check('b');
                   break;
               }
-              
-
-              //document.getElementById('checkrun').innerText = "김가연";
-              // if(parseInt(extra.voicetext)===solution){
-              // 	alert(extra.voicetext+" 정답입니다");
-              // } else {
-              // 	alert(extra.voicetext+" 틀렸습니다.");
-              // }
-                    // } else {
-                    // alert("다시해보세요");
             }
           });
 				};

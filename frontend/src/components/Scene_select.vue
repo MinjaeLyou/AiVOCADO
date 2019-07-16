@@ -1,7 +1,7 @@
 <template>
     <div id="bg_select">
         <br>
-        <div id="checkrun" style="height: 50px; text-align: center;z-index:1"> init?>> </div>
+        
         <div style="text-align:center;"><img src="../assets/background/selecttitle.png" id="select_title"></div>
         <div id="container">
             <button v-on:click="go(users[0])" class="user_bt">
@@ -24,25 +24,31 @@
                 <img src="../assets/character/doti.png" class="avocado" style="animation-name:vibrate1;" >
                 <textarea class="avocado_name">{{users[4].name}}</textarea>
             </button>
-        </div>   
+            <div id="checkrun" style="height: 50px; text-align: center;z-index:1"> init?>> </div>   
+        </div>
+        
     </div>
 
 </template>
 
 <script>
+
 export default {
   data() {
     return {
       users: []
     }
   },
-  mounted(){
-    this.init();
-  },
   created: async function() {
     const result = await this.$http.get('api/users/getUser');
     this.users = result.data;
     console.log(this.users);
+  },
+  mounted(){
+    //this.init();
+    this.$nextTick(() => {
+      this.init();
+    });
   },
   methods: {
     go(user){
@@ -51,55 +57,45 @@ export default {
     },
     // 초기화
     async init() {
-		document.getElementsByClassName("title").innerText = "이성문";
-		var options = {};
-		options.keytype = "GBOXDEVM"; // 개발(GBOXDEVM) 또는 상용(GBOXCOMM) 키 종류 입력
-		options.apikey = "RTUwMDI5OTN8R0JPWERFVk18MTU2MTUyMzk3MjI1Ng=="; // 개발자 포털에서 키를 발급받아 입력
-		gigagenie.init(options, function (result_cd, result_msg, extra) {
-			if (result_cd === 200) {
-				//init 성공
-				//함수 호출 및 개발 진행
-				//document.getElementById('checkrun').innerText = "OK";
+      console.log("initt");
+      //document.getElementById('checkrun').innerText = await "initttttttt";
+      //document.getElementsByClassName("title").innerText = "이성문";
+      var options = {};
+      options.keytype = await "GBOXDEVM"; // 개발(GBOXDEVM) 또는 상용(GBOXCOMM) 키 종류 입력
+      options.apikey = await "RTUwMDI5OTN8R0JPWERFVk18MTU2MTUyMzk3MjI1Ng=="; // 개발자 포털에서 키를 발급받아 입력
+      console.log(options.apikey);
+      gigagenie.init(options, function (result_cd, result_msg, extra) {
+				if (result_cd === 200) {
+					//init 성공
+          //함수 호출 및 개발 진행
+          var options={};
+					//document.getElementById('checkrun').innerText = "OK";
+          options.voicemsg="캐릭터를 선택해주세요"
+          gigagenie.voice.getVoiceText(options,function(result_cd,result_msg,extra){
+            if(result_cd===200){
+              //console.log(extra.voicetext+':'+solution);
+              document.getElementById('checkrun').innerText = extra.voicetext;
 
-				var options={};
-				options.ttstext="케릭터를 선택해주세요";
-				//startAvocado();
-				gigagenie.voice.sendTTS(options,function(result_cd,result_msg,extra){
-						if(result_cd===200){
-							document.getElementById('checkrun').innerText = extra.voicetext;
-                            
-                            gigagenie.voice.getVoiceText(options,function(result_cd,result_msg,extra){
-                                if(result_cd===200){
-                                //console.log(extra.voicetext+':'+solution);
-                                    document.getElementById('checkrun').innerText = extra.voicetext;
-
-                                    if(extra.voicetext=="보티"){
-                                        location.href="/#/category:" + this.users[0];
-                                    }
-                                    else if(extra.voicetext=="아티"){
-                                        this.go(this.users[1]);
-                                    }
-                                    else if(extra.voicetext=="게티"){
-                                        this.go(this.users[2]);
-                                    }
-                                    else if(extra.voicetext=="카티"){
-                                        this.go(this.users[3]);
-                                    }
-                                    else if(extra.voicetext=="도티"){
-                                        this.go(this.users[4]);
-                                    }
-
-                                }
-                            });
-						} else {
-							//extra.reason 에 voice 오류 전달
-					   };
-				});
-
-
-			};
-		});
-	}
+              if(extra.voicetext=="보티"){
+                location.href="/#/category/voti/50";
+              }
+              else if(extra.voicetext=="아티"){
+                location.href="/#/category/ati/80";
+              }
+              else if(extra.voicetext=="케티"){
+                location.href="/#/category/keti/30";
+              }
+              else if(extra.voicetext=="카티"){
+                location.href="/#/category/kati/10";
+              }
+              else if(extra.voicetext=="도티"){
+                location.href="/#/category/doti/70";
+              }
+            }
+          });
+				};
+			});
+	  }
   }
 }
 </script>

@@ -3,27 +3,29 @@
 <div id="status">
 
 </div>
-
+<!--
+<div id="checkrun" style="height: 50px; text-align: center;z-index:1"> init?>> </div>
+-->
 <div id="category">
 
     <div class="category-container" v-on:click="go('wordAnimal')">
         <div class="cg-name">
-            Animal<br><img class= "cg-img"  src="../assets/category/cat.png">
+            동물<br><img class= "cg-img"  src="../assets/category/cat.png">
         </div>
     </div>
     <div class="category-container" v-on:click="go('wordCountry')">
         <div class="cg-name">
-            Country<br><img class= "cg-img" src="../assets/category/south-korea.png">
+            나라<br><img class= "cg-img" src="../assets/category/south-korea.png">
         </div>
     </div>
     <div class="category-container" v-on:click="go('wordFood')">
         <div class="cg-name">
-            Food<br><img class= "cg-img"  src="../assets/category/apple.png">
+            음식<br><img class= "cg-img"  src="../assets/category/apple.png">
         </div>
     </div>
     <div class="category-container" v-on:click="go('wordJob')">
         <div class="cg-name">
-            Job<br><img class= "cg-img"  src="../assets/category/firefighter.png">
+            직업<br><img class= "cg-img"  src="../assets/category/firefighter.png">
         </div>
     </div>
     <div class="logo">
@@ -33,22 +35,22 @@
     </div>
     <div class="category-container" v-on:click="go('wordNature')">
         <div class="cg-name">
-            Nature<br><img class= "cg-img"  src="../assets/category/sprout.png">
+            자연<br><img class= "cg-img"  src="../assets/category/sprout.png">
         </div>
     </div>
     <div class="category-container" v-on:click="go('wordSchool')">
         <div class="cg-name">
-            School<br><img class= "cg-img"  src="../assets/category/blackboard.png">
+            학교<br><img class= "cg-img"  src="../assets/category/blackboard.png">
         </div>
     </div>
     <div class="category-container" v-on:click="go('wordSports')">
         <div class="cg-name">
-            Sports<br><img class= "cg-img"  src="../assets/category/football.png">
+            스포츠<br><img class= "cg-img"  src="../assets/category/football.png">
         </div>
     </div>
     <div class="category-container" v-on:click="go('wordVehicle')">
         <div class="cg-name">
-            Vehicle<br><img class= "cg-img"  src="../assets/category/car.png">
+            탈 것<br><img class= "cg-img"  src="../assets/category/car.png">
         </div>
     </div>
 
@@ -195,8 +197,6 @@
             transform: translateX(-50%);
             height: 70%;
             padding: 30px;
-            margin-top: 40px;
-            margin-bottom: 40px;
         }
 
         .category-container {
@@ -279,15 +279,63 @@ export default {
   },
   mounted: async function () {
     console.log(this.$route.params.user);
+    this.init();
   },
-  methods: {
-        go(cate){
-          this.$router.push({name: "gameMain", params: {cate: cate, user: this.$route.params.user}});
-        }
-
-
-  
-}
+  methods: {  
+    go(cate){
+      this.$router.push({name: "gameMain", params: {cate: cate, user: this.$route.params.user}});
+    },
+    async init() {
+      document.getElementById('checkrun').innerText = "initttttttt";
+      //var options = {};
+			var options = {};
+			options.keytype = await "GBOXDEVM"; // 개발(GBOXDEVM) 또는 상용(GBOXCOMM) 키 종류 입력
+			options.apikey = await "RTUwMDI5OTN8R0JPWERFVk18MTU2MTUyMzk3MjI1Ng=="; // 개발자 포털에서 키를 발급받아 입력
+			gigagenie.init(options, function (result_cd, result_msg, extra) {
+				if (result_cd === 200) {
+					//init 성공
+          //함수 호출 및 개발 진행
+          var options={};
+					document.getElementById('checkrun').innerText = "OK";
+          options.voicemsg="카테고리를 선택해주세요"
+          gigagenie.voice.getVoiceText(options,function(result_cd,result_msg,extra){
+            if(result_cd===200){
+              //console.log(extra.voicetext+':'+solution);
+              document.getElementById('checkrun').innerText = extra.voicetext;
+              switch(extra.voicetext){
+                case "동물":
+                  location.href='/#/main/wordAnimal/voti/80';
+                  break;
+                case "나라":
+                  location.href='/#/main/wordCountry/voti/80';
+                  break;
+                case "음식":
+                  location.href='/#/main/wordFood/voti/80';
+                  break;
+                case "직업":
+                  location.href='/#/main/wordJob/voti/80';
+                  break;
+                case "자연":
+                  location.href='/#/main/wordNature/voti/80';
+                  break;
+                case "학교":
+                  location.href='/#/main/wordSchool/voti/80';
+                  break;
+                case "스포츠":
+                  location.href='/#/main/wordSports/voti/80';
+                  break;
+                case "탈것":
+                  location.href='/#/main/wordVehicle/voti/80';
+                  break;
+              }
+                    
+            }
+          });
+					
+				};
+			});
+    },  
+  }
 }
 </script>
     

@@ -48,7 +48,7 @@ export default new Router({
       component: MeaningPage
     },
     {
-      path: '/category/:user',
+      path: '/category/:userId/:score',
       name: 'category',
       component: Category
     },
@@ -58,19 +58,9 @@ export default new Router({
       component: RankingPage
     },
     {
-      path: '/main/:cate/:user',
+      path: '/main/:cate/:userId/:score',
       name: 'gameMain',
       component: GameMain
-    },
-    {
-      path: '/main/:st',
-      name: 'start',
-      component: StartPage
-    },
-    {
-      path: '/main/:rest',
-      name: 'restart',
-      component: Restart
     },
     {
       path: '/restart',
