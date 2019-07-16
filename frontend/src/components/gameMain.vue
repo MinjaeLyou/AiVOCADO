@@ -14,9 +14,9 @@
       <div style="height: 50px; text-align: center;z-index:1 top: 25%; display:none"> init?>> </div>
       <div class="alphabet">
         <button class="but" id="a" v-on:click="check('a')" >a</button><button class="but" id="b" v-on:click="check('b')">b</button><button class="but" id="c" v-on:click="check('c')">c</button><button class="but" id="d" v-on:click="check('d')">d</button><button class="but" id="e" v-on:click="check('e')">e</button>
-        <button class="but" id="f" v-on:click="check('f')">f</button><button class="but" id="g" v-on:click="check('g')">g</button><button class="but" id="h" v-on:click="check('h')">h</button><button class="but" id="i" v-on:click="check('i')">i</button><button class="but" id="j" v-on:click="check('j')">j</button>
-        <button class="but" id="k" v-on:click="check('k')">k</button><button class="but" id="l" v-on:click="check('l')">l</button><button class="but" id="m" v-on:click="check('m')">m</button><br><button class="but" id="n" v-on:click="check('n')">n</button><button class="but" id="o" v-on:click="check('o')">o</button>
-        <button class="but" id="p" v-on:click="check('p')">p</button><button class="but" id="q" v-on:click="check('q')">q</button><button class="but" id="r" v-on:click="check('r')">r</button><button class="but" id="s" v-on:click="check('s')">s</button><button class="but" id="t" v-on:click="check('t')">t</button>
+        <button class="but" id="f" v-on:click="check('f')">f</button><button class="but" id="g" v-on:click="check('g')">g</button><button class="but" id="h" v-on:click="check('h')">h</button><button class="but" id="i" v-on:click="check('i')">i</button><button class="but" id="j" v-on:click="check('j')">j</button><br>
+        <button class="but" id="k" v-on:click="check('k')">k</button><button class="but" id="l" v-on:click="check('l')">l</button><button class="but" id="m" v-on:click="check('m')">m</button><button class="but" id="n" v-on:click="check('n')">n</button><button class="but" id="o" v-on:click="check('o')">o</button>
+        <button class="but" id="p" v-on:click="check('p')">p</button><button class="but" id="q" v-on:click="check('q')">q</button><button class="but" id="r" v-on:click="check('r')">r</button><button class="but" id="s" v-on:click="check('s')">s</button><button class="but" id="t" v-on:click="check('t')">t</button><br>
         <button class="but" id="u" v-on:click="check('u')">u</button><button class="but" id="v" v-on:click="check('v')">v</button><button class="but" id="w" v-on:click="check('w')">w</button><button class="but" id="x" v-on:click="check('x')">x</button><button class="but" id="y" v-on:click="check('y')">y</button>
         <button class="but" id="z" v-on:click="check('z')">z</button>
       </div>
@@ -101,9 +101,9 @@ export default {
       //document.getElementById("quiz").appendChild
     }
     if(this.len%2 == 0)
-      var pos = 50 - parseInt(this.len/2)*10;
+      var pos = 45 - parseInt(this.len/2)*10;
     else
-      var pos = 47 - parseInt(this.len/2)*10;
+      var pos = 45 - parseInt(this.len/2)*10;
     console.log("pos is "+pos);
     document.getElementById('quiz').setAttribute("style", "left: "+pos+"%;");
     console.log(this.word.word);
@@ -306,9 +306,9 @@ export default {
 
 .alphabet {
   position: absolute;
-  top: 60%;
+  top: 50%;
   left: 10%;
-  line-height: 100px;
+  line-height: 80px;
 }
 
 .but {
