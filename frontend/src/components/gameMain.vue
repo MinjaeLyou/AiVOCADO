@@ -156,7 +156,7 @@ export default {
       }
       this.chk = 0;
       console.log(this.try);
-      if(this.try == 5){
+      if(this.try == 20){
         //실패
         console.log("Fail!");
         document.getElementById('m_img').setAttribute("src", "/assets/gif/doti-failed.gif");
@@ -218,6 +218,7 @@ export default {
                 case '디이' :
                 case 'd' :
                 case 'the':
+                case 'tea':
                   document.getElementById('checkrun').innerText = 'd입니다';
                   ref.check('d');
                   break;
@@ -240,6 +241,8 @@ export default {
                 case '지':
                 case 'g':
                 case '쥐이':
+                case '취소':
+                case '치':
                   document.getElementById('checkrun').innerText = 'g입니다';
                   ref.check('g');
                   break;
