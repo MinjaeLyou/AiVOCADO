@@ -7,7 +7,7 @@
     <img id="doti4" src="../assets/character/doti.png">
     <img id="doti5" src="../assets/character/doti.png">
       <h1 class="cate">{{cate}}</h1>
-      <h1 class="answer">정답</h1>
+      <h1 class="answer" id="checkrun2">정답</h1>
       <div class="center" id="quiz" style="left: 20%;">
       </div>
       <!--div id="checkrun" style="height: 50px; text-align: center;z-index:1 top: 25%"> init?>> </div-->
