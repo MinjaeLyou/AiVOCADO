@@ -93,14 +93,14 @@ export default {
 <style>
     #backimg{
         position: absolute;
-        top: 15%;
+        top: 10%;
         left: 10%;
         width: 10%;
     }
     
     #backimg2{
         position: absolute;
-        top: 15%;
+        top: 10%;
         right: 10%;
     }
 
@@ -117,11 +117,11 @@ export default {
             animation-iteration-count: infinite;
             background:none;
             border-width:0;
-            position: relative;
+            position: absolute;
             width: 50%;
             height: 40%;
             left: 30%;
-            top:65%;
+            top:50%;
             
     }
 
