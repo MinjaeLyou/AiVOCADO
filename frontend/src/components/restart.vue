@@ -47,6 +47,9 @@
     top:25%;
 
   } 
+  .charImg{
+    height:80%;
+  }
   .padding{
     position:absolute;
     height:30%;
@@ -64,6 +67,7 @@
 
   .again{
     border-width:0;
+    height:80%;
     background:none;
   }
 
