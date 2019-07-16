@@ -253,12 +253,12 @@ export default {
                   break;
                 default:
                   document.getElementById('checkrun').innerText = 'default 입니다';
-                  reff.check('a');
+                  refff.init();
                   break;
               }
-              setTimeout(function() {
+              /*setTimeout(function() {
                 refff.init();
-              }, 3000);
+              }, 3000);*/
               
             }
           });
@@ -273,9 +273,9 @@ export default {
   background: white;
   box-sizing: border-box;
   float: left;
-  font-size: 700%;
-  width: 180px;
-  height: 180px;
+  font-size: 650%;
+  width: 150px;
+  height: 150px;
   margin: 10px;
   padding: 20px;
   vertical-align: middle;
@@ -309,9 +309,9 @@ export default {
   padding: 0 5px;
   margin: 10px 10px;
   color: white;
-  font-size: 100px;
-  width: 130px;
-  height: 130px;
+  font-size: 80px;
+  width: 100px;
+  height: 100px;
   text-align: center;
   vertical-align: middle;
 }
