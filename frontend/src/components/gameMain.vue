@@ -272,6 +272,7 @@ export default {
                 case '케이':
                 case '캐이':
                 case 'k':
+                case 'kt':
                   document.getElementById('checkrun').innerText = 'k입니다';
                   ref.check('k');
                   break;
@@ -347,6 +348,56 @@ export default {
                 case 'tee':
                   document.getElementById('checkrun').innerText = 't입니다';
                   ref.check('t');
+                  break;
+                case 'u':
+                case 'you':
+                case '유':
+                  document.getElementById('checkrun').innerText = 'u입니다';
+                  ref.check('u');
+                  break;
+                case 'v':
+                case '브이':
+                case '부위':
+                  document.getElementById('checkrun').innerText = 'w입니다';
+                  ref.check('v');
+                  break;
+                case 'w':
+                case '더블유':
+                case '더블':
+                case '다블유':
+                case '떠블유':
+                case '떠블':
+                  document.getElementById('checkrun').innerText = 'w입니다';
+                  ref.check('w');
+                  break;
+                case 'x':
+                case '엑스':
+                case '액스':
+                case '악스':
+                case '억스':
+                case 'ax':
+                case 'axe':
+                  document.getElementById('checkrun').innerText = 'x입니다';
+                  ref.check('x');
+                  break;
+                case 'y':
+                case '와이':
+                case '와아이':
+                case '오아이':
+                case 'why':
+                  document.getElementById('checkrun').innerText = 'y입니다';
+                  ref.check('y');
+                  break;
+                case 'z':
+                case '제트':
+                case '재트':
+                case '지트':
+                case '젵':
+                case '젯':
+                case '잿':
+                case '제투':
+                  document.getElementById('checkrun').innerText = 'z입니다';
+                  ref.check('z');
                   break;
                 default:
                   document.getElementById('checkrun').innerText = 'default 입니다';
