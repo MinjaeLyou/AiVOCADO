@@ -1,23 +1,40 @@
 <template>
-<div class="mainBackground">
-  <img id="doti1" src="../assets/character/doti.png">
-  <img id="doti2" src="../assets/character/doti.png">
-  <img id="doti3" src="../assets/character/doti.png">
-  <img id="doti4" src="../assets/character/doti.png">
-  <img id="doti5" src="../assets/character/doti.png">
-    <h1 class="cate">{{cate}}</h1>
-    <div class="center" id="quiz" style="left: 20%;">
+<div class="third">
+  <div id="main" class="mainBackground">
+    <img id="doti1" src="../assets/character/doti.png">
+    <img id="doti2" src="../assets/character/doti.png">
+    <img id="doti3" src="../assets/character/doti.png">
+    <img id="doti4" src="../assets/character/doti.png">
+    <img id="doti5" src="../assets/character/doti.png">
+      <h1 class="cate">{{cate}}</h1>
+      <div class="center" id="quiz" style="left: 20%;">
+      </div>
+      <div id="checkrun" style="height: 50px; text-align: center;z-index:1 top: 25%"> init?>> </div>
+      <div class="alphabet">
+        <button class="but" id="a" v-on:click="check('a')" >a</button><button class="but" id="b" v-on:click="check('b')">b</button><button class="but" id="c" v-on:click="check('c')">c</button><button class="but" id="d" v-on:click="check('d')">d</button><button class="but" id="e" v-on:click="check('e')">e</button>
+        <button class="but" id="f" v-on:click="check('f')">f</button><button class="but" id="g" v-on:click="check('g')">g</button><button class="but" id="h" v-on:click="check('h')">h</button><button class="but" id="i" v-on:click="check('i')">i</button><button class="but" id="j" v-on:click="check('j')">j</button>
+        <button class="but" id="k" v-on:click="check('k')">k</button><button class="but" id="l" v-on:click="check('l')">l</button><button class="but" id="m" v-on:click="check('m')">m</button><br><button class="but" id="n" v-on:click="check('n')">n</button><button class="but" id="o" v-on:click="check('o')">o</button>
+        <button class="but" id="p" v-on:click="check('p')">p</button><button class="but" id="q" v-on:click="check('q')">q</button><button class="but" id="r" v-on:click="check('r')">r</button><button class="but" id="s" v-on:click="check('s')">s</button><button class="but" id="t" v-on:click="check('t')">t</button>
+        <button class="but" id="u" v-on:click="check('u')">u</button><button class="but" id="v" v-on:click="check('v')">v</button><button class="but" id="w" v-on:click="check('w')">w</button><button class="but" id="x" v-on:click="check('x')">x</button><button class="but" id="y" v-on:click="check('y')">y</button>
+        <button class="but" id="z" v-on:click="check('z')">z</button>
+      </div>
+  </div>
+  <div class = "message_contianer">
+    <img id = "m_img" src = "../assets/gif/success.gif">
+    <img id = "m_text" src ="../assets/gif/goodjob.gif">
+  </div>
+  <div class="caption">
+      <div class="content">
+        <span>{{word.word}}</span>
+      </div>
+      <div class="content">
+        <span>{{word.meaning}}</span>
+      </div>
+      <div class="content">
+        <span>{{word.type}}</span>
+      </div>
     </div>
-    <div id="checkrun" style="height: 50px; text-align: center;z-index:1 top: 25%"> init?>> </div>
-    <div class="alphabet">
-      <button class="but" id="a" v-on:click="check('a')" >a</button><button class="but" id="b" v-on:click="check('b')">b</button><button class="but" id="c" v-on:click="check('c')">c</button><button class="but" id="d" v-on:click="check('d')">d</button><button class="but" id="e" v-on:click="check('e')">e</button>
-      <button class="but" id="f" v-on:click="check('f')">f</button><button class="but" id="g" v-on:click="check('g')">g</button><button class="but" id="h" v-on:click="check('h')">h</button><button class="but" id="i" v-on:click="check('i')">i</button><button class="but" id="j" v-on:click="check('j')">j</button>
-      <button class="but" id="k" v-on:click="check('k')">k</button><button class="but" id="l" v-on:click="check('l')">l</button><button class="but" id="m" v-on:click="check('m')">m</button><br><button class="but" id="n" v-on:click="check('n')">n</button><button class="but" id="o" v-on:click="check('o')">o</button>
-      <button class="but" id="p" v-on:click="check('p')">p</button><button class="but" id="q" v-on:click="check('q')">q</button><button class="but" id="r" v-on:click="check('r')">r</button><button class="but" id="s" v-on:click="check('s')">s</button><button class="but" id="t" v-on:click="check('t')">t</button>
-      <button class="but" id="u" v-on:click="check('u')">u</button><button class="but" id="v" v-on:click="check('v')">v</button><button class="but" id="w" v-on:click="check('w')">w</button><button class="but" id="x" v-on:click="check('x')">x</button><button class="but" id="y" v-on:click="check('y')">y</button>
-      <button class="but" id="z" v-on:click="check('z')">z</button>
-    </div>
-</div>
+  </div>
 </template>
 
 <script>
@@ -87,6 +104,7 @@ export default {
       var pos = 47 - parseInt(this.len/2)*10;
     console.log("pos is "+pos);
     document.getElementById('quiz').setAttribute("style", "left: "+pos+"%;");
+    console.log(this.word.word);
     //const wordId = '1'
   },
   methods: {
@@ -106,6 +124,8 @@ export default {
             //성공
             console.log("Succeed!");
             this.$http.post(`/api/users/updateScore/${this.$route.params.score}/${this.$route.params.userId}`);
+            document.getElementById('main').style.display = 'none';
+            //location.href=`/#/meaning/${this.$route.params.userId}/${this.$route.params.score}`;
           }
         }
       }
@@ -228,6 +248,8 @@ export default {
   background-image: url('../assets/background/main.jpg'); 
   background-repeat:no-repeat;
   background-size: cover;
+  transition: transform 0.4s;
+  z-index: 3;
 }
 
 #doti1 {
@@ -268,6 +290,92 @@ export default {
   height:auto;
   top: 1%;
   left: 36%;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600");
+@import url("https://fonts.googleapis.com/css?family=Monoton");
+* {
+  box-sizing: border-box;
+}
+
+
+.message_contianer{
+  height:50%;
+  width:50%;
+}
+
+/*body {*/
+/*  background-color: #f6f5f6;
+  font-weight: 400;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}*/
+
+.main {
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/background/category.jpg");
+  background-size: cover;
+  transition: transform 0.4s;
+  z-index: 3;
+  position: absolute;
+}
+
+#m_img{
+  top : 30%;
+  left : 50%;
+  transform : translateX(-50%);
+  position : absolute;
+  float : left;
+
+}
+
+#m_text{
+  top:30%;
+  left:60%;
+  position : absolute;
+  float : left;
+}
+
+
+.third {
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  position: absolute;
+
+  background-image: url('../assets/background/meaning.jpg');
+  background-repeat:no-repeat;
+  background-size: cover;
+}
+
+.caption {
+  height: 40%;
+  width: 80%;
+  padding: 20px 5px 20px 5px;
+  position:absolute;
+  left:50%;
+  top:60%;
+  transform: translatex(-50%);
+  display : flex;
+  justify-content : space-around;
+  align-items : center;
+}
+
+.caption .content {
+  font-size: 50px;
+  text-align:center;
+  width:20%;
+  padding:10px 30px 10px 30px;
+  margin: 20px;
+  background: #385723; 
+  color: white;
+  border-radius: 40px;
+  transform: translateY(-20%);
+}
+
+.third:hover main {
+  display:none;
 }
 
 </style>
