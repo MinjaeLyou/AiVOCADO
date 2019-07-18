@@ -7,10 +7,11 @@
     <img id="doti4" src="../assets/character/doti.png">
     <img id="doti5" src="../assets/character/doti.png">
       <h1 class="cate">{{cate}}</h1>
+      <h1 class="answer" id="checkrun2">정답</h1>
       <div class="center" id="quiz" style="left: 20%;">
       </div>
-      <div id="checkrun" style="height: 50px; text-align: center;z-index:1 top: 25%"> init?>> </div>
-      <div id="checkrun2" style="z-index:1; top: 7%; left: 45%; position: absolute; color: white; font-size:60px; font-weight:bold;"> 정답 </div>
+      <!--div id="checkrun" style="height: 50px; text-align: center;z-index:1 top: 25%"> init?>> </div-->
+      <!--div id="checkrun2" style="z-index:1; top: 7%; left: 45%; position: absolute; color: white; font-size:60px; font-weight:bold;"> 정답 </div-->
       <div class="alphabet">
         <button class="but" id="a" v-on:click="check('a')" >a</button><button class="but" id="b" v-on:click="check('b')">b</button><button class="but" id="c" v-on:click="check('c')">c</button><button class="but" id="d" v-on:click="check('d')">d</button><button class="but" id="e" v-on:click="check('e')">e</button>
         <button class="but" id="f" v-on:click="check('f')">f</button><button class="but" id="g" v-on:click="check('g')">g</button><button class="but" id="h" v-on:click="check('h')">h</button><button class="but" id="i" v-on:click="check('i')">i</button><button class="but" id="j" v-on:click="check('j')">j</button><br>
@@ -111,7 +112,7 @@ export default {
   methods: {
     async check(ans){
       console.log(ans);
-      document.getElementById('checkrun').innerText = 'check is '+ans;
+      //document.getElementById('checkrun').innerText = 'check is '+ans;
       document.getElementById(ans).disabled = true;
       document.getElementById(ans).style.opacity = "0.3";
       for ( let i = 0; i < this.len; i++){
@@ -159,7 +160,7 @@ export default {
       }
       this.chk = 0;
       console.log(this.try);
-      if(this.try == 20){
+      if(this.try == 5){
         //실패
         console.log("Fail!");
         document.getElementById('m_img').setAttribute("src", "/assets/gif/doti-failed.gif");
@@ -189,13 +190,13 @@ export default {
           //함수 호출 및 개발 진행
           var reff = ref;
           var options={};
-					document.getElementById('checkrun').innerText = "OK";
+					//document.getElementById('checkrun').innerText = "OK";
           options.voicemsg="알파벳을 말해주세요"
           gigagenie.voice.getVoiceText(options,function(result_cd,result_msg,extra){
             var refff = reff;
             if(result_cd===200){
               //console.log(extra.voicetext+':'+solution);
-              document.getElementById('checkrun').innerText = extra.voicetext;
+              //document.getElementById('checkrun').innerText = extra.voicetext;
               switch(extra.voicetext){
                 case '에이' :
                 case '애이' :
@@ -454,6 +455,14 @@ export default {
   font-size: 300%;
   top: 6%;
   left: 80%;
+}
+
+.answer {
+  position: absolute;
+  font-size: 300%;
+  top: 6%;
+  left: 47%;
+  color: white;
 }
 
 .center {

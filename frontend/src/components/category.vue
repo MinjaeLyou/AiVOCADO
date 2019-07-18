@@ -56,7 +56,7 @@
 
 </div>
     <div id = "footer"> </div>
-<div id="checkrun" style="height: 50px; text-align: center;z-index:1 top: 25%"> init?>> </div><div id="checkrun" style="height: 50px; text-align: center;z-index:1 top: 25%"> init?>> </div>
+<!--div id="checkrun" style="height: 50px; text-align: center;z-index:1 top: 25%"> init?>> </div><div id="checkrun" style="height: 50px; text-align: center;z-index:1 top: 25%"> init?>> </div-->
 </div>
 </template>
 
@@ -278,7 +278,7 @@ export default {
     }
   },
   mounted: async function () {
-    console.log(this.$route.params.user);
+    //console.log(this.$route.params.user);
     this.init();
   },
   methods: {  
@@ -286,7 +286,7 @@ export default {
       this.$router.push({name: "gameMain", params: {cate: cate, user: this.$route.params.user}});
     },
     async init() {
-      document.getElementById('checkrun').innerText = "initttttttt";
+      //document.getElementById('checkrun').innerText = "initttttttt";
       //var options = {};
       var ref = this;
 			var options = {};
@@ -297,12 +297,12 @@ export default {
 					//init 성공
           //함수 호출 및 개발 진행
           var options={};
-					document.getElementById('checkrun').innerText = "OK";
+					//document.getElementById('checkrun').innerText = "OK";
           options.voicemsg="카테고리를 선택해주세요"
           gigagenie.voice.getVoiceText(options,function(result_cd,result_msg,extra){
             if(result_cd===200){
               //console.log(extra.voicetext+':'+solution);
-              document.getElementById('checkrun').innerText = extra.voicetext;
+              //document.getElementById('checkrun').innerText = extra.voicetext;
               switch(extra.voicetext){
                 case "동물":
                   location.href='/#/main/wordAnimal/voti/80';
